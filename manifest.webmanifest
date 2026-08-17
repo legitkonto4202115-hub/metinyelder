@@ -1,0 +1,16 @@
+{
+  "name": "ElderMT2 — Metin Tracker v4.0.2",
+  "short_name": "Metin Tracker",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f0e0c",
+  "theme_color": "#17130f",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
