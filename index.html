@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — Metin Tracker v4.0.2</title>
+<title>ElderMT2 — Tracker v5.1</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -70,21 +70,76 @@ button{cursor:pointer}
 .data-box textarea{width:100%;height:150px;background:#0d0c0a;color:#ddd;border:1px solid #3a3228;border-radius:8px;padding:8px}
 @media(max-width:1080px){.grid{grid-template-columns:1fr}.map-wrap{min-height:520px;max-height:none}.spots{max-height:none}.topbar{position:static;flex-wrap:wrap}.map-tabs{order:3;flex-basis:100%;justify-content:flex-start}}
 @media(max-width:650px){.app{padding:7px}.map-wrap{min-height:0}.stats{grid-template-columns:repeat(2,1fr)}.spot{grid-template-columns:40px 1fr}.open-btn{grid-column:1/-1}.ch-grid{grid-template-columns:1fr}}
+
+.view-tabs{display:flex;gap:4px;border:1px solid var(--line);border-radius:9px;padding:3px;background:#100f0d}
+.view-tab{border:0;background:transparent;color:#a99c89;border-radius:6px;padding:7px 10px;font-weight:800;white-space:nowrap}.view-tab.active{background:#493019;color:#ffe0a1}
+.view{display:none}.view.active{display:block}body.characters-mode .map-tabs,body.characters-mode #respControls{display:none}
+.characters-wrap{margin-top:13px}.char-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 13px;border-bottom:1px solid var(--line);flex-wrap:wrap}.char-toolbar-left h2{margin:0;font-size:18px}.char-toolbar-left p{margin:3px 0 0;color:var(--muted);font-size:11px}
+.char-tools{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.char-tools input,.field input,.field select{background:#0e0d0b;color:var(--text);border:1px solid #4b4032;border-radius:8px;padding:8px}
+.char-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:11px}.char-kpi{border:1px solid #332b22;background:#100f0d;border-radius:10px;padding:10px}.char-kpi small{display:block;color:var(--muted);font-size:10px}.char-kpi b{display:block;font-size:18px;margin-top:2px}.char-kpi b.good{color:var(--green)}.char-kpi b.warn{color:var(--yellow)}
+.char-list{padding:0 10px 11px}.char-row{display:grid;grid-template-columns:minmax(210px,1.3fr) minmax(190px,.9fr) minmax(300px,1.5fr) auto;gap:10px;align-items:center;border:1px solid #342d24;background:#12110f;border-radius:11px;padding:10px;margin:8px 0}.char-row:hover{border-color:#514431}.char-ident{display:flex;gap:9px;align-items:center;min-width:0}.char-avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#493019,#19130d);border:1px solid #76542b;color:#ffd98a;font-weight:900}.char-name{font-weight:900;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.char-class{color:var(--muted);font-size:10px;margin-top:2px}
+.bio-box{border:1px solid #302920;border-radius:9px;padding:8px;background:#0e0d0b}.bio-title{display:flex;justify-content:space-between;gap:6px;font-size:10px;color:#b6aa99}.bio-status{font-weight:900}.bio-status.ready{color:var(--green)}.bio-status.cool{color:var(--yellow)}.bio-status.done{color:#9ccbf0}.bio-progress{font-size:11px;margin-top:4px}
+.weekly-boxes{display:flex;gap:5px;flex-wrap:wrap}.weekly-pill{min-width:86px;border:1px solid #41372c;background:#1b1814;border-radius:8px;padding:6px 7px;text-align:center;font-size:9px;color:#bcb09f}.weekly-pill b{display:block;font-size:10px;color:#ddd2c2;margin-bottom:2px}.weekly-pill.done{border-color:#2f6542;background:#15261a;color:#77dd91}.weekly-pill.progress{border-color:#725c1d;background:#2b2512;color:#e9ce67}.char-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.char-empty{margin:10px;border:1px dashed #4b4032;border-radius:11px;padding:28px;text-align:center;color:#9e9282}.char-empty b{display:block;color:#d4c4ae;margin-bottom:5px}
+.char-modal .drawer{width:min(850px,100%)}.char-section{border:1px solid #3a3128;border-radius:11px;background:#11100e;padding:11px;margin-top:10px}.char-section h4{margin:0 0 9px;font-size:13px}.form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.field{display:flex;flex-direction:column;gap:4px}.field label{font-size:10px;color:var(--muted)}.field input,.field select{width:100%}.wide{grid-column:1/-1}.bio-controls{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.bio-live{margin-top:8px;border:1px solid #463c2d;background:#17130f;border-radius:9px;padding:8px}.bio-live strong{color:#e8c77d}.weekly-editor{display:flex;flex-direction:column;gap:6px}.weekly-edit-row{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;border:1px solid #302920;background:#0f0e0c;border-radius:8px;padding:7px}.weekly-edit-row input{background:#0c0b09;color:#eee;border:1px solid #40372d;border-radius:6px;padding:6px}.weekly-state{border:1px solid #4b4032;background:#211c16;color:#ddd;border-radius:7px;padding:6px 8px;font-size:10px}.weekly-state.done{border-color:#326443;color:#aef0bc;background:#193f24}.weekly-state.progress{border-color:#6f5b21;color:#f0d372;background:#342c15}.reset-line{display:flex;gap:7px;align-items:end;flex-wrap:wrap}.reset-countdown{padding:8px 10px;border:1px solid #4d402c;border-radius:8px;background:#1a160f;color:#e4c477;font-weight:800}.mini-note{font-size:10px;color:#8f8475;margin-top:5px}
+@media(max-width:1050px){.char-row{grid-template-columns:1fr 1fr}.weekly-boxes,.char-actions{grid-column:1/-1}.char-actions{justify-content:flex-start}.char-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.view-tabs{order:2}.char-row{grid-template-columns:1fr}.bio-box,.weekly-boxes,.char-actions{grid-column:auto}.char-kpis{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.weekly-edit-row{grid-template-columns:1fr auto}}
+
+
+/* v5.1 — Biolog + tygodniowe 7 dni od zakończenia/odrzucenia */
+.bio-tabs{display:flex;gap:5px;overflow-x:auto;padding:3px 0 9px;scrollbar-width:thin}
+.bio-tab{flex:0 0 auto;border:1px solid #42372a;background:#17130f;color:#a99d8c;border-radius:8px;padding:7px 9px;font-size:10px;font-weight:800}
+.bio-tab.active{background:#493019;border-color:#8a6030;color:#ffe0a1}
+.bio-tab.complete{background:#17301f;border-color:#346443;color:#aee8ba}
+.bio-tab.locked{opacity:.48}
+.bio-tab small{display:block;font-size:8px;font-weight:600;margin-top:2px;color:#887b6b}
+.bio-mission-card{border:1px solid #463a2c;background:#15120f;border-radius:10px;padding:10px}
+.bio-mission-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.bio-mission-head h5{margin:0;font-size:14px}
+.bio-level{border:1px solid #70502a;border-radius:99px;padding:3px 7px;color:#e6c77e;font-size:9px;font-weight:900}
+.bio-info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}
+.bio-info-cell{border:1px solid #302920;background:#0f0e0c;border-radius:8px;padding:7px}
+.bio-info-cell small{display:block;color:#887d6e;font-size:8px}
+.bio-info-cell b{display:block;margin-top:2px;font-size:10px;color:#ddd1c0}
+.bio-progress-row{display:grid;grid-template-columns:1fr 150px;gap:8px;align-items:end;margin-top:9px}
+.bio-progress-row input{width:100%;background:#0d0c0a;color:#eee;border:1px solid #4a3e31;border-radius:8px;padding:8px}
+.bio-alert{margin-top:8px;border:1px solid #514024;background:#251e10;border-radius:8px;padding:8px;color:#e9ca75;font-size:10px}
+.bio-alert.ready{border-color:#315c40;background:#13231a;color:#85df99}
+.bio-alert.cool{border-color:#6f3b32;background:#281817;color:#f19a8a}
+.bio-completed-label{font-size:9px;color:#72cf88;margin-left:5px}
+.weekly-grid-editor{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.weekly-card-v2{border:1px solid #3a3128;background:#0f0e0c;border-radius:10px;padding:9px}
+.weekly-card-v2.cool{border-color:#6a3733;background:#211514}
+.weekly-card-v2.progress{border-color:#6b571e;background:#211d11}
+.weekly-card-v2 h5{margin:0;font-size:12px}
+.weekly-sub{font-size:9px;color:#8d8273;margin-top:2px}
+.weekly-live{font:800 12px ui-monospace,SFMono-Regular,Consolas,monospace;margin:8px 0;color:#d4c6b3}
+.weekly-card-v2.cool .weekly-live{color:#f08f83}
+.weekly-card-v2.progress .weekly-live{color:#e9ce67}
+.weekly-actions-v2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.weekly-actions-v2 button{border:1px solid #40372e;background:#211d18;color:#ddd;border-radius:7px;padding:6px;font-size:9px}
+.weekly-actions-v2 .finish{background:#183b24;border-color:#326443;color:#b4edc1}
+.weekly-actions-v2 .reject{background:#482020;border-color:#713737;color:#ffc1c1}
+.weekly-pill.cool{border-color:#713b36;background:#241716;color:#ef958a}
+.weekly-pill.available{border-color:#326443;background:#15261a;color:#8add9c}
+.weekly-pill.progress{border-color:#725c1d;background:#2b2512;color:#e9ce67}
+.bio-source-note{margin-top:7px;color:#837767;font-size:9px}
+@media(max-width:900px){.bio-info-grid{grid-template-columns:repeat(2,1fr)}.weekly-grid-editor{grid-template-columns:1fr}.bio-progress-row{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <div class="app">
  <div class="topbar">
-  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — Metin Tracker</strong><small>v4.0.2 • tylko punkty • CH na konkretnym respie</small></div></div>
-  <div class="map-tabs" id="mapTabs"></div>
-  <div class="controls">
+  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — Metin Tracker</strong><small>v5.1 • respy + postacie + biolog + tygodniowe</small></div></div>
+  <div class="view-tabs"><button class="view-tab active" id="viewResps">Respy</button><button class="view-tab" id="viewChars">Postacie</button></div><div class="map-tabs" id="mapTabs"></div>
+  <div class="controls" id="respControls">
    <button class="btn" id="soundBtn">🔔 Dźwięk</button>
    <button class="btn" id="editBtn">✥ Edycja punktów</button>
    <button class="btn" id="dataBtn">⇅ Dane</button>
    <button class="btn danger" id="resetMap">Reset mapy</button>
   </div>
  </div>
- <div class="grid">
+ <div class="view active" id="respsView"><div class="grid">
   <section class="panel">
    <div class="head"><div><h2 id="mapTitle"></h2><div class="sub" id="mapMeta"></div></div><button class="btn primary" id="addBtn" style="display:none">+ Dodaj własny punkt</button></div>
    <div class="map-wrap" id="mapWrap">
@@ -103,6 +158,21 @@ button{cursor:pointer}
    <div class="spots" id="spots"></div>
    <div class="research" id="research"></div>
   </aside>
+ </div></div>
+ <div class="view" id="charactersView">
+  <div class="characters-wrap"><section class="panel">
+   <div class="char-toolbar">
+    <div class="char-toolbar-left"><h2>Moje postacie</h2><p>Biolog ElderMT2 + trzy niezależne misje obozowe. Wszystkie timery zapisują się lokalnie.</p></div>
+    <div class="char-tools"><input id="charSearch" placeholder="Szukaj postaci"><button class="btn primary" id="addCharBtn">+ Dodaj postać</button></div>
+   </div>
+   <div class="char-kpis">
+    <div class="char-kpi"><small>Postacie</small><b id="charCount">0</b></div>
+    <div class="char-kpi"><small>Biolog gotowy</small><b class="good" id="bioReadyCount">0</b></div>
+    <div class="char-kpi"><small>Aktywne biolog timery</small><b class="warn" id="bioTimerCount">0</b></div>
+    <div class="char-kpi"><small>Najbliższy obóz gotowy za</small><b id="weeklyResetKpi">—</b></div>
+   </div>
+   <div class="char-list" id="charList"></div>
+  </section></div>
  </div>
 </div>
 
@@ -118,8 +188,51 @@ button{cursor:pointer}
  </div>
 </div>
 
+<div class="drawer-bg char-modal" id="charBg">
+ <div class="drawer">
+  <div class="drawer-head">
+   <div><h3 id="charModalTitle">Postać</h3><p id="charModalSub">Zarządzaj biologiem i misjami obozowymi.</p></div>
+   <button class="close" id="charClose">×</button>
+  </div>
+
+  <div class="char-section">
+   <h4>Dane postaci</h4>
+   <div class="form-grid">
+    <div class="field"><label>Nazwa</label><input id="charName" placeholder="np. Zabko"></div>
+    <div class="field"><label>Klasa</label><select id="charClass"><option>Wojownik</option><option>Sura</option><option>Szaman</option><option>Ninja</option><option>Lykan</option><option>Inna</option></select></div>
+    <div class="field"><label>Poziom</label><input id="charLevel" type="number" min="1" max="250" value="1"></div>
+   </div>
+  </div>
+
+  <div class="char-section">
+   <h4>Biolog — 14 misji ElderMT2</h4>
+   <div class="bio-tabs" id="bioTabs"></div>
+   <div class="bio-mission-card" id="bioMissionCard"></div>
+   <div class="bio-controls">
+    <button class="btn primary" id="bioAccepted">✓ Przyjęty +1</button>
+    <button class="btn danger" id="bioRejected">✕ Odrzucony — start timera</button>
+    <button class="btn" id="bioReady">Gotowy teraz</button>
+    <button class="btn" id="bioSetCurrent">Ustaw wybraną jako aktualną</button>
+    <button class="btn danger" id="bioReset">Reset biologa</button>
+   </div>
+   <div class="bio-source-note">Po ostatnim przyjętym przedmiocie aplikacja automatycznie przechodzi do następnej misji i zachowuje rozpoczęty cooldown poprzedniej misji.</div>
+  </div>
+
+  <div class="char-section">
+   <h4>Misje tygodniowe — 7 dni od zakończenia lub odrzucenia</h4>
+   <div class="weekly-grid-editor" id="weeklyEditor"></div>
+   <div class="bio-controls"><button class="btn" id="resetWeeklyChar">Wyczyść timery obozów tej postaci</button></div>
+   <div class="mini-note">Każdy obóz ma własny niezależny licznik 7 dni. Nie ma globalnego resetu tygodnia.</div>
+  </div>
+
+  <div class="drawer-tools">
+   <button class="btn primary" id="saveChar">Zapisz postać</button>
+   <button class="btn danger" id="deleteChar">Usuń postać</button>
+  </div>
+ </div>
+</div>
 <div class="data-bg" id="dataBg"><div class="data-box">
- <h3>Eksport / import danych</h3><p class="sub">Kod przenosi timery, własne punkty i poprawione pozycje na drugi komputer.</p>
+ <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, timery, postacie, biologa i misje tygodniowe na drugi komputer.</p>
  <textarea id="dataText"></textarea><div style="display:flex;gap:7px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" id="exportBtn">Generuj eksport</button><button class="btn" id="importBtn">Importuj</button><button class="btn" id="dataClose">Zamknij</button></div>
 </div></div>
 
@@ -193,16 +306,20 @@ const MAPS={
   {id:"H4",type:"60 — Metin Upadku",unplaced:true,confidence:"low"},{id:"H5",type:"60 — Metin Upadku",unplaced:true,confidence:"low"},{id:"H6",type:"60 — Metin Upadku",unplaced:true,confidence:"low"},{id:"H7",type:"60 — Metin Upadku",unplaced:true,confidence:"low"}
  ]}
 };
-const KEY="elderMetinTracker_v4_0";
-let state,selected=null,edit=false,sessionStart=Date.now(),sessionKills=0,beeped={};
+const KEY="elderMetinTracker_v5_0";
+const OLD_KEY="elderMetinTracker_v4_0";
+let state,selected=null,edit=false,sessionStart=Date.now(),sessionKills=0,beeped={},editingCharId=null;
 function fresh(){
  const pos={},types={},custom={};
  for(const [mk,m] of Object.entries(MAPS)){pos[mk]={};types[mk]={};custom[mk]=[];m.spots.forEach(s=>{if(!s.unplaced)pos[mk][s.id]={x:s.x,y:s.y};types[mk][s.id]=s.type})}
- return{map:"valley",sound:true,pos,types,custom,timers:{}};
+ return{map:"valley",view:"resps",sound:true,pos,types,custom,timers:{},characters:[],weeklyConfig:{day:1,hour:0,minute:0},weeklyCycleStart:0};
 }
-function load(){try{state={...fresh(),...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){state=fresh()}
- state.pos||=fresh().pos;state.types||=fresh().types;state.custom||=fresh().custom;state.timers||={};
+function load(){
+ const f=fresh();
+ try{const raw=localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||"{}";state={...f,...JSON.parse(raw)}}catch(e){state=f}
+ state.pos||=f.pos;state.types||=f.types;state.custom||=f.custom;state.timers||={};state.characters||=[];state.weeklyConfig={...f.weeklyConfig,...(state.weeklyConfig||{})};
  for(const k of Object.keys(MAPS)){state.pos[k]||={};state.types[k]||={};state.custom[k]||=[]}
+ normalizeCharacters();refreshWeeklyCooldowns();
 }
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function timerKey(map,id,ch){return`${map}|${id}|${ch}`}
@@ -283,7 +400,250 @@ function renderStats(){
 }
 function beep(){if(!state.sound)return;try{let A=window.AudioContext||window.webkitAudioContext,c=new A(),o=c.createOscillator(),g=c.createGain();o.frequency.value=740;g.gain.value=.035;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.15)}catch(e){}}
 function checkBeeps(){if(!state.sound)return;allSpots(state.map).forEach(s=>{for(let ch=1;ch<=5;ch++){let t=getTimer(s.id,ch),k=timerKey(state.map,s.id,ch);if(t.killedAt&&Date.now()-t.killedAt>=MAPS[state.map].min*60000&&!beeped[k]){beeped[k]=true;beep()}}})}
-function renderAll(){renderTabs();renderMap();renderList();renderStats();document.getElementById("soundBtn").textContent=state.sound?"🔔 Dźwięk":"🔕 Dźwięk";document.getElementById("editBtn").classList.toggle("primary",edit);document.getElementById("editNote").classList.toggle("show",edit);document.getElementById("addBtn").style.display=edit?"inline-block":"none"}
+
+
+function uid(){return Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4)}
+
+const BIOLOG_MISSIONS=[
+ {lvl:4,name:"Kwiaty Brzoskwini",item:"Kwiat Brzoskwini",target:5,cooldown:0,source:"Młode dzikie zwierzęta / M1",reward:"2 000 EXP + Długi Miecz",special:"—"},
+ {lvl:7,name:"Pokrzywy",item:"Pokrzywa",target:5,cooldown:0,source:"M1",reward:"8 000 EXP + zbroja +4",special:"—"},
+ {lvl:10,name:"Kwiaty Kaki",item:"Kwiat Kaki",target:5,cooldown:0,source:"M1",reward:"23 000 EXP + naszyjnik +4",special:"—"},
+ {lvl:15,name:"Korzenie Gango",item:"Korzeń Gango",target:5,cooldown:0,source:"M1",reward:"70 000 EXP + kolczyki +4",special:"—"},
+ {lvl:20,name:"Kwiaty Bzu",item:"Bez",target:10,cooldown:0,source:"M1",reward:"265 000 EXP + bransoleta +4",special:"—"},
+ {lvl:25,name:"Grzyby Tue",item:"Grzyb Tue",target:10,cooldown:0,source:"M1",reward:"325 000 EXP + hełm +4",special:"—"},
+ {lvl:30,name:"Zęby Orków",item:"Ząb Orka",target:10,cooldown:12,source:"Orki — Dolina Seungryong",reward:"+10 prędkość ruchu",special:"Kamień Duchowy Jinunggyi"},
+ {lvl:40,name:"Księgi Klątw",item:"Księga Klątw",target:15,cooldown:13,source:"Ezoteryczni — Świątynia Hwang",reward:"+5 szybkość ataku",special:"Świątynny Kamień Duchowy"},
+ {lvl:50,name:"Pamiątka Po Demonie",item:"Pamiątka Po Demonie",target:15,cooldown:14,source:"Demony — Wieża Demonów",reward:"+60 obrona",special:"Kamień Duchowy Sagyi"},
+ {lvl:60,name:"Matowy Lód",item:"Matowy Lód",target:20,cooldown:16,source:"Lodowe potwory — Góra Sohan",reward:"+50 atak",special:"Kamień Duchowy Aurtumryu"},
+ {lvl:70,name:"Konary Zelkova",item:"Konar Zelkova",target:25,cooldown:18,source:"Duchy drzew — Czerwony Las",reward:"+11 ruch, +10% redukcja obrażeń",special:"Kamień Duchowy Gyimok"},
+ {lvl:80,name:"Certyfikaty Tugyi",item:"Certyfikat Tugyisa",target:30,cooldown:20,source:"Giganci — Kraina Gigantów",reward:"+6 szybkość ataku, +10% atak PvP",special:"—"},
+ {lvl:85,name:"Konary Czerwonego Ducha",item:"Cz. Konar Drzewa Duchów",target:40,cooldown:20,source:"Czerwony Las",reward:"+10% obrona PvP",special:"—"},
+ {lvl:90,name:"Notatki Przywódców",item:"Notatka Przywódcy",target:50,cooldown:22,source:"Bossowie",reward:"+8% obrażenia PvP",special:"—"}
+];
+
+const WEEKLY_CAMPS=[
+ {key:"sohan",name:"Sohan",npc:"Seon-Hae",camp:"Obóz Handlowy"},
+ {key:"desert",name:"Pustynia",npc:"Kim-Rim",camp:"Obóz Badawczy"},
+ {key:"snake",name:"Wężowe Pole",npc:"Yak-Hwan",camp:"Obóz Wojskowy"}
+];
+const WEEKLY_MS=7*24*60*60*1000;
+let bioViewIndex=0;
+
+function defaultWeeklies(){
+ return WEEKLY_CAMPS.map(w=>({id:w.key,name:w.name,npc:w.npc,camp:w.camp,status:"available",readyAt:null,outcome:null}));
+}
+function migrateBiolog(old={},level=1){
+ if(Number.isInteger(old.missionIndex)){
+  return {missionIndex:Math.max(0,Math.min(BIOLOG_MISSIONS.length-1,old.missionIndex)),current:Number(old.current)||0,nextAt:old.nextAt||null,timerSourceIndex:Number.isInteger(old.timerSourceIndex)?old.timerSourceIndex:null,completed:Array.isArray(old.completed)?old.completed:[],finished:!!old.finished};
+ }
+ let idx=0;
+ if(old.mission){
+  const q=String(old.mission).toLowerCase();
+  const found=BIOLOG_MISSIONS.findIndex(m=>m.name.toLowerCase().includes(q)||m.item.toLowerCase().includes(q)||q.includes(m.name.toLowerCase())||q.includes(m.item.toLowerCase()));
+  if(found>=0)idx=found;
+ }else{
+  idx=0;
+ }
+ const completed=[];for(let i=0;i<idx;i++)completed.push(i);
+ return {missionIndex:idx,current:Number(old.current)||0,nextAt:old.nextAt||null,timerSourceIndex:null,completed,finished:false};
+}
+function normalizeWeekly(w){
+ const def=WEEKLY_CAMPS.find(x=>x.key===w?.id||x.name===w?.name);
+ const status=w?.readyAt&&w.readyAt>Date.now()?"cool":(w?.status==="progress"?"progress":"available");
+ return {id:w?.id||def?.key||uid(),name:w?.name||def?.name||"Misja",npc:w?.npc||def?.npc||"",camp:w?.camp||def?.camp||"",status,readyAt:w?.readyAt||null,outcome:w?.outcome||null};
+}
+function normalizeCharacters(){
+ state.characters=state.characters.map(c=>{
+  const level=Number(c.level)||1;
+  let weeklies;
+  if(Array.isArray(c.weeklies)&&c.weeklies.length){
+   weeklies=WEEKLY_CAMPS.map(def=>{
+    const old=c.weeklies.find(w=>w.id===def.key||String(w.name||"").toLowerCase().includes(def.name.toLowerCase().split(" ")[0].toLowerCase()));
+    return normalizeWeekly(old||{id:def.key,name:def.name,npc:def.npc,camp:def.camp});
+   });
+  }else weeklies=defaultWeeklies();
+  return {id:c.id||uid(),name:c.name||"Postać",className:c.className||"Inna",level,biolog:migrateBiolog(c.biolog||{},level),weeklies};
+ });
+}
+function refreshWeeklyCooldowns(){
+ let changed=false;
+ state.characters.forEach(c=>c.weeklies.forEach(w=>{
+  if(w.readyAt&&w.readyAt<=Date.now()){w.readyAt=null;w.status="available";w.outcome=null;changed=true}
+ }));
+ if(changed)save();
+}
+function formatLong(ms){
+ if(ms<=0)return"TERAZ";
+ let s=Math.floor(ms/1000),d=Math.floor(s/86400);s%=86400;let h=Math.floor(s/3600);s%=3600;let m=Math.floor(s/60),sec=s%60;
+ return(d?d+"d ":"")+String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(sec).padStart(2,"0");
+}
+function currentBioMission(c){return BIOLOG_MISSIONS[Math.max(0,Math.min(BIOLOG_MISSIONS.length-1,c.biolog.missionIndex||0))]}
+function biologFinished(c){return !!c.biolog.finished || (c.biolog.missionIndex===BIOLOG_MISSIONS.length-1 && c.biolog.current>=BIOLOG_MISSIONS.at(-1).target)}
+function bioInfo(c){
+ const b=c.biolog,m=currentBioMission(c);
+ if(biologFinished(c))return{state:"done",label:"Ukończony",text:"Wszystkie 14 misji"};
+ if(b.nextAt&&b.nextAt>Date.now())return{state:"cool",label:"Timer",text:formatLong(b.nextAt-Date.now())};
+ return{state:"ready",label:"Gotowy",text:`${Number(b.current)||0}/${m.target} • ${m.name}`};
+}
+function weeklyInfo(w){
+ if(w.readyAt&&w.readyAt>Date.now())return{state:"cool",label:w.outcome==="rejected"?"ODRZUCONA":"ZROBIONA",text:formatLong(w.readyAt-Date.now())};
+ if(w.status==="progress")return{state:"progress",label:"W TRAKCIE",text:"misja aktywna"};
+ return{state:"available",label:"GOTOWA",text:"możesz odebrać"};
+}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+
+function renderCharacters(){
+ refreshWeeklyCooldowns();
+ const list=document.getElementById("charList");if(!list)return;
+ const q=(document.getElementById("charSearch")?.value||"").toLowerCase().trim();
+ list.innerHTML="";
+ const chars=state.characters.filter(c=>!q||c.name.toLowerCase().includes(q)||c.className.toLowerCase().includes(q));
+ if(!chars.length)list.innerHTML='<div class="char-empty"><b>Brak postaci</b>Dodaj pierwszą postać i ustaw jej aktualnego biologa.</div>';
+ chars.forEach(c=>{
+  const bio=bioInfo(c),row=document.createElement("div");row.className="char-row";
+  const weeks=c.weeklies.map(w=>{const wi=weeklyInfo(w);return `<button class="weekly-pill ${wi.state}" data-wid="${w.id}"><b>${esc(w.name)}</b>${wi.label}${wi.state==='cool'?'<br>'+wi.text:''}</button>`}).join("");
+  const bm=currentBioMission(c);
+  row.innerHTML=`<div class="char-ident"><div class="char-avatar">${esc(c.className.slice(0,1).toUpperCase())}</div><div><div class="char-name">${esc(c.name)}</div><div class="char-class">${esc(c.className)} • Lv. ${c.level}</div></div></div>
+  <div class="bio-box"><div class="bio-title"><span>BIOLOG Lv.${bm.lvl}</span><span class="bio-status ${bio.state}">${bio.label}</span></div><div class="bio-progress">${esc(bm.name)} • ${bio.text}</div></div>
+  <div class="weekly-boxes">${weeks}</div><div class="char-actions"><button class="btn manage">Zarządzaj</button></div>`;
+  row.querySelector('.manage').onclick=()=>openCharacter(c.id);
+  row.querySelectorAll('.weekly-pill').forEach(btn=>btn.onclick=()=>openCharacter(c.id));
+  list.appendChild(row);
+ });
+ const infos=state.characters.map(bioInfo);
+ document.getElementById("charCount").textContent=state.characters.length;
+ document.getElementById("bioReadyCount").textContent=infos.filter(x=>x.state==='ready').length;
+ document.getElementById("bioTimerCount").textContent=infos.filter(x=>x.state==='cool').length;
+ const waits=[];state.characters.forEach(c=>c.weeklies.forEach(w=>{if(w.readyAt&&w.readyAt>Date.now())waits.push(w.readyAt-Date.now())}));
+ document.getElementById("weeklyResetKpi").textContent=waits.length?formatLong(Math.min(...waits)):"—";
+}
+function newCharacter(){
+ const level=1;
+ return{id:uid(),name:"Nowa postać",className:"Wojownik",level,biolog:migrateBiolog({},level),weeklies:defaultWeeklies()};
+}
+function getEditingChar(){return state.characters.find(c=>c.id===editingCharId)}
+function openCharacter(id=null){
+ let c=id?state.characters.find(x=>x.id===id):null;
+ if(!c){c=newCharacter();state.characters.push(c);save()}
+ editingCharId=c.id;bioViewIndex=c.biolog.missionIndex||0;fillCharacterModal();document.getElementById("charBg").classList.add("show");
+}
+function syncBasicCharForm(){
+ const c=getEditingChar();if(!c)return;
+ c.name=document.getElementById("charName").value.trim()||"Postać";
+ c.className=document.getElementById("charClass").value;
+ c.level=Math.max(1,Number(document.getElementById("charLevel").value)||1);
+}
+function renderBioTabs(c){
+ const el=document.getElementById("bioTabs");el.innerHTML="";
+ BIOLOG_MISSIONS.forEach((m,i)=>{
+  const b=document.createElement("button");
+  const complete=c.biolog.completed.includes(i)||(c.biolog.finished&&i<=c.biolog.missionIndex);
+  b.className=`bio-tab${i===bioViewIndex?" active":""}${complete?" complete":""}${c.level<m.lvl?" locked":""}`;
+  b.innerHTML=`Lv.${m.lvl}${complete?'<span class="bio-completed-label">✓</span>':''}<small>${esc(m.item)}</small>`;
+  b.onclick=()=>{bioViewIndex=i;renderBioTabs(c);renderBioMissionCard(c)};
+  el.appendChild(b);
+ });
+}
+function renderBioMissionCard(c){
+ const m=BIOLOG_MISSIONS[bioViewIndex],isCurrent=bioViewIndex===c.biolog.missionIndex&&!c.biolog.finished;
+ const current=isCurrent?Math.min(Number(c.biolog.current)||0,m.target):(c.biolog.completed.includes(bioViewIndex)?m.target:0);
+ const timerActive=isCurrent&&c.biolog.nextAt&&c.biolog.nextAt>Date.now();
+ let timerText=timerActive?formatLong(c.biolog.nextAt-Date.now()):(m.cooldown?`${m.cooldown}h między oddaniami`:"brak cooldownu");
+ let timerClass=timerActive?"cool":"ready";
+ const sourceIdx=Number.isInteger(c.biolog.timerSourceIndex)?c.biolog.timerSourceIndex:null;
+ const carry=timerActive&&sourceIdx!==null&&sourceIdx!==c.biolog.missionIndex?`Timer pochodzi z ostatniego oddania misji Lv.${BIOLOG_MISSIONS[sourceIdx].lvl} i blokuje pierwsze oddanie nowej misji.`:"";
+ document.getElementById("bioMissionCard").innerHTML=`
+  <div class="bio-mission-head"><div><h5>${esc(m.name)} ${isCurrent?'<span class="bio-completed-label">AKTUALNA</span>':''}</h5><div class="sub">${esc(m.item)} ×${m.target}</div></div><span class="bio-level">Lv. ${m.lvl}</span></div>
+  <div class="bio-info-grid">
+   <div class="bio-info-cell"><small>Wymagane</small><b>${m.target} × ${esc(m.item)}</b></div>
+   <div class="bio-info-cell"><small>Cooldown</small><b>${m.cooldown?m.cooldown+"h":"Brak"}</b></div>
+   <div class="bio-info-cell"><small>Źródło</small><b>${esc(m.source)}</b></div>
+   <div class="bio-info-cell"><small>Nagroda / bonus</small><b>${esc(m.reward)}</b></div>
+  </div>
+  <div class="bio-progress-row">
+   <div class="field"><label>Przyjęte przedmioty${isCurrent?"":" — podgląd"}</label><input id="bioProgressInput" type="number" min="0" max="${m.target}" value="${current}" ${isCurrent?"":"disabled"}></div>
+   <div class="field"><label>Status timera</label><div class="bio-alert ${timerClass}" style="margin:0">${timerActive?timerText:(isCurrent?"Gotowy do oddania":c.biolog.completed.includes(bioViewIndex)?"Ukończona":"Nieaktywna")}</div></div>
+  </div>
+  ${carry?`<div class="bio-alert cool">${carry}</div>`:""}
+  ${m.special!=="—"?`<div class="bio-alert">Wiki podaje też specjalny przedmiot: <b>${esc(m.special)}</b>. Tracker automatyczne przejście opiera na liczbie wymaganych przedmiotów, zgodnie z Twoim ustawieniem.</div>`:""}
+ `;
+ if(isCurrent){
+  const inp=document.getElementById("bioProgressInput");
+  inp.onchange=()=>{c.biolog.current=Math.max(0,Math.min(m.target,Number(inp.value)||0));save();renderCharacters();renderBioMissionCard(c)};
+ }
+ document.getElementById("bioAccepted").disabled=!isCurrent||!!timerActive||c.biolog.finished;
+ document.getElementById("bioRejected").disabled=!isCurrent||!!timerActive||c.biolog.finished;
+ document.getElementById("bioReady").disabled=!isCurrent||!timerActive||c.biolog.finished;
+ document.getElementById("bioSetCurrent").style.display=isCurrent?"none":"inline-block";
+}
+function fillCharacterModal(){
+ const c=getEditingChar();if(!c)return;
+ document.getElementById("charModalTitle").textContent=c.name;
+ document.getElementById("charModalSub").textContent=`${c.className} • Lv. ${c.level}`;
+ document.getElementById("charName").value=c.name;document.getElementById("charClass").value=c.className;document.getElementById("charLevel").value=c.level;
+ renderBioTabs(c);renderBioMissionCard(c);renderWeeklyEditor(c);
+}
+function completeBioItem(c,accepted){
+ const b=c.biolog,m=currentBioMission(c),now=Date.now();
+ if(b.finished)return;
+ if(b.nextAt&&b.nextAt>now)return;
+ if(accepted){
+  b.current=Math.min(m.target,(Number(b.current)||0)+1);
+  const startedAt=m.cooldown?now+m.cooldown*3600000:null;
+  if(b.current>=m.target){
+   if(!b.completed.includes(b.missionIndex))b.completed.push(b.missionIndex);
+   b.completed.sort((a,z)=>a-z);
+   if(b.missionIndex<BIOLOG_MISSIONS.length-1){
+    const oldIndex=b.missionIndex;
+    b.missionIndex++;
+    b.current=0;
+    b.nextAt=startedAt;
+    b.timerSourceIndex=startedAt?oldIndex:null;
+    bioViewIndex=b.missionIndex;
+   }else{
+    b.current=m.target;b.finished=true;b.nextAt=null;b.timerSourceIndex=null;bioViewIndex=b.missionIndex;
+   }
+  }else{
+   b.nextAt=startedAt;b.timerSourceIndex=startedAt?b.missionIndex:null;
+  }
+ }else{
+  if(m.cooldown){b.nextAt=now+m.cooldown*3600000;b.timerSourceIndex=b.missionIndex}
+ }
+ save();fillCharacterModal();renderCharacters();
+}
+function setSelectedBioCurrent(c){
+ c.biolog.missionIndex=bioViewIndex;c.biolog.current=0;c.biolog.nextAt=null;c.biolog.timerSourceIndex=null;c.biolog.finished=false;
+ c.biolog.completed=[];for(let i=0;i<bioViewIndex;i++)c.biolog.completed.push(i);
+ save();fillCharacterModal();renderCharacters();
+}
+function renderWeeklyEditor(c){
+ refreshWeeklyCooldowns();
+ const el=document.getElementById("weeklyEditor");el.innerHTML="";
+ c.weeklies.forEach(w=>{
+  const wi=weeklyInfo(w),r=document.createElement("div");r.className=`weekly-card-v2 ${wi.state}`;
+  r.innerHTML=`<h5>${esc(w.name)}</h5><div class="weekly-sub">${esc(w.camp)} • ${esc(w.npc)}</div><div class="weekly-live">${wi.label}${wi.state==='cool'?" • "+wi.text:""}</div>
+  <div class="weekly-actions-v2">
+   <button class="progress">W trakcie</button><button class="finish">Zakończona → 7 dni</button>
+   <button class="reject">Odrzucona → 7 dni</button><button class="ready">Gotowa teraz</button>
+  </div>`;
+  r.querySelector(".progress").onclick=()=>{w.status="progress";w.readyAt=null;w.outcome=null;save();renderWeeklyEditor(c);renderCharacters()};
+  r.querySelector(".finish").onclick=()=>{w.status="cool";w.readyAt=Date.now()+WEEKLY_MS;w.outcome="completed";save();renderWeeklyEditor(c);renderCharacters()};
+  r.querySelector(".reject").onclick=()=>{w.status="cool";w.readyAt=Date.now()+WEEKLY_MS;w.outcome="rejected";save();renderWeeklyEditor(c);renderCharacters()};
+  r.querySelector(".ready").onclick=()=>{w.status="available";w.readyAt=null;w.outcome=null;save();renderWeeklyEditor(c);renderCharacters()};
+  el.appendChild(r);
+ });
+}
+function setView(v){
+ state.view=v;save();const chars=v==='characters';
+ document.body.classList.toggle('characters-mode',chars);
+ document.getElementById('respsView').classList.toggle('active',!chars);
+ document.getElementById('charactersView').classList.toggle('active',chars);
+ document.getElementById('viewResps').classList.toggle('active',!chars);
+ document.getElementById('viewChars').classList.toggle('active',chars);
+ if(chars)renderCharacters();
+}
+
+function renderAll(){renderTabs();renderMap();renderList();renderStats();renderCharacters();setView(state.view||"resps");document.getElementById("soundBtn").textContent=state.sound?"🔔 Dźwięk":"🔕 Dźwięk";document.getElementById("editBtn").classList.toggle("primary",edit);document.getElementById("editNote").classList.toggle("show",edit);document.getElementById("addBtn").style.display=edit?"inline-block":"none"}
 document.getElementById("drawerClose").onclick=()=>document.getElementById("drawerBg").classList.remove("show");document.getElementById("drawerBg").onclick=e=>{if(e.target.id==="drawerBg")e.currentTarget.classList.remove("show")};
 document.getElementById("typeSelect").onchange=e=>{if(!selected)return;state.types[state.map][selected]=e.target.value;save();renderAll();renderDrawer()};
 document.getElementById("placeBtn").onclick=()=>{if(!selected)return;state.pos[state.map][selected]={x:50,y:50};save();renderAll();renderDrawer()};
@@ -301,8 +661,27 @@ document.getElementById("importBtn").onclick=()=>{try{
  renderAll();
  alert("Import zakończony.");
 }catch(e){alert("Nieprawidłowy kod.");}};
-function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});renderList();renderStats();renderMap();if(document.getElementById("drawerBg").classList.contains("show"))renderDrawer();checkBeeps()}
-load();renderAll();setInterval(tick,1000);
+
+document.getElementById("viewResps").onclick=()=>setView("resps");
+document.getElementById("viewChars").onclick=()=>setView("characters");
+document.getElementById("charSearch").oninput=renderCharacters;
+document.getElementById("addCharBtn").onclick=()=>openCharacter();
+document.getElementById("charClose").onclick=()=>document.getElementById("charBg").classList.remove("show");
+document.getElementById("charBg").onclick=e=>{if(e.target.id==="charBg")e.currentTarget.classList.remove("show")};
+document.getElementById("saveChar").onclick=()=>{syncBasicCharForm();save();renderCharacters();fillCharacterModal();document.getElementById("charBg").classList.remove("show")};
+document.getElementById("deleteChar").onclick=()=>{const c=getEditingChar();if(!c||!confirm(`Usunąć postać ${c.name}?`))return;state.characters=state.characters.filter(x=>x.id!==c.id);editingCharId=null;save();renderCharacters();document.getElementById("charBg").classList.remove("show")};
+document.getElementById("charName").onchange=()=>{syncBasicCharForm();save();renderCharacters()};
+document.getElementById("charClass").onchange=()=>{syncBasicCharForm();save();renderCharacters()};
+document.getElementById("charLevel").onchange=()=>{syncBasicCharForm();save();renderCharacters();fillCharacterModal()};
+document.getElementById("bioAccepted").onclick=()=>{syncBasicCharForm();const c=getEditingChar();if(c)completeBioItem(c,true)};
+document.getElementById("bioRejected").onclick=()=>{syncBasicCharForm();const c=getEditingChar();if(c)completeBioItem(c,false)};
+document.getElementById("bioReady").onclick=()=>{const c=getEditingChar();if(!c)return;c.biolog.nextAt=null;c.biolog.timerSourceIndex=null;save();fillCharacterModal();renderCharacters()};
+document.getElementById("bioSetCurrent").onclick=()=>{const c=getEditingChar();if(!c)return;if(confirm(`Ustawić misję Lv.${BIOLOG_MISSIONS[bioViewIndex].lvl} jako aktualną? Poprzednie zostaną oznaczone jako ukończone.`))setSelectedBioCurrent(c)};
+document.getElementById("bioReset").onclick=()=>{const c=getEditingChar();if(!c||!confirm("Wyzerować cały biolog tej postaci?"))return;c.biolog=migrateBiolog({},c.level);bioViewIndex=c.biolog.missionIndex;save();fillCharacterModal();renderCharacters()};
+document.getElementById("resetWeeklyChar").onclick=()=>{const c=getEditingChar();if(!c)return;c.weeklies=defaultWeeklies();save();renderWeeklyEditor(c);renderCharacters()};
+
+function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});refreshWeeklyCooldowns();renderList();renderStats();renderMap();renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))renderDrawer();if(document.getElementById("charBg").classList.contains("show"))fillCharacterModal();checkBeeps()}
+load();save();renderAll();setInterval(tick,1000);
 if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script>
 </body></html>

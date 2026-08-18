@@ -1,6 +1,6 @@
 {
-  "name": "ElderMT2 — Metin Tracker v4.0.2",
-  "short_name": "Metin Tracker",
+  "name": "ElderMT2 — Tracker v5.1",
+  "short_name": "Elder Tracker",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f0e0c",
