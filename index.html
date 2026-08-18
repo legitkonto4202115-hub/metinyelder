@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — Tracker v5.1</title>
+<title>ElderMT2 — Tracker v5.1.2</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -39,7 +39,7 @@ button{cursor:pointer}
 .shade{position:absolute;inset:0;background:radial-gradient(circle,transparent 48%,#0007 100%);pointer-events:none}
 
 .marker{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;border:2px solid #c9b58d;background:#29251f;color:#fff;
- display:grid;place-items:center;font-weight:900;font-size:10px;z-index:5;box-shadow:0 3px 13px #000c,inset 0 0 8px #0008;user-select:none}
+ display:grid;place-items:center;font-weight:900;font-size:10px;z-index:5;box-shadow:0 3px 13px #000c,inset 0 0 8px #0008;user-select:none;touch-action:none;will-change:left,top,transform}
 .marker:hover{transform:translate(-50%,-50%) scale(1.12);z-index:10}.marker.ready{background:#1f5a2e;border-color:#77dc8c}.marker.window{background:#6d5515;border-color:#f0cf5e}
 .marker.cooldown{background:#5c2222;border-color:#f08080}.marker.mixed{background:#3d3154;border-color:#b896e8}.marker.unknown{background:#2c2924;border-color:#c7b692}
 .marker.unverified:after{content:"?";position:absolute;right:-7px;top:-7px;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;background:#8b4b2f;color:#fff;font-size:9px;border:1px solid #e39a72}
@@ -85,7 +85,7 @@ button{cursor:pointer}
 @media(max-width:650px){.view-tabs{order:2}.char-row{grid-template-columns:1fr}.bio-box,.weekly-boxes,.char-actions{grid-column:auto}.char-kpis{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.weekly-edit-row{grid-template-columns:1fr auto}}
 
 
-/* v5.1 — Biolog + tygodniowe 7 dni od zakończenia/odrzucenia */
+/* v5.1.2 — Biolog + tygodniowe 7 dni od zakończenia/odrzucenia */
 .bio-tabs{display:flex;gap:5px;overflow-x:auto;padding:3px 0 9px;scrollbar-width:thin}
 .bio-tab{flex:0 0 auto;border:1px solid #42372a;background:#17130f;color:#a99d8c;border-radius:8px;padding:7px 9px;font-size:10px;font-weight:800}
 .bio-tab.active{background:#493019;border-color:#8a6030;color:#ffe0a1}
@@ -358,17 +358,68 @@ function renderMap(){
  fail.style.display="grid";img.style.display="block";img.onload=()=>fail.style.display="none";img.onerror=()=>{img.style.display="none";fail.style.display="grid"};img.src=m.img;
  const box=document.getElementById("markers");box.innerHTML="";
  allSpots(state.map).filter(s=>!s.unplaced).forEach(s=>{
-  const b=document.createElement("button");b.className=`marker ${aggregate(s.id)}${s.confidence==="low"?" unverified":""}`;b.style.left=s.x+"%";b.style.top=s.y+"%";b.textContent=s.id.replace(/^[A-Z]+/,"").replace("-","");b.title=`${s.id} • ${s.type}${s.coord?" • ref. "+s.coord:""}`;
+  const b=document.createElement("button");b.dataset.spotId=s.id;b.className=`marker ${aggregate(s.id)}${s.confidence==="low"?" unverified":""}`;b.style.left=s.x+"%";b.style.top=s.y+"%";b.textContent=s.id.replace(/^[A-Z]+/,"").replace("-","");b.title=`${s.id} • ${s.type}${s.coord?" • ref. "+s.coord:""}`;
   if(edit)drag(b,s);else b.onclick=e=>{e.stopPropagation();openSpot(s.id)};box.appendChild(b)
  });
  document.getElementById("mapNote").innerHTML=`<b>${m.note}</b>`;
 }
 function drag(el,s){
- let down=false;
- el.onpointerdown=e=>{down=true;el.setPointerCapture(e.pointerId);el.classList.add("dragging");e.preventDefault()};
- el.onpointermove=e=>{if(!down)return;let r=document.getElementById("mapWrap").getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;x=Math.max(2,Math.min(98,x));y=Math.max(2,Math.min(98,y));el.style.left=x+"%";el.style.top=y+"%";s._x=x;s._y=y};
- el.onpointerup=()=>{if(!down)return;down=false;el.classList.remove("dragging");state.pos[state.map][s.id]={x:s._x??s.x,y:s._y??s.y};save();renderAll()}
+ let down=false,pointerId=null,startClientX=0,startClientY=0,startX=Number(s.x)||50,startY=Number(s.y)||50,lastX=startX,lastY=startY;
+
+ const move=e=>{
+  if(!down||e.pointerId!==pointerId)return;
+  const r=document.getElementById("mapWrap").getBoundingClientRect();
+  if(!r.width||!r.height)return;
+  const dx=(e.clientX-startClientX)/r.width*100;
+  const dy=(e.clientY-startClientY)/r.height*100;
+  lastX=Math.max(2,Math.min(98,startX+dx));
+  lastY=Math.max(2,Math.min(98,startY+dy));
+  el.style.left=lastX+"%";
+  el.style.top=lastY+"%";
+  e.preventDefault();
+ };
+
+ const finish=e=>{
+  if(!down||(e&&e.pointerId!==pointerId))return;
+  down=false;
+  el.classList.remove("dragging");
+  try{if(pointerId!==null&&el.hasPointerCapture(pointerId))el.releasePointerCapture(pointerId)}catch(_){}
+  state.pos[state.map][s.id]={x:lastX,y:lastY};
+  save();
+  // Nie przebudowuj całej mapy w momencie puszczenia.
+  // To zapobiega wizualnemu "odbiciu" markera.
+  renderList();renderStats();
+ };
+
+ el.onpointerdown=e=>{
+  if(e.button!==undefined&&e.button!==0)return;
+  down=true;pointerId=e.pointerId;
+  startClientX=e.clientX;startClientY=e.clientY;
+  startX=Number.parseFloat(el.style.left)||Number(s.x)||50;
+  startY=Number.parseFloat(el.style.top)||Number(s.y)||50;
+  lastX=startX;lastY=startY;
+  try{el.setPointerCapture(pointerId)}catch(_){}
+  el.classList.add("dragging");
+  e.preventDefault();e.stopPropagation();
+ };
+ el.onpointermove=move;
+ el.onpointerup=finish;
+ el.onpointercancel=finish;
+ el.onlostpointercapture=()=>{if(down)finish({pointerId})};
 }
+function updateMarkerStates(){
+ const box=document.getElementById("markers");
+ if(!box)return;
+ box.querySelectorAll(".marker[data-spot-id]").forEach(el=>{
+  const id=el.dataset.spotId;
+  const s=allSpots(state.map).find(x=>x.id===id);
+  if(!s)return;
+  const dragging=el.classList.contains("dragging");
+  const cls=`marker ${aggregate(id)}${s.confidence==="low"?" unverified":""}${dragging?" dragging":""}`;
+  if(el.className!==cls)el.className=cls;
+ });
+}
+
 function renderList(){
  const el=document.getElementById("spots");el.innerHTML="";
  allSpots(state.map).forEach(s=>{
@@ -562,7 +613,7 @@ function renderBioMissionCard(c){
   </div>
   <div class="bio-progress-row">
    <div class="field"><label>Przyjęte przedmioty${isCurrent?"":" — podgląd"}</label><input id="bioProgressInput" type="number" min="0" max="${m.target}" value="${current}" ${isCurrent?"":"disabled"}></div>
-   <div class="field"><label>Status timera</label><div class="bio-alert ${timerClass}" style="margin:0">${timerActive?timerText:(isCurrent?"Gotowy do oddania":c.biolog.completed.includes(bioViewIndex)?"Ukończona":"Nieaktywna")}</div></div>
+   <div class="field"><label>Status timera</label><div id="bioLiveTimer" class="bio-alert ${timerClass}" style="margin:0">${timerActive?timerText:(isCurrent?"Gotowy do oddania":c.biolog.completed.includes(bioViewIndex)?"Ukończona":"Nieaktywna")}</div></div>
   </div>
   ${carry?`<div class="bio-alert cool">${carry}</div>`:""}
   ${m.special!=="—"?`<div class="bio-alert">Wiki podaje też specjalny przedmiot: <b>${esc(m.special)}</b>. Tracker automatyczne przejście opiera na liczbie wymaganych przedmiotów, zgodnie z Twoim ustawieniem.</div>`:""}
@@ -621,7 +672,7 @@ function renderWeeklyEditor(c){
  const el=document.getElementById("weeklyEditor");el.innerHTML="";
  c.weeklies.forEach(w=>{
   const wi=weeklyInfo(w),r=document.createElement("div");r.className=`weekly-card-v2 ${wi.state}`;
-  r.innerHTML=`<h5>${esc(w.name)}</h5><div class="weekly-sub">${esc(w.camp)} • ${esc(w.npc)}</div><div class="weekly-live">${wi.label}${wi.state==='cool'?" • "+wi.text:""}</div>
+  r.innerHTML=`<h5>${esc(w.name)}</h5><div class="weekly-sub">${esc(w.camp)} • ${esc(w.npc)}</div><div class="weekly-live" data-weekly-live="${w.id}">${wi.label}${wi.state==='cool'?" • "+wi.text:""}</div>
   <div class="weekly-actions-v2">
    <button class="progress">W trakcie</button><button class="finish">Zakończona → 7 dni</button>
    <button class="reject">Odrzucona → 7 dni</button><button class="ready">Gotowa teraz</button>
@@ -633,6 +684,39 @@ function renderWeeklyEditor(c){
   el.appendChild(r);
  });
 }
+
+function updateCharacterModalLive(){
+ const bg=document.getElementById("charBg");
+ if(!bg||!bg.classList.contains("show"))return;
+ const c=getEditingChar();if(!c)return;
+
+ // Update only changing timer text. Do NOT rebuild the modal,
+ // because rebuilding it overwrites text being typed in name/class/level fields.
+ const bioEl=document.getElementById("bioLiveTimer");
+ if(bioEl){
+  const b=c.biolog,m=BIOLOG_MISSIONS[bioViewIndex];
+  const isCurrent=bioViewIndex===b.missionIndex&&!b.finished;
+  const active=isCurrent&&b.nextAt&&b.nextAt>Date.now();
+  if(active){
+   bioEl.className="bio-alert cool";
+   bioEl.style.margin="0";
+   bioEl.textContent=formatLong(b.nextAt-Date.now());
+  }else{
+   bioEl.className="bio-alert ready";
+   bioEl.style.margin="0";
+   bioEl.textContent=isCurrent?"Gotowy do oddania":(b.completed.includes(bioViewIndex)?"Ukończona":"Nieaktywna");
+  }
+ }
+ c.weeklies.forEach(w=>{
+  const el=document.querySelector(`[data-weekly-live="${w.id}"]`);
+  if(!el)return;
+  const wi=weeklyInfo(w);
+  el.textContent=wi.label+(wi.state==="cool"?" • "+wi.text:"");
+  const card=el.closest(".weekly-card-v2");
+  if(card)card.className=`weekly-card-v2 ${wi.state}`;
+ });
+}
+
 function setView(v){
  state.view=v;save();const chars=v==='characters';
  document.body.classList.toggle('characters-mode',chars);
@@ -680,7 +764,7 @@ document.getElementById("bioSetCurrent").onclick=()=>{const c=getEditingChar();i
 document.getElementById("bioReset").onclick=()=>{const c=getEditingChar();if(!c||!confirm("Wyzerować cały biolog tej postaci?"))return;c.biolog=migrateBiolog({},c.level);bioViewIndex=c.biolog.missionIndex;save();fillCharacterModal();renderCharacters()};
 document.getElementById("resetWeeklyChar").onclick=()=>{const c=getEditingChar();if(!c)return;c.weeklies=defaultWeeklies();save();renderWeeklyEditor(c);renderCharacters()};
 
-function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});refreshWeeklyCooldowns();renderList();renderStats();renderMap();renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))renderDrawer();if(document.getElementById("charBg").classList.contains("show"))fillCharacterModal();checkBeeps()}
+function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});refreshWeeklyCooldowns();renderList();renderStats();updateMarkerStates();renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))renderDrawer();if(document.getElementById("charBg").classList.contains("show"))updateCharacterModalLive();checkBeeps()}
 load();save();renderAll();setInterval(tick,1000);
 if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script>
