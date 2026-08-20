@@ -1,4 +1,4 @@
-const CACHE='elder-metin-v6-1-1-fixed';
+const CACHE='elder-metin-v6-2-1-horse-skills-reorder-fixed';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install',event=>{

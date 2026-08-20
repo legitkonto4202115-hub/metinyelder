@@ -1,12 +1,12 @@
 {
-  "name": "ElderMT2 — ULTIMATE Command Center v6.1.1",
+  "name": "ElderMT2 — ULTIMATE Command Center v6.2.1",
   "short_name": "Elder ULTIMATE",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#090806",
   "theme_color": "#120d08",
-  "description": "Respy, postacie, biolog, obozy, zarobek, tobołek, wydatki i analityka ElderMT2.",
+  "description": "Respy, postacie, biolog, obozy, koń, umiejętności, zarobek i analityka ElderMT2.",
   "icons": [
     {
       "src": "icon.svg",

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — ULTIMATE Command Center v6.1.1</title>
+<title>ElderMT2 — ULTIMATE Command Center v6.2.1</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -141,7 +141,7 @@ button{cursor:pointer}
 
 
 /* =========================================================
-   v6.1.1 ULTIMATE — BLACK GOLD / COMMAND CENTER
+   v6.2.1 ULTIMATE — BLACK GOLD / COMMAND CENTER
    ========================================================= */
 :root{--gold:#d7aa52;--gold2:#f0cf86;--gold3:#8b642d;--glass:#17130fe8;--glass2:#100e0ccd;--ink:#090806}
 html{scroll-behavior:smooth}
@@ -252,12 +252,97 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
 @media(max-width:800px){.fin-kpis{grid-template-columns:repeat(2,1fr)}.fin-form-grid,.fin-form-grid.cols3{grid-template-columns:1fr}.fin-day-row{grid-template-columns:90px 1fr 1fr}.fin-day-row span:nth-child(n+4){display:none}}
 @media(max-width:480px){.fin-kpis{grid-template-columns:1fr}.fin-preview{grid-template-columns:1fr}}
 
+
+/* =========================================================
+   v6.2 — KOŃ + UMIEJĘTNOŚCI + KOLEJNOŚĆ POSTACI
+   ========================================================= */
+.char-row{
+ grid-template-columns:30px minmax(200px,1.2fr) minmax(180px,.9fr) minmax(330px,1.5fr) auto;
+ transition:border-color .15s ease,background .15s ease,transform .15s ease,opacity .15s ease;
+}
+.char-drag-cell{display:flex;align-items:center;justify-content:center;height:100%}
+.char-drag-handle{
+ width:26px;height:46px;border:1px solid #3f3529;background:#0e0d0b;color:#8e806e;
+ border-radius:8px;cursor:grab;font-size:16px;line-height:1;letter-spacing:-4px;padding-right:5px;
+ user-select:none;transition:.15s ease
+}
+.char-drag-handle:hover{border-color:#77582f;color:#e3c47c;background:#1b150f}
+.char-drag-handle:active{cursor:grabbing}
+.char-row.dragging-char{opacity:.35;transform:scale(.995)}
+.char-row.drag-over-before{box-shadow:inset 0 3px #d7aa52,0 7px 20px #0004;border-color:#795a31}
+.char-row.drag-over-after{box-shadow:inset 0 -3px #d7aa52,0 7px 20px #0004;border-color:#795a31}
+.char-task-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;width:100%}
+.task-pill{
+ border:1px solid #3e352b;background:#16130f;color:#b7aa98;border-radius:8px;padding:5px 7px;
+ min-width:105px;text-align:left;font-size:8px;line-height:1.25;cursor:pointer
+}
+.task-pill b{display:block;color:#ddd1bf;font-size:9px;margin-bottom:2px}
+.task-pill.ready{border-color:#315f40;color:#7bd88f;background:#101c14}
+.task-pill.cool{border-color:#6c5723;color:#e0c468;background:#1d190e}
+.task-pill.done{border-color:#435c70;color:#8fc5e8;background:#10171d}
+.task-pill.none{color:#756c60}
+.task-pill:hover{border-color:#76572f}
+.char-reorder-note{font-size:9px;color:#857a6b;margin-top:4px}
+.char-reorder-note b{color:#c6af83}
+
+/* Horse */
+.horse-card,.skill-card{
+ border:1px solid #3a3128;background:linear-gradient(155deg,#15120f,#0e0d0b);
+ border-radius:10px;padding:10px;margin-top:7px
+}
+.horse-head,.skill-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.horse-head h5,.skill-head h5{margin:0;font-size:12px}
+.horse-status,.skill-status{border:1px solid #493d2f;border-radius:99px;padding:4px 7px;font-size:8px;font-weight:900;white-space:nowrap}
+.horse-status.ready,.skill-status.ready{border-color:#315f40;color:#7bd88f}
+.horse-status.cool,.skill-status.cool{border-color:#6b5723;color:#e0c468}
+.horse-status.done{border-color:#435d70;color:#8fc5e8}
+.horse-grid{display:grid;grid-template-columns:140px 1fr;gap:8px;margin-top:9px;align-items:end}
+.horse-level-wrap label,.skill-field label{display:block;font-size:8px;color:#837767;margin-bottom:4px;text-transform:uppercase;letter-spacing:.35px}
+.horse-level-wrap input,.skill-field input{
+ width:100%;background:#0c0b09;color:#eee;border:1px solid #44392c;border-radius:7px;padding:7px
+}
+.horse-live{border:1px solid #332c23;background:#0d0c0a;border-radius:8px;padding:8px}
+.horse-live small{display:block;color:#776d60;font-size:8px}.horse-live b{display:block;margin-top:2px;font-size:11px}
+.horse-actions,.skill-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.horse-note,.skill-note{font-size:8px;color:#817667;line-height:1.45;margin-top:7px}
+.horse-note strong{color:#ddbf7b}
+
+/* Skills */
+.skills-toolbar{
+ display:grid;grid-template-columns:1fr 125px auto;gap:7px;align-items:end;
+ border:1px solid #382f25;background:#0e0d0b;border-radius:9px;padding:8px;margin-bottom:8px
+}
+.skill-list{display:grid;gap:7px}
+.skill-card-grid{display:grid;grid-template-columns:1.4fr 110px;gap:7px;margin-top:8px}
+.skill-timer-box{margin-top:8px;border:1px solid #332c23;background:#0d0c0a;border-radius:8px;padding:8px}
+.skill-timer-box small{display:block;color:#776d60;font-size:8px}.skill-timer-box b{display:block;margin-top:2px;font-size:10px}
+.skill-manual{margin-top:7px;display:grid;grid-template-columns:repeat(3,1fr) auto;gap:5px;align-items:end}
+.skill-manual .skill-field input{padding:6px}
+.skill-empty{padding:16px;text-align:center;border:1px dashed #3d3429;border-radius:9px;color:#7d7264;font-size:9px}
+
+/* Summary header */
+.char-toolbar-left p .v62{color:#d8ba77;font-weight:800}
+
+@media(max-width:1050px){
+ .char-row{grid-template-columns:30px 1fr 1fr}
+ .char-drag-cell{grid-row:1/span 2}
+ .weekly-boxes,.char-actions{grid-column:2/-1}
+}
+@media(max-width:650px){
+ .char-row{grid-template-columns:30px 1fr}
+ .char-drag-cell{grid-row:1/span 4}
+ .char-ident,.bio-box,.weekly-boxes,.char-actions{grid-column:2}
+ .horse-grid,.skill-card-grid,.skills-toolbar{grid-template-columns:1fr}
+ .skill-manual{grid-template-columns:repeat(3,1fr)}
+ .skill-manual .manual-apply{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
  <div class="topbar">
-  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.1.1 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
+  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.2.1 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
   <div class="view-tabs"><button class="view-tab" id="viewDash">Centrum <span class="hotkey">D</span></button><button class="view-tab active" id="viewResps">Respy <span class="hotkey">R</span></button><button class="view-tab" id="viewChars">Postacie <span class="hotkey">P</span></button><button class="view-tab" id="viewFinance">Zarobek <span class="hotkey">Z</span></button></div><div class="map-tabs" id="mapTabs"></div>
   <div class="controls" id="respControls">
    <button class="btn" id="cmdBtn">⌘ Szukaj</button>
@@ -405,7 +490,7 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
  <div class="view" id="charactersView">
   <div class="characters-wrap"><section class="panel">
    <div class="char-toolbar">
-    <div class="char-toolbar-left"><h2>Moje postacie</h2><p>Biolog ElderMT2 + trzy niezależne misje obozowe. Wszystkie timery zapisują się lokalnie.</p></div>
+    <div class="char-toolbar-left"><h2>Moje postacie</h2><p>Biolog + obozy + <span class="v62">koń + umiejętności</span>. Przeciągaj postacie za uchwyt ⋮⋮, aby ustawić własną kolejność.</p></div>
     <div class="char-tools"><input id="charSearch" placeholder="Szukaj postaci"><button class="btn primary" id="addCharBtn">+ Dodaj postać</button></div>
    </div>
    <div class="char-kpis">
@@ -434,7 +519,7 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
 <div class="drawer-bg char-modal" id="charBg">
  <div class="drawer">
   <div class="drawer-head">
-   <div><h3 id="charModalTitle">Postać</h3><p id="charModalSub">Zarządzaj biologiem i misjami obozowymi.</p></div>
+   <div><h3 id="charModalTitle">Postać</h3><p id="charModalSub">Biolog • obozy • koń • umiejętności.</p></div>
    <button class="close" id="charClose">×</button>
   </div>
 
@@ -468,6 +553,23 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
    <div class="mini-note">Każdy obóz ma własny niezależny licznik 7 dni. Nie ma globalnego resetu tygodnia.</div>
   </div>
 
+  <div class="char-section">
+   <h4>🐎 Misje na konia — poziom 0–30</h4>
+   <div id="horseEditor"></div>
+   <div class="mini-note">Po udanej próbie z poziomu konia <b>21 → 22 i wyżej</b> aplikacja automatycznie uruchamia cooldown <b>3 dni</b>. Timer możesz też ustawić ręcznie.</div>
+  </div>
+
+  <div class="char-section">
+   <h4>📚 Umiejętności — własne timery</h4>
+   <div class="skills-toolbar">
+    <div class="skill-field"><label>Nazwa umiejętności / księgi</label><input id="newSkillName" placeholder="np. Czarowane Ostrze"></div>
+    <div class="skill-field"><label>Cooldown (h)</label><input id="newSkillCooldown" type="number" min="0" step="0.5" value="24"></div>
+    <button class="btn primary" id="addSkillTimer">+ Dodaj timer</button>
+   </div>
+   <div class="skill-list" id="skillEditor"></div>
+   <div class="mini-note">Możesz dodać kilka umiejętności. Czas jest w pełni edytowalny — 24h to tylko wartość startowa nowego timera.</div>
+  </div>
+
   <div class="drawer-tools">
    <button class="btn primary" id="saveChar">Zapisz postać</button>
    <button class="btn danger" id="deleteChar">Usuń postać</button>
@@ -475,8 +577,8 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
  </div>
 </div>
 <div class="data-bg" id="dataBg"><div class="data-box">
- <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, timery, postacie, biologa i misje tygodniowe na drugi komputer.</p>
- <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.1.1 ULTIMATE</b></div></div>
+ <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, timery, postacie, biologa, obozy, konia, umiejętności i zarobek na drugi komputer.</p>
+ <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.2.1 ULTIMATE</b></div></div>
  <textarea id="dataText" placeholder="Tutaj pojawi się kod eksportu lub wklej backup do importu."></textarea>
  <div style="display:flex;gap:7px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" id="exportBtn">Generuj eksport</button><button class="btn" id="importBtn">Importuj</button><button class="btn" id="backupBtn">Utwórz backup lokalny</button><button class="btn" id="restoreBackupBtn">Przywróć ostatni backup</button><button class="btn" id="dataClose">Zamknij</button></div>
 </div></div>
@@ -560,6 +662,7 @@ let state,selected=null,edit=false,sessionStart=Date.now(),sessionKills=0,beeped
 const BACKUP_KEY="elderMetinTracker_v6_backups";
 let deferredInstallPrompt=null;
 let financeDate=null,editingFinanceSessionId=null,editingFinanceLedgerId=null;
+let draggedCharId=null,draggedCharPlacement=null;
 function fresh(){
  const pos={},types={},custom={};
  for(const [mk,m] of Object.entries(MAPS)){pos[mk]={};types[mk]={};custom[mk]=[];m.spots.forEach(s=>{if(!s.unplaced)pos[mk][s.id]={x:s.x,y:s.y};types[mk][s.id]=s.type})}
@@ -986,6 +1089,14 @@ function collectDashboard(){
    else timeline.push({due:now,icon:"🧪",title:`${c.name} • Biolog`,detail:`${currentBioMission(c).name} • gotowy`,kind:"ready",charId:c.id});
   }
   c.weeklies.forEach(w=>{const wi=weeklyInfo(w);if(wi.state==="available"){weeklyReady++;timeline.push({due:now,icon:"🏕",title:`${c.name} • ${w.name}`,detail:"misja obozowa gotowa",kind:"ready",charId:c.id})}else if(w.readyAt&&w.readyAt>now)timeline.push({due:w.readyAt,icon:"🏕",title:`${c.name} • ${w.name}`,detail:"koniec blokady",kind:"weekly",charId:c.id})});
+  if(c.horse.level<30){
+   if(c.horse.readyAt&&c.horse.readyAt>now)timeline.push({due:c.horse.readyAt,icon:"🐎",title:`${c.name} • Koń Lv.${c.horse.level}`,detail:"następna misja konna",kind:"horse",charId:c.id});
+   else timeline.push({due:now,icon:"🐎",title:`${c.name} • Koń Lv.${c.horse.level}`,detail:"misja konna gotowa",kind:"ready",charId:c.id});
+  }
+  (c.skills||[]).forEach(s=>{
+   if(s.readyAt&&s.readyAt>now)timeline.push({due:s.readyAt,icon:"📚",title:`${c.name} • ${s.name}`,detail:"umiejętność / księga",kind:"skill",charId:c.id});
+   else timeline.push({due:now,icon:"📚",title:`${c.name} • ${s.name}`,detail:"gotowa teraz",kind:"ready",charId:c.id});
+  });
  });
  timeline.sort((a,b)=>a.due-b.due||a.title.localeCompare(b.title));
  return{metinReady,metinCool,bioReady,bioCool,weeklyReady,mapStats,timeline};
@@ -999,7 +1110,7 @@ function renderDashboard(){
  const d=collectDashboard();
  maps.innerHTML=Object.entries(MAPS).map(([mk,m])=>{const s=d.mapStats[mk];return `<button class="map-card" data-dash-map="${mk}"><div class="map-card-top"><b>${esc(m.short)}</b><span>${m.min}–${m.max} min</span></div><div class="map-card-counts"><span class="map-mini good">gotowe ${s.ready+s.window}</span><span class="map-mini bad">cooldown ${s.cool}</span><span class="map-mini">aktywne ${s.active}</span></div></button>`}).join("");
  maps.querySelectorAll("[data-dash-map]").forEach(b=>b.onclick=()=>{state.map=b.dataset.dashMap;save();setView("resps");renderAll()});
- chars.innerHTML=state.characters.length?state.characters.map(c=>{const bi=bioInfo(c),m=currentBioMission(c),weeks=c.weeklies.filter(w=>weeklyInfo(w).state==="available").length;return `<button class="dash-char" data-dash-char="${c.id}"><span class="dash-char-icon">${esc(c.className.slice(0,1).toUpperCase())}</span><span class="dash-char-main"><b>${esc(c.name)} • Lv.${c.level}</b><small>Biolog Lv.${m.lvl}: ${esc(m.name)} • obozy gotowe: ${weeks}</small></span><span class="dash-char-state ${bi.state==="ready"?"ready":"cool"}">${bi.label}</span></button>`}).join(""):'<div class="dash-empty">Dodaj postać, żeby zobaczyć biolog i obozy w centrum dowodzenia.</div>';
+ chars.innerHTML=state.characters.length?state.characters.map(c=>{const bi=bioInfo(c),m=currentBioMission(c),weeks=c.weeklies.filter(w=>weeklyInfo(w).state==="available").length,hi=horseInfo(c),ss=skillsSummary(c);return `<button class="dash-char" data-dash-char="${c.id}"><span class="dash-char-icon">${esc(c.className.slice(0,1).toUpperCase())}</span><span class="dash-char-main"><b>${esc(c.name)} • Lv.${c.level}</b><small>Biolog Lv.${m.lvl}: ${esc(m.name)} • obozy ${weeks} • koń Lv.${c.horse.level} ${hi.label} • skille ${ss.label}</small></span><span class="dash-char-state ${bi.state==="ready"?"ready":"cool"}">${bi.label}</span></button>`}).join(""):'<div class="dash-empty">Dodaj postać, żeby zobaczyć biolog, obozy, konia i umiejętności w centrum dowodzenia.</div>';
  chars.querySelectorAll("[data-dash-char]").forEach(b=>b.onclick=()=>openCharacter(b.dataset.dashChar));
  if(notes&&notes.value!==state.notes)notes.value=state.notes||"";
  renderDashboardActivity();updateDashboardLive();
@@ -1071,6 +1182,24 @@ function normalizeWeekly(w){
  const status=w?.readyAt&&w.readyAt>Date.now()?"cool":(w?.status==="progress"?"progress":"available");
  return {id:w?.id||def?.key||uid(),name:w?.name||def?.name||"Misja",npc:w?.npc||def?.npc||"",camp:w?.camp||def?.camp||"",status,readyAt:w?.readyAt||null,outcome:w?.outcome||null};
 }
+function normalizeHorse(h={}){
+ return{
+  level:Math.max(0,Math.min(30,Number(h.level)||0)),
+  readyAt:Number(h.readyAt)||null,
+  lastResult:h.lastResult||null,
+  lastSuccessAt:Number(h.lastSuccessAt)||null
+ };
+}
+function normalizeSkills(arr){
+ if(!Array.isArray(arr))return[];
+ return arr.map(s=>({
+  id:s.id||uid(),
+  name:String(s.name||"Umiejętność"),
+  cooldownHours:Math.max(0,Number(s.cooldownHours??24)||0),
+  readyAt:Number(s.readyAt)||null,
+  lastUsedAt:Number(s.lastUsedAt)||null
+ }));
+}
 function normalizeCharacters(){
  state.characters=state.characters.map(c=>{
   const level=Number(c.level)||1;
@@ -1081,7 +1210,12 @@ function normalizeCharacters(){
     return normalizeWeekly(old||{id:def.key,name:def.name,npc:def.npc,camp:def.camp});
    });
   }else weeklies=defaultWeeklies();
-  return {id:c.id||uid(),name:c.name||"Postać",className:c.className||"Inna",level,biolog:migrateBiolog(c.biolog||{},level),weeklies};
+  return{
+   id:c.id||uid(),name:c.name||"Postać",className:c.className||"Inna",level,
+   biolog:migrateBiolog(c.biolog||{},level),weeklies,
+   horse:normalizeHorse(c.horse||{}),
+   skills:normalizeSkills(c.skills)
+  };
  });
 }
 function refreshWeeklyCooldowns(){
@@ -1109,36 +1243,110 @@ function weeklyInfo(w){
  if(w.status==="progress")return{state:"progress",label:"W TRAKCIE",text:"misja aktywna"};
  return{state:"available",label:"GOTOWA",text:"możesz odebrać"};
 }
+
+function horseInfo(c){
+ const h=c.horse||normalizeHorse();
+ if(h.level>=30)return{state:"done",label:"MAX",text:"Koń Lv.30"};
+ if(h.readyAt&&h.readyAt>Date.now())return{state:"cool",label:"TIMER",text:formatLong(h.readyAt-Date.now())};
+ return{state:"ready",label:"GOTOWY",text:`Koń Lv.${h.level}`};
+}
+function skillInfo(s){
+ if(s.readyAt&&s.readyAt>Date.now())return{state:"cool",label:"TIMER",text:formatLong(s.readyAt-Date.now())};
+ return{state:"ready",label:"GOTOWA",text:"możesz użyć"};
+}
+function skillsSummary(c){
+ const skills=c.skills||[];
+ if(!skills.length)return{state:"none",label:"BRAK",text:"0 timerów"};
+ const active=skills.filter(s=>s.readyAt&&s.readyAt>Date.now()).length;
+ const ready=skills.length-active;
+ return{state:active?"cool":"ready",label:active?`${active} TIMER`:`${ready} GOT.`,text:`${ready} got. • ${active} timer`};
+}
+function refreshCharacterTaskCooldowns(){
+ let changed=false,now=Date.now();
+ state.characters.forEach(c=>{
+  if(c.horse?.readyAt&&c.horse.readyAt<=now){c.horse.readyAt=null;changed=true}
+  (c.skills||[]).forEach(s=>{if(s.readyAt&&s.readyAt<=now){s.readyAt=null;changed=true}})
+ });
+ if(changed)save();
+}
 function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 
+function clearCharacterDragClasses(){
+ document.querySelectorAll(".char-row").forEach(r=>r.classList.remove("dragging-char","drag-over-before","drag-over-after"));
+}
+function reorderCharacter(dragId,targetId,after=false){
+ if(!dragId||!targetId||dragId===targetId)return;
+ const from=state.characters.findIndex(c=>c.id===dragId),target=state.characters.findIndex(c=>c.id===targetId);
+ if(from<0||target<0)return;
+ const [item]=state.characters.splice(from,1);
+ let to=state.characters.findIndex(c=>c.id===targetId);
+ if(after)to++;
+ state.characters.splice(Math.max(0,to),0,item);
+ save();logAction("↕",`${item.name} — zmieniono kolejność`,"Moje postacie");
+ renderCharacters();renderDashboard();
+}
 function renderCharacters(){
- refreshWeeklyCooldowns();
+ refreshWeeklyCooldowns();refreshCharacterTaskCooldowns();
  const list=document.getElementById("charList");if(!list)return;
  const q=(document.getElementById("charSearch")?.value||"").toLowerCase().trim();
  list.innerHTML="";
  const chars=state.characters.filter(c=>!q||c.name.toLowerCase().includes(q)||c.className.toLowerCase().includes(q));
- if(!chars.length)list.innerHTML='<div class="char-empty"><b>Brak postaci</b>Dodaj pierwszą postać i ustaw jej aktualnego biologa.</div>';
+ if(!chars.length)list.innerHTML='<div class="char-empty"><b>Brak postaci</b>Dodaj pierwszą postać i ustaw jej aktualne timery.</div>';
  chars.forEach(c=>{
-  const bio=bioInfo(c),row=document.createElement("div");row.className="char-row";
+  const bio=bioInfo(c),horse=horseInfo(c),skills=skillsSummary(c),row=document.createElement("div");row.className="char-row";row.dataset.charId=c.id;
   const weeks=c.weeklies.map(w=>{const wi=weeklyInfo(w);return `<button class="weekly-pill ${wi.state}" data-wid="${w.id}"><b>${esc(w.name)}</b>${wi.label}${wi.state==='cool'?'<br>'+wi.text:''}</button>`}).join("");
   const bm=currentBioMission(c);
-  row.innerHTML=`<div class="char-ident"><div class="char-avatar">${esc(c.className.slice(0,1).toUpperCase())}</div><div><div class="char-name">${esc(c.name)}</div><div class="char-class">${esc(c.className)} • Lv. ${c.level}</div></div></div>
+  row.innerHTML=`<div class="char-drag-cell"><button class="char-drag-handle" draggable="${q?"false":"true"}" title="${q?"Wyczyść wyszukiwanie, aby zmieniać kolejność":"Przeciągnij myszką, aby zmienić kolejność"}">⋮⋮</button></div>
+  <div class="char-ident"><div class="char-avatar">${esc(c.className.slice(0,1).toUpperCase())}</div><div><div class="char-name">${esc(c.name)}</div><div class="char-class">${esc(c.className)} • Lv. ${c.level}</div></div></div>
   <div class="bio-box"><div class="bio-title"><span>BIOLOG Lv.${bm.lvl}</span><span class="bio-status ${bio.state}">${bio.label}</span></div><div class="bio-progress">${esc(bm.name)} • ${bio.text}</div></div>
-  <div class="weekly-boxes">${weeks}</div><div class="char-actions"><button class="btn manage">Zarządzaj</button></div>`;
-  row.querySelector('.manage').onclick=()=>openCharacter(c.id);
-  row.querySelectorAll('.weekly-pill').forEach(btn=>btn.onclick=()=>openCharacter(c.id));
+  <div class="weekly-boxes">${weeks}<div class="char-task-pills">
+   <button class="task-pill ${horse.state}" data-extra="horse"><b>🐎 KOŃ Lv.${c.horse.level}</b>${horse.label}${horse.state==="cool"?" • "+horse.text:""}</button>
+   <button class="task-pill ${skills.state}" data-extra="skills"><b>📚 UMIEJĘTNOŚCI</b>${skills.text}</button>
+  </div></div>
+  <div class="char-actions"><button class="btn manage">Zarządzaj</button></div>`;
+
+  row.querySelector(".manage").onclick=()=>openCharacter(c.id);
+  row.querySelectorAll(".weekly-pill,.task-pill").forEach(btn=>btn.onclick=()=>openCharacter(c.id));
+
+  const handle=row.querySelector(".char-drag-handle");
+  handle.addEventListener("dragstart",e=>{
+   if(q){e.preventDefault();toast("Zmiana kolejności wyłączona","Wyczyść pole wyszukiwania postaci.","warn");return}
+   draggedCharId=c.id;draggedCharPlacement=null;
+   e.dataTransfer.effectAllowed="move";e.dataTransfer.setData("text/plain",c.id);
+   requestAnimationFrame(()=>row.classList.add("dragging-char"));
+  });
+  row.addEventListener("dragover",e=>{
+   if(!draggedCharId||draggedCharId===c.id)return;
+   e.preventDefault();e.dataTransfer.dropEffect="move";
+   const rect=row.getBoundingClientRect(),after=e.clientY>rect.top+rect.height/2;
+   draggedCharPlacement={targetId:c.id,after};
+   row.classList.toggle("drag-over-before",!after);row.classList.toggle("drag-over-after",after);
+  });
+  row.addEventListener("dragleave",e=>{
+   if(!row.contains(e.relatedTarget))row.classList.remove("drag-over-before","drag-over-after");
+  });
+  row.addEventListener("drop",e=>{
+   if(!draggedCharId)return;e.preventDefault();
+   const rect=row.getBoundingClientRect(),after=e.clientY>rect.top+rect.height/2;
+   const id=draggedCharId;draggedCharId=null;draggedCharPlacement=null;clearCharacterDragClasses();
+   reorderCharacter(id,c.id,after);
+  });
+  handle.addEventListener("dragend",()=>{
+   draggedCharId=null;draggedCharPlacement=null;clearCharacterDragClasses();
+  });
+
   list.appendChild(row);
  });
  const infos=state.characters.map(bioInfo);
  document.getElementById("charCount").textContent=state.characters.length;
- document.getElementById("bioReadyCount").textContent=infos.filter(x=>x.state==='ready').length;
- document.getElementById("bioTimerCount").textContent=infos.filter(x=>x.state==='cool').length;
+ document.getElementById("bioReadyCount").textContent=infos.filter(x=>x.state==="ready").length;
+ document.getElementById("bioTimerCount").textContent=infos.filter(x=>x.state==="cool").length;
  const waits=[];state.characters.forEach(c=>c.weeklies.forEach(w=>{if(w.readyAt&&w.readyAt>Date.now())waits.push(w.readyAt-Date.now())}));
  document.getElementById("weeklyResetKpi").textContent=waits.length?formatLong(Math.min(...waits)):"—";
 }
 function newCharacter(){
  const level=1;
- return{id:uid(),name:"Nowa postać",className:"Wojownik",level,biolog:migrateBiolog({},level),weeklies:defaultWeeklies()};
+ return{id:uid(),name:"Nowa postać",className:"Wojownik",level,biolog:migrateBiolog({},level),weeklies:defaultWeeklies(),horse:normalizeHorse({level:0}),skills:[]};
 }
 function getEditingChar(){return state.characters.find(c=>c.id===editingCharId)}
 function openCharacter(id=null){
@@ -1215,12 +1423,118 @@ function renderBioMissionCard(c){
  document.getElementById("bioReady").disabled=!isCurrent||!timerActive||c.biolog.finished;
  document.getElementById("bioSetCurrent").style.display=isCurrent?"none":"inline-block";
 }
+
+function renderHorseEditor(c){
+ const el=document.getElementById("horseEditor");if(!el)return;
+ const h=c.horse=normalizeHorse(c.horse||{}),info=horseInfo(c),active=h.readyAt&&h.readyAt>Date.now();
+ const rem=active?splitDHM(h.readyAt-Date.now()):{d:0,h:0,m:0};
+ el.innerHTML=`<div class="horse-card">
+  <div class="horse-head"><div><h5>Misja konna</h5><div class="horse-note">Aktualny poziom konia możesz zmienić ręcznie.</div></div><span id="horseLiveStatus" class="horse-status ${info.state}">${info.label}${active?" • "+info.text:""}</span></div>
+  <div class="horse-grid">
+   <div class="horse-level-wrap"><label>Poziom konia</label><input id="horseLevelInput" type="number" min="0" max="30" value="${h.level}"></div>
+   <div class="horse-live"><small>Następna misja / próba</small><b id="horseLiveText">${h.level>=30?"Koń osiągnął Lv.30":active?formatLong(h.readyAt-Date.now()):"GOTOWA TERAZ"}</b></div>
+  </div>
+  <div class="horse-actions">
+   <button class="btn primary" id="horseSuccess" ${h.level>=30?"disabled":""}>✓ Udana próba +1 lvl</button>
+   <button class="btn" id="horseFailed" ${h.level>=30?"disabled":""}>✕ Nieudana próba</button>
+   <button class="btn" id="horseReady">Gotowy teraz</button>
+  </div>
+  <details class="manual-time">
+   <summary>✎ Ręcznie ustaw timer misji konnej</summary>
+   <div class="manual-grid weekly">
+    <div class="manual-field"><label>Dni pozostało</label><input id="horseManualD" type="number" min="0" value="${rem.d}"></div>
+    <div class="manual-field"><label>Godz.</label><input id="horseManualH" type="number" min="0" max="23" value="${rem.h}"></div>
+    <div class="manual-field"><label>Min.</label><input id="horseManualM" type="number" min="0" max="59" value="${rem.m}"></div>
+    <button class="manual-apply" id="horseManualApply">Ustaw</button>
+   </div>
+  </details>
+  <div class="horse-note"><strong>Automatyka:</strong> udana próba przy koniu Lv.21 lub wyższym podnosi poziom o 1 i ustawia 3 dni cooldownu. Do Lv.21 aplikacja nie narzuca automatycznego cooldownu — możesz ustawić go ręcznie.</div>
+ </div>`;
+
+ document.getElementById("horseLevelInput").onchange=e=>{
+  h.level=Math.max(0,Math.min(30,Number(e.target.value)||0));
+  if(h.level>=30)h.readyAt=null;
+  save();
+  setTimeout(()=>{renderHorseEditor(c);renderCharacters();renderDashboard()},0);
+ };
+ document.getElementById("horseSuccess").onclick=()=>{
+  if(h.level>=30)return;
+  if(h.readyAt&&h.readyAt>Date.now()){toast("Koń ma aktywny timer",formatLong(h.readyAt-Date.now()),"warn");return}
+  const old=h.level;h.level=Math.min(30,h.level+1);h.lastResult="success";h.lastSuccessAt=Date.now();
+  if(old>=21&&h.level<=30&&h.level>old)h.readyAt=Date.now()+3*86400000;else h.readyAt=null;
+  logAction("🐎",`${c.name} • koń Lv.${old} → ${h.level}`,old>=21?"Udana próba — cooldown 3 dni":"Udana próba");
+  save();renderHorseEditor(c);renderCharacters();renderDashboard();
+ };
+ document.getElementById("horseFailed").onclick=()=>{
+  h.lastResult="failed";
+  logAction("🐎",`${c.name} • nieudana misja konna`,`Koń Lv.${h.level}`);
+  save();toast("Nieudana próba","Poziom konia bez zmian. Timer ustaw ręcznie, jeśli potrzebujesz.","warn");
+ };
+ document.getElementById("horseReady").onclick=()=>{
+  h.readyAt=null;save();logAction("🐎",`${c.name} • misja konna gotowa`,`Koń Lv.${h.level}`);
+  renderHorseEditor(c);renderCharacters();renderDashboard();
+ };
+ document.getElementById("horseManualApply").onclick=()=>{
+  const d=nval(document.getElementById("horseManualD")),hh=Math.min(23,nval(document.getElementById("horseManualH"))),m=Math.min(59,nval(document.getElementById("horseManualM")));
+  const ms=(d*1440+hh*60+m)*60000;h.readyAt=ms?Date.now()+ms:null;
+  save();logAction("🐎",`${c.name} • ręczny timer konia`,ms?formatLong(ms):"Gotowy teraz");
+  renderHorseEditor(c);renderCharacters();renderDashboard();
+ };
+}
+function renderSkillEditor(c){
+ const el=document.getElementById("skillEditor");if(!el)return;
+ c.skills=normalizeSkills(c.skills);
+ if(!c.skills.length){el.innerHTML='<div class="skill-empty">Brak timerów umiejętności. Dodaj np. Czarowane Ostrze, Aura Miecza albo dowolną księgę.</div>';return}
+ el.innerHTML="";
+ c.skills.forEach(s=>{
+  const info=skillInfo(s),active=s.readyAt&&s.readyAt>Date.now(),rem=active?splitDHM(s.readyAt-Date.now()):{d:0,h:0,m:0};
+  const card=document.createElement("div");card.className="skill-card";card.dataset.skillId=s.id;
+  card.innerHTML=`<div class="skill-head"><div><h5>${esc(s.name)}</h5><div class="skill-note">Własny timer umiejętności / księgi.</div></div><span class="skill-status ${info.state}" data-skill-live-status="${s.id}">${info.label}${active?" • "+info.text:""}</span></div>
+   <div class="skill-card-grid">
+    <div class="skill-field"><label>Nazwa</label><input class="skill-name-input" value="${esc(s.name)}"></div>
+    <div class="skill-field"><label>Cooldown (h)</label><input class="skill-cd-input" type="number" min="0" step="0.5" value="${s.cooldownHours}"></div>
+   </div>
+   <div class="skill-timer-box"><small>Status</small><b data-skill-live-text="${s.id}">${active?formatLong(s.readyAt-Date.now()):"GOTOWA TERAZ"}</b></div>
+   <div class="skill-actions"><button class="btn primary skill-use">Użyto teraz</button><button class="btn skill-ready">Gotowa teraz</button><button class="btn danger skill-delete">Usuń timer</button></div>
+   <details class="manual-time">
+    <summary>✎ Ręcznie ustaw pozostały czas</summary>
+    <div class="skill-manual">
+     <div class="skill-field"><label>Dni</label><input class="skill-d" type="number" min="0" value="${rem.d}"></div>
+     <div class="skill-field"><label>Godz.</label><input class="skill-h" type="number" min="0" max="23" value="${rem.h}"></div>
+     <div class="skill-field"><label>Min.</label><input class="skill-m" type="number" min="0" max="59" value="${rem.m}"></div>
+     <button class="manual-apply skill-manual-apply">Ustaw</button>
+    </div>
+   </details>`;
+  const nameInput=card.querySelector(".skill-name-input"),cdInput=card.querySelector(".skill-cd-input");
+  nameInput.onchange=()=>{s.name=nameInput.value.trim()||"Umiejętność";save();setTimeout(()=>{renderSkillEditor(c);renderCharacters();renderDashboard()},0)};
+  cdInput.onchange=()=>{s.cooldownHours=Math.max(0,Number(cdInput.value)||0);save()};
+  card.querySelector(".skill-use").onclick=()=>{
+   s.name=nameInput.value.trim()||s.name;s.cooldownHours=Math.max(0,Number(cdInput.value)||0);
+   s.lastUsedAt=Date.now();s.readyAt=s.cooldownHours?Date.now()+s.cooldownHours*3600000:null;
+   save();logAction("📚",`${c.name} • ${s.name}`,s.readyAt?`Timer ${s.cooldownHours}h`:"Gotowa bez cooldownu");
+   renderSkillEditor(c);renderCharacters();renderDashboard();
+  };
+  card.querySelector(".skill-ready").onclick=()=>{s.readyAt=null;save();logAction("📚",`${c.name} • ${s.name}`,"Gotowa teraz");renderSkillEditor(c);renderCharacters();renderDashboard()};
+  card.querySelector(".skill-delete").onclick=()=>{
+   if(!confirm(`Usunąć timer "${s.name}"?`))return;
+   c.skills=c.skills.filter(x=>x.id!==s.id);save();logAction("📚",`${c.name} • usunięto timer`,s.name);renderSkillEditor(c);renderCharacters();renderDashboard();
+  };
+  card.querySelector(".skill-manual-apply").onclick=()=>{
+   const d=nval(card.querySelector(".skill-d")),hh=Math.min(23,nval(card.querySelector(".skill-h"))),m=Math.min(59,nval(card.querySelector(".skill-m")));
+   const ms=(d*1440+hh*60+m)*60000;s.readyAt=ms?Date.now()+ms:null;save();
+   logAction("📚",`${c.name} • ${s.name}`,ms?`Ręczny timer ${formatLong(ms)}`:"Gotowa teraz");
+   renderSkillEditor(c);renderCharacters();renderDashboard();
+  };
+  el.appendChild(card);
+ });
+}
+
 function fillCharacterModal(){
  const c=getEditingChar();if(!c)return;
  document.getElementById("charModalTitle").textContent=c.name;
- document.getElementById("charModalSub").textContent=`${c.className} • Lv. ${c.level}`;
+ document.getElementById("charModalSub").textContent=`${c.className} • Lv. ${c.level} • Koń Lv.${c.horse?.level||0}`;
  document.getElementById("charName").value=c.name;document.getElementById("charClass").value=c.className;document.getElementById("charLevel").value=c.level;
- renderBioTabs(c);renderBioMissionCard(c);renderWeeklyEditor(c);
+ renderBioTabs(c);renderBioMissionCard(c);renderWeeklyEditor(c);renderHorseEditor(c);renderSkillEditor(c);
 }
 function completeBioItem(c,accepted){
  const b=c.biolog,m=currentBioMission(c),now=Date.now();
@@ -1325,6 +1639,14 @@ function updateCharacterModalLive(){
   const card=el.closest(".weekly-card-v2");
   if(card)card.className=`weekly-card-v2 ${wi.state}`;
  });
+ const hi=horseInfo(c),horseStatus=document.getElementById("horseLiveStatus"),horseText=document.getElementById("horseLiveText");
+ if(horseStatus){horseStatus.className=`horse-status ${hi.state}`;horseStatus.textContent=hi.label+(hi.state==="cool"?" • "+hi.text:"")}
+ if(horseText)horseText.textContent=c.horse.level>=30?"Koń osiągnął Lv.30":(c.horse.readyAt&&c.horse.readyAt>Date.now()?formatLong(c.horse.readyAt-Date.now()):"GOTOWA TERAZ");
+ (c.skills||[]).forEach(s=>{
+  const si=skillInfo(s),status=document.querySelector(`[data-skill-live-status="${s.id}"]`),txt=document.querySelector(`[data-skill-live-text="${s.id}"]`);
+  if(status){status.className=`skill-status ${si.state}`;status.textContent=si.label+(si.state==="cool"?" • "+si.text:"")}
+  if(txt)txt.textContent=s.readyAt&&s.readyAt>Date.now()?formatLong(s.readyAt-Date.now()):"GOTOWA TERAZ";
+ });
 }
 
 function setView(v){
@@ -1422,6 +1744,17 @@ document.getElementById("bioSetCurrent").onclick=()=>{const c=getEditingChar();i
 document.getElementById("bioReset").onclick=()=>{const c=getEditingChar();if(!c||!confirm("Wyzerować cały biolog tej postaci?"))return;c.biolog=migrateBiolog({},c.level);bioViewIndex=c.biolog.missionIndex;save();fillCharacterModal();renderCharacters()};
 document.getElementById("resetWeeklyChar").onclick=()=>{const c=getEditingChar();if(!c)return;c.weeklies=defaultWeeklies();save();renderWeeklyEditor(c);renderCharacters()};
 
+document.getElementById("addSkillTimer").onclick=()=>{
+ const c=getEditingChar();if(!c)return;
+ const name=document.getElementById("newSkillName").value.trim()||"Umiejętność";
+ const cooldown=Math.max(0,Number(document.getElementById("newSkillCooldown").value)||0);
+ c.skills.push({id:uid(),name,cooldownHours:cooldown,readyAt:null,lastUsedAt:null});
+ document.getElementById("newSkillName").value="";
+ save();logAction("📚",`${c.name} • dodano timer`,`${name} • ${cooldown}h`);
+ renderSkillEditor(c);renderCharacters();renderDashboard();
+};
+
+
 
 document.addEventListener("keydown",e=>{
  const tag=(document.activeElement?.tagName||"").toLowerCase(),typing=["input","textarea","select"].includes(tag);
@@ -1434,8 +1767,8 @@ document.addEventListener("keydown",e=>{
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;const b=document.getElementById("installBtn");if(b)b.style.display="inline-block"});
 document.getElementById("installBtn").onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;document.getElementById("installBtn").style.display="none"};
 
-function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});updateDashboardLive();refreshWeeklyCooldowns();renderList();renderStats();updateMarkerStates();renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))updateDrawerLive();if(document.getElementById("charBg").classList.contains("show"))updateCharacterModalLive();checkBeeps()}
-load();financeDate=localISODate();resetFinanceSessionForm();resetFinanceLedgerForm();save();renderAll();tick();if(!getBackups().length)createLocalBackup("Pierwszy backup v6.0",true);setInterval(tick,1000);setInterval(()=>createLocalBackup("Auto-backup 15 min",true),15*60*1000);
+function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});updateDashboardLive();refreshWeeklyCooldowns();refreshCharacterTaskCooldowns();renderList();renderStats();updateMarkerStates();if(!draggedCharId)renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))updateDrawerLive();if(document.getElementById("charBg").classList.contains("show"))updateCharacterModalLive();checkBeeps()}
+load();financeDate=localISODate();resetFinanceSessionForm();resetFinanceLedgerForm();save();renderAll();tick();if(!getBackups().length)createLocalBackup("Pierwszy backup v6.2",true);setInterval(tick,1000);setInterval(()=>createLocalBackup("Auto-backup 15 min",true),15*60*1000);
 if("serviceWorker"in navigator&&location.protocol.startsWith("http")){
  navigator.serviceWorker.register("./sw.js").then(r=>r.update()).catch(()=>{});
 }
