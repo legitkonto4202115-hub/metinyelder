@@ -1,10 +1,12 @@
 {
-  "name": "ElderMT2 — Tracker v5.1.2",
-  "short_name": "Elder Tracker",
-  "start_url": "./index.html",
+  "name": "ElderMT2 — ULTIMATE Command Center v6.1.1",
+  "short_name": "Elder ULTIMATE",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0f0e0c",
-  "theme_color": "#17130f",
+  "background_color": "#090806",
+  "theme_color": "#120d08",
+  "description": "Respy, postacie, biolog, obozy, zarobek, tobołek, wydatki i analityka ElderMT2.",
   "icons": [
     {
       "src": "icon.svg",

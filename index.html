@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — ULTIMATE Command Center v6.1</title>
+<title>ElderMT2 — ULTIMATE Command Center v6.1.1</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -141,7 +141,7 @@ button{cursor:pointer}
 
 
 /* =========================================================
-   v6.1 ULTIMATE — BLACK GOLD / COMMAND CENTER
+   v6.1.1 ULTIMATE — BLACK GOLD / COMMAND CENTER
    ========================================================= */
 :root{--gold:#d7aa52;--gold2:#f0cf86;--gold3:#8b642d;--glass:#17130fe8;--glass2:#100e0ccd;--ink:#090806}
 html{scroll-behavior:smooth}
@@ -257,7 +257,7 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
 <body>
 <div class="app">
  <div class="topbar">
-  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.1 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
+  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.1.1 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
   <div class="view-tabs"><button class="view-tab" id="viewDash">Centrum <span class="hotkey">D</span></button><button class="view-tab active" id="viewResps">Respy <span class="hotkey">R</span></button><button class="view-tab" id="viewChars">Postacie <span class="hotkey">P</span></button><button class="view-tab" id="viewFinance">Zarobek <span class="hotkey">Z</span></button></div><div class="map-tabs" id="mapTabs"></div>
   <div class="controls" id="respControls">
    <button class="btn" id="cmdBtn">⌘ Szukaj</button>
@@ -476,7 +476,7 @@ body.finance-mode .map-tabs,body.finance-mode #respControls{display:none}
 </div>
 <div class="data-bg" id="dataBg"><div class="data-box">
  <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, timery, postacie, biologa i misje tygodniowe na drugi komputer.</p>
- <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.1 ULTIMATE</b></div></div>
+ <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.1.1 ULTIMATE</b></div></div>
  <textarea id="dataText" placeholder="Tutaj pojawi się kod eksportu lub wklej backup do importu."></textarea>
  <div style="display:flex;gap:7px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" id="exportBtn">Generuj eksport</button><button class="btn" id="importBtn">Importuj</button><button class="btn" id="backupBtn">Utwórz backup lokalny</button><button class="btn" id="restoreBackupBtn">Przywróć ostatni backup</button><button class="btn" id="dataClose">Zamknij</button></div>
 </div></div>
@@ -1436,6 +1436,8 @@ document.getElementById("installBtn").onclick=async()=>{if(!deferredInstallPromp
 
 function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});updateDashboardLive();refreshWeeklyCooldowns();renderList();renderStats();updateMarkerStates();renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))updateDrawerLive();if(document.getElementById("charBg").classList.contains("show"))updateCharacterModalLive();checkBeeps()}
 load();financeDate=localISODate();resetFinanceSessionForm();resetFinanceLedgerForm();save();renderAll();tick();if(!getBackups().length)createLocalBackup("Pierwszy backup v6.0",true);setInterval(tick,1000);setInterval(()=>createLocalBackup("Auto-backup 15 min",true),15*60*1000);
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+if("serviceWorker"in navigator&&location.protocol.startsWith("http")){
+ navigator.serviceWorker.register("./sw.js").then(r=>r.update()).catch(()=>{});
+}
 </script>
 </body></html>

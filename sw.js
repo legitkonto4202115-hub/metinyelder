@@ -1,1 +1,55 @@
-const C='elder-metin-v5-1-2-marker-fix',A=['./','./index.html','./manifest.webmanifest','./icon.svg'];self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(resp=>{let cp=resp.clone();caches.open(C).then(c=>c.put(e.request,cp)).catch(()=>{});return resp;}))));
+const CACHE='elder-metin-v6-1-1-fixed';
+const SHELL=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+
+self.addEventListener('install',event=>{
+  self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE).then(cache=>cache.addAll(SHELL))
+  );
+});
+
+self.addEventListener('activate',event=>{
+  event.waitUntil(
+    caches.keys()
+      .then(keys=>Promise.all(
+        keys
+          .filter(key=>key!==CACHE && key.startsWith('elder-metin-'))
+          .map(key=>caches.delete(key))
+      ))
+      .then(()=>self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch',event=>{
+  const req=event.request;
+  if(req.method!=='GET') return;
+
+  const url=new URL(req.url);
+  if(url.origin!==self.location.origin) return;
+
+  // HTML/navigation must prefer the network so a new deploy is not hidden
+  // behind an old cached index.html.
+  if(req.mode==='navigate' || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/')){
+    event.respondWith(
+      fetch(req)
+        .then(resp=>{
+          const copy=resp.clone();
+          caches.open(CACHE).then(cache=>cache.put('./index.html',copy)).catch(()=>{});
+          return resp;
+        })
+        .catch(()=>caches.match('./index.html').then(r=>r||caches.match('./')))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(req).then(cached=>{
+      if(cached) return cached;
+      return fetch(req).then(resp=>{
+        const copy=resp.clone();
+        caches.open(CACHE).then(cache=>cache.put(req,copy)).catch(()=>{});
+        return resp;
+      });
+    })
+  );
+});
