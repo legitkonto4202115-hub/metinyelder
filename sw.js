@@ -1,4 +1,4 @@
-const CACHE='elder-metin-v6-7-researched-db';
+const CACHE='elder-metin-v6-8-full-local-wiki';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install',event=>{

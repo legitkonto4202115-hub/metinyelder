@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — ULTIMATE Command Center v6.7</title>
+<title>ElderMT2 — ULTIMATE Command Center v6.8</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -141,7 +141,7 @@ button{cursor:pointer}
 
 
 /* =========================================================
-   v6.7 ULTIMATE — BLACK GOLD / COMMAND CENTER
+   v6.8 ULTIMATE — BLACK GOLD / COMMAND CENTER
    ========================================================= */
 :root{--gold:#d7aa52;--gold2:#f0cf86;--gold3:#8b642d;--glass:#17130fe8;--glass2:#100e0ccd;--ink:#090806}
 html{scroll-behavior:smooth}
@@ -1053,12 +1053,106 @@ body.items-mode .map-tabs,body.items-mode #respControls{display:none}
  .item-summary-grid{grid-template-columns:1fr}
 }
 
+
+/* =========================================================
+   v6.8 — FULL LOCAL WIKI
+   ========================================================= */
+body.drop-mode .map-tabs,body.drop-mode #respControls,
+body.items-mode .map-tabs,body.items-mode #respControls{display:none}
+
+.localwiki-wrap{margin-top:13px;display:grid;gap:11px}
+.localwiki-hero{
+ display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+ padding:17px 18px;border:1px solid #62492b;border-radius:16px;
+ background:radial-gradient(circle at 90% -25%,#c99b4122,transparent 38%),linear-gradient(135deg,#21170e,#100e0b 58%,#0b0a08);
+ box-shadow:0 20px 60px #0007,inset 0 1px #ffffff08
+}
+.localwiki-eyebrow{font-size:8px;letter-spacing:1.1px;font-weight:900;color:#8f7d60;margin-bottom:4px}
+.localwiki-hero h2{margin:0;font-size:23px}.localwiki-hero h2 span{color:#e9c97f}
+.localwiki-hero p{margin:5px 0 0;max-width:860px;color:#908475;font-size:10px;line-height:1.55}
+.localwiki-tools{display:flex;gap:6px;flex-wrap:wrap}
+.localwiki-tools input,.localwiki-tools select{
+ min-height:36px;background:#0b0a08;color:#eee;border:1px solid #463a2c;border-radius:8px;padding:8px
+}
+.localwiki-tools input{min-width:280px}
+.localwiki-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.localwiki-trust>div{border:1px solid #373027;background:#100f0c;border-radius:9px;padding:8px 9px;display:grid;gap:3px}
+.localwiki-trust b{font-size:8px;letter-spacing:.45px}.localwiki-trust span{font-size:7.5px;color:#786f63}
+.lw-elder{color:#78d68c}.lw-classic{color:#dfc165}.lw-own{color:#83bce1}
+.localwiki-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.localwiki-tab{border:1px solid #382f25;background:#11100d;color:#9f9382;border-radius:8px;padding:8px 10px;font-size:8.5px;font-weight:900}
+.localwiki-tab.active,.localwiki-tab:hover{border-color:#72542f;color:#f0d18b;background:#1e160f}
+.localwiki-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.localwiki-stats>div{border:1px solid #382f25;background:linear-gradient(155deg,#15120f,#0d0c0a);border-radius:10px;padding:9px 10px}
+.localwiki-stats small{display:block;color:#786f63;font-size:7px;text-transform:uppercase;letter-spacing:.45px}
+.localwiki-stats b{display:block;margin-top:3px;font-size:16px}
+.localwiki-content{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:11px}
+.localwiki-index,.localwiki-sidecard,.itemwiki-listcard,.itemwiki-maincard{
+ border:1px solid #3a3128;background:linear-gradient(160deg,#15120f,#0d0c0a);border-radius:13px;
+ box-shadow:0 12px 35px #0003,inset 0 1px #ffffff05
+}
+.localwiki-index-head,.itemwiki-listhead,.itemwiki-mainhead{
+ display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:11px 12px;border-bottom:1px solid #302920
+}
+.localwiki-index-head h3,.itemwiki-listhead h3,.itemwiki-mainhead h3{margin:0;font-size:12px}
+.localwiki-index-head span,.itemwiki-listhead span,.itemwiki-mainhead span{font-size:8px;color:#7a7165}
+.localwiki-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:8px}
+.lw-entry{border:1px solid #332c23;background:#0e0d0b;border-radius:10px;padding:9px;text-align:left;color:inherit;cursor:pointer;min-width:0}
+.lw-entry:hover{border-color:#5c472f;background:#14110e;transform:translateY(-1px)}
+.lw-entry-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.lw-entry h4{margin:0;font-size:11px}.lw-type{border:1px solid #3d3429;border-radius:99px;padding:3px 6px;font-size:7px;white-space:nowrap;color:#9e927f}
+.lw-type.boss{border-color:#623838;color:#e38b8b}.lw-type.metin{border-color:#685625;color:#e1c568}
+.lw-entry-meta{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.lw-entry-meta span{border:1px solid #2f2921;border-radius:6px;padding:3px 5px;font-size:7px;color:#7e7569}
+.lw-entry-line{margin-top:7px;color:#a99b89;font-size:8px;line-height:1.45}
+.lw-entry-line b{color:#dbc38b}
+.localwiki-sidebar{display:grid;gap:8px;align-content:start}
+.localwiki-sidecard{padding:10px}.localwiki-sidecard h3{margin:0;font-size:10px}.localwiki-sidecard p{margin:5px 0 0;color:#81776a;font-size:8px;line-height:1.55}.localwiki-sidecard b{color:#cbb17a}
+
+.itemwiki-layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:11px}
+.itemwiki-list{display:grid;gap:5px;padding:8px;max-height:760px;overflow:auto}
+.itemwiki-btn{border:1px solid #302921;background:#0e0d0b;color:#c7baa7;border-radius:8px;padding:8px;text-align:left;cursor:pointer}
+.itemwiki-btn:hover,.itemwiki-btn.active{border-color:#6b502f;background:#19140e}
+.itemwiki-btn b{display:block;font-size:9px}.itemwiki-btn small{display:block;color:#766d61;font-size:7px;margin-top:2px}
+.itemwiki-range{display:flex;gap:5px;flex-wrap:wrap}
+.itemwiki-range select{min-height:32px;background:#0b0a08;color:#eee;border:1px solid #40352a;border-radius:7px;padding:6px;font-size:8px}
+.local-fulltable{max-height:620px!important}
+.itemwiki-source-note{padding:9px 10px;border-top:1px solid #302920;color:#7b7165;font-size:8px;line-height:1.5}
+
+.lw-modal-bg{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:10002}
+.lw-modal-bg.show{display:flex}
+.lw-modal{width:min(1040px,96vw);max-height:92vh;overflow:auto;border:1px solid #674d2f;background:linear-gradient(160deg,#17130f,#0d0c0a);border-radius:15px;box-shadow:0 35px 100px #000b}
+.lw-modal-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 13px;border-bottom:1px solid #352d24;background:#13100dF5;backdrop-filter:blur(10px)}
+.lw-modal-head h3{margin:0;font-size:15px}.lw-modal-head p{margin:3px 0 0;color:#817668;font-size:8px}
+.lw-modal-body{padding:11px;display:grid;gap:9px}
+.lw-facts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.lw-fact{border:1px solid #302920;background:#0c0b09;border-radius:8px;padding:7px}.lw-fact small{display:block;color:#71685e;font-size:7px;text-transform:uppercase}.lw-fact b{display:block;margin-top:3px;font-size:9px}
+.lw-dropcols{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.lw-dropcol{border:1px solid #342c23;background:#0e0d0b;border-radius:9px;padding:8px}.lw-dropcol h4{margin:0 0 6px;font-size:9px;color:#d9be80}.lw-dropcol p{margin:0;color:#a39684;font-size:8px;line-height:1.55}
+.lw-warning{border:1px solid #5a4826;background:#18140d;border-radius:8px;padding:8px;color:#b39d72;font-size:8px;line-height:1.5}
+.lw-measure-panel{border:1px solid #334758;background:#0d1216;border-radius:9px;padding:8px}
+.lw-measure-panel h4{margin:0 0 6px;font-size:9px;color:#86badc}
+.lw-measure-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:5px}.lw-measure-grid input{background:#0a0b0c;color:#eee;border:1px solid #33424d;border-radius:6px;padding:7px}.lw-measure-grid button{border:1px solid #496679;background:#14202a;color:#9ac9e8;border-radius:6px;padding:7px;font-size:8px}
+
+@media(max-width:1100px){
+ .localwiki-content,.itemwiki-layout{grid-template-columns:1fr}
+ .localwiki-sidebar{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:780px){
+ .localwiki-grid{grid-template-columns:1fr}.localwiki-trust,.localwiki-sidebar{grid-template-columns:1fr}
+ .localwiki-stats{grid-template-columns:1fr 1fr}.lw-facts,.lw-dropcols{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ .localwiki-stats{grid-template-columns:1fr}.lw-facts,.lw-dropcols{grid-template-columns:1fr}
+ .lw-measure-grid{grid-template-columns:1fr 1fr}.lw-measure-grid button{grid-column:1/-1}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
  <div class="topbar">
-  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.7 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
+  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.8 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
   <div class="view-tabs"><button class="view-tab" id="viewDash">Centrum <span class="hotkey">D</span></button><button class="view-tab active" id="viewResps">Respy <span class="hotkey">R</span></button><button class="view-tab" id="viewChars">Postacie <span class="hotkey">P</span></button><button class="view-tab" id="viewFinance">Zarobek <span class="hotkey">Z</span></button><button class="view-tab" id="viewBosses">Bossy <span class="hotkey">B</span></button><button class="view-tab" id="viewDrop">Drop <span class="hotkey">O</span></button><button class="view-tab" id="viewItems">Itemy <span class="hotkey">I</span></button></div><div class="map-tabs" id="mapTabs"></div>
   <div class="controls" id="respControls">
    <button class="btn" id="cmdBtn">⌘ Szukaj</button>
@@ -1116,134 +1210,124 @@ body.items-mode .map-tabs,body.items-mode #respControls{display:none}
  </div></div>
 
  <div class="view" id="dropView">
-  <div class="research-wrap">
-   <section class="research-hero">
+  <div class="localwiki-wrap">
+   <section class="localwiki-hero">
     <div>
-     <div class="research-eyebrow">ELDERMT2 • RESEARCHED DATABASE</div>
-     <h2>📦 Bestiariusz <span>Drop & Yang</span></h2>
-     <p>Rozdzielone źródła: potwierdzone dane ElderMT2, referencja klasycznego Metin2 oraz Twój własny pomiar z Eldera. Nic nie jest już podpisywane jako „Elder”, jeśli nie ma na to publicznego potwierdzenia.</p>
+     <div class="localwiki-eyebrow">ELDERMT2 • TWOJA LOKALNA WIKI</div>
+     <h2>📦 Bestiariusz <span>Drop / Yang / Respy</span></h2>
+     <p>Cała baza działa bez odsyłania Cię do zewnętrznej wiki. Klikasz przeciwnika i dostajesz lokalną kartę: mapa, poziom, resp, drop, Yang oraz własne pomiary.</p>
     </div>
-    <div class="research-tools">
-     <input id="dropSearch" placeholder="Potwór, Metin, item, mapa...">
+    <div class="localwiki-tools">
+     <input id="dropSearch" placeholder="Szukaj moba, metina, itemu lub mapy...">
      <select id="dropMapFilter"><option value="">Wszystkie mapy</option></select>
     </div>
    </section>
 
-   <section class="trust-strip">
-    <div class="trust-item elder"><i></i><b>ELDER ✓</b><span>potwierdzone przez ElderMT2 Wiki</span></div>
-    <div class="trust-item classic"><i></i><b>CLASSIC REF.</b><span>bazowe GOLD_MIN–GOLD_MAX z publicznego mob_proto</span></div>
-    <div class="trust-item measured"><i></i><b>TWÓJ ELDER</b><span>średnia z Twoich realnych pomiarów</span></div>
+   <section class="localwiki-trust">
+    <div><b class="lw-elder">ELDER ✓</b><span>dane potwierdzone publicznie dla Eldera</span></div>
+    <div><b class="lw-classic">CLASSIC REF.</b><span>orientacyjny zakres Yang ze standardowego mob_proto</span></div>
+    <div><b class="lw-own">TWÓJ POMIAR</b><span>Twoja średnia z realnej gry na Elderze</span></div>
    </section>
 
-   <section class="research-kpis">
-    <div class="research-kpi"><small>Metiny Elder</small><b id="dropMetinCount">19</b><em>pełna oficjalna rozpiska</em></div>
-    <div class="research-kpi"><small>Bestiariusz</small><b id="dropMobCount">0</b><em>osobne rekordy</em></div>
-    <div class="research-kpi"><small>Classic Yang DB</small><b id="classicYangStatus">Ładowanie…</b><em>referencja, nie Elder</em></div>
-    <div class="research-kpi"><small>Twoje pomiary</small><b id="dropMeasuredCount">0</b><em>Yang / resp</em></div>
-    <div class="research-kpi"><small>Mapy / respy</small><b>11</b><em>Elder open-world</em></div>
+   <section class="localwiki-tabs">
+    <button class="localwiki-tab active" data-drop-tab="mobs">👹 Potwory i bossy</button>
+    <button class="localwiki-tab" data-drop-tab="metins">💎 Metiny</button>
+    <button class="localwiki-tab" data-drop-tab="resps">⏱ Respy map</button>
    </section>
 
-   <section class="research-tabs">
-    <button class="research-tab active" data-drop-tab="mobs">👹 Potwory / Bossy</button>
-    <button class="research-tab" data-drop-tab="metins">💎 Kamienie Metin</button>
-    <button class="research-tab" data-drop-tab="resps">⏱ Respy map</button>
-    <button class="research-tab" data-drop-tab="wiki">📚 Pełna Wikipedia Dropu</button>
+   <section class="localwiki-stats">
+    <div><small>Potwory / bossy</small><b id="dropMobCount">0</b></div>
+    <div><small>Metiny</small><b id="dropMetinCount">19</b></div>
+    <div><small>Twoje pomiary</small><b id="dropMeasuredCount">0</b></div>
+    <div><small>Widoczne wyniki</small><b id="dropVisibleCount">0</b></div>
    </section>
 
-   <section class="research-main" id="dropResearchMain">
-    <div class="research-list-card">
-     <div class="research-list-head">
-      <div><h3 id="dropListTitle">Potwory i bossy</h3><span id="dropListSub">każdy wpis osobno • Yang z oznaczeniem źródła</span></div>
-      <div class="research-count" id="dropVisibleCount">0</div>
-     </div>
-     <div class="research-list" id="dropEntries"></div>
+   <section class="localwiki-content">
+    <div class="localwiki-index">
+     <div class="localwiki-index-head"><div><h3 id="dropListTitle">Potwory i bossy</h3><span id="dropListSub">kliknij rekord, aby otworzyć pełną kartę</span></div></div>
+     <div class="localwiki-grid" id="dropEntries"></div>
     </div>
-    <aside class="research-side">
-     <div class="source-card">
-      <h3>📚 Oficjalna Wikipedia Dropu Elder</h3>
-      <p>To jest główne źródło dokładnej puli dropu z potworów. W publicznej wersji tabela jest ładowana JavaScriptem, dlatego nie kopiuję jej „na oko” do offline bazy.</p>
-      <a href="https://wiki.eldermt2.pl/potwory/" target="_blank" rel="noopener">Otwórz Wikipedię Dropu ↗</a>
+
+    <aside class="localwiki-sidebar">
+     <div class="localwiki-sidecard">
+      <h3>Jak czytać dane</h3>
+      <p>Jeżeli Elder nie publikuje indywidualnej puli dla zwykłego moba, karta nie udaje dokładności. W takim miejscu zobaczysz wyraźne „brak publicznej indywidualnej puli”. Bossy i metiny mają osobno rozpisane potwierdzone nagrody.</p>
      </div>
-     <div class="source-card">
-      <h3>💰 Jak czytać Yang?</h3>
-      <p><b>Classic Ref.</b> pokazuje surowe GOLD_MIN/GOLD_MAX z klasycznego mob_proto dla tego samego VNUM. To nie jest gwarantowana wartość ElderMT2. <b>Twój Elder</b> to pomiar z Twojej gry i ma największą wartość praktyczną.</p>
+     <div class="localwiki-sidecard">
+      <h3>Yang</h3>
+      <p>Dokładny Yang Eldera nie jest publicznie rozpisany per mob. Dlatego karta pokazuje <b>Classic Ref.</b> i Twoją własną średnią. Twoje pomiary są zapisywane razem z całą aplikacją.</p>
      </div>
-     <div class="source-card" id="classicYangSource">
-      <h3>🔌 Classic DB</h3>
-      <p id="classicYangSourceText">Próba pobrania publicznego mob_proto…</p>
+     <div class="localwiki-sidecard">
+      <h3>Źródła wbudowanej bazy</h3>
+      <p>ElderMT2 Wiki: mapy, kamienie Metin, bossy i strony przedmiotów. Classic mob_proto służy tylko jako referencja Yang i zawsze jest oznaczony osobno.</p>
      </div>
     </aside>
-   </section>
-
-   <section class="wiki-live-card" id="dropWikiLive" style="display:none">
-    <div class="wiki-live-head">
-     <div><h3>Pełna Wikipedia Dropu — ElderMT2</h3><p>Potwory, bossy, world bossy i metiny; pule: bronie / zbroje / pozostałe.</p></div>
-     <a class="btn primary" href="https://wiki.eldermt2.pl/potwory/" target="_blank" rel="noopener">Otwórz osobno ↗</a>
-    </div>
-    <iframe class="wiki-live-frame" src="https://wiki.eldermt2.pl/potwory/" loading="lazy" referrerpolicy="no-referrer"></iframe>
    </section>
   </div>
  </div>
 
  <div class="view" id="itemsView">
-  <div class="research-wrap">
-   <section class="research-hero">
+  <div class="localwiki-wrap">
+   <section class="localwiki-hero">
     <div>
-     <div class="research-eyebrow">ELDERMT2 • ITEM DATABASE</div>
-     <h2>🛡 Przedmioty <span>& dokładne ulepszanie</span></h2>
-     <p>Stary kalkulator „Tier 1/2/3” został usunięty. Teraz kalkulator działa na rekordzie konkretnego przedmiotu. Jeżeli rekord nie został jeszcze przepisany 1:1 z oficjalnej tabeli, aplikacja kieruje do dokładnej tabeli Elder Wiki zamiast zgadywać materiały.</p>
+     <div class="localwiki-eyebrow">ELDERMT2 • TWOJA LOKALNA WIKI</div>
+     <h2>🛡 Przedmioty <span>/ statystyki / ulepszanie</span></h2>
+     <p>Bez iframe i bez „idź na wiki”. Każdy wpisany do bazy przedmiot ma własną lokalną kartę +0…+9, koszt Yang, materiały i kalkulator dokładnie dla tego itemu.</p>
     </div>
-    <div class="research-tools">
+    <div class="localwiki-tools">
+     <input id="itemSearch" placeholder="Szukaj itemu, np. Zatruty, Lwia, Ebonitowe...">
      <select id="itemCategorySelect"></select>
-     <button class="btn primary" id="openItemWikiNew">Pełna tabela kategorii ↗</button>
     </div>
    </section>
 
-   <section class="trust-strip">
-    <div class="trust-item elder"><i></i><b>ITEM-SPECIFIC</b><span>każdy zweryfikowany item ma własną tabelę +1…+9</span></div>
-    <div class="trust-item classic"><i></i><b>BEZ ZGADYWANIA</b><span>brak rekordu = oficjalna tabela, nie wspólny „tier”</span></div>
-    <div class="trust-item measured"><i></i><b>SUMOWANIE</b><span>Yang i materiały z wybranego +X → +Y</span></div>
+   <section class="localwiki-trust">
+    <div><b class="lw-elder">ITEM-SPECIFIC</b><span>materiały i Yang są przypisane do konkretnego przedmiotu</span></div>
+    <div><b class="lw-classic">+0 → +9</b><span>pełna tabela poziomów dla rekordów offline</span></div>
+    <div><b class="lw-own">KALKULATOR</b><span>sumuje koszt i materiały z wybranego zakresu</span></div>
    </section>
 
-   <section class="item-research-grid">
-    <div class="item-db-card">
-     <div class="item-db-head">
-      <div><h3>🔎 Dokładny kalkulator per item</h3><span>zweryfikowane rekordy przepisane z ElderMT2 Wiki</span></div>
-      <div class="verified-counter"><b id="verifiedItemCount">0</b><small>rekordów offline</small></div>
-     </div>
+   <section class="itemwiki-layout">
+    <aside class="itemwiki-listcard">
+     <div class="itemwiki-listhead"><div><h3>Indeks przedmiotów</h3><span><b id="verifiedItemCount">0</b> rekordów offline</span></div></div>
+     <div class="itemwiki-list" id="itemCats"></div>
+    </aside>
 
-     <div class="item-search-row">
-      <select id="exactItemSelect"></select>
-      <select id="exactFrom"></select>
-      <select id="exactTo"></select>
-      <button class="btn primary" id="exactCalc">Policz +X → +Y</button>
+    <div class="itemwiki-maincard">
+     <div class="itemwiki-mainhead">
+      <div>
+       <h3 id="localItemTitle">Wybierz przedmiot</h3>
+       <span id="localItemSubtitle">pełne dane lokalne</span>
+      </div>
+      <div class="itemwiki-range">
+       <select id="exactItemSelect"></select>
+       <select id="exactFrom"></select>
+       <select id="exactTo"></select>
+       <button class="btn primary" id="exactCalc">Policz</button>
+      </div>
      </div>
 
      <div class="exact-item-summary" id="exactItemSummary"></div>
      <div class="exact-upgrade-result" id="exactUpgradeResult"></div>
 
-     <div class="exact-table-wrap">
+     <div class="exact-table-wrap local-fulltable">
       <table class="exact-table">
-       <thead><tr><th>+</th><th>Statystyki</th><th>Yang</th><th>Materiały</th></tr></thead>
+       <thead><tr><th>Poziom</th><th>Statystyki</th><th>Koszt Yang</th><th>Wymagane materiały</th></tr></thead>
        <tbody id="exactItemTable"></tbody>
       </table>
      </div>
-    </div>
 
-    <aside class="item-catalog-card">
-     <div class="item-db-head"><div><h3>📚 Wszystkie kategorie</h3><span>pełne oficjalne tabele</span></div></div>
-     <div class="category-search"><input id="itemCategorySearch" placeholder="np. tarcze, kolczyki, sztylety..."></div>
-     <div class="item-category-list" id="itemCats"></div>
-    </aside>
-   </section>
-
-   <section class="wiki-live-card">
-    <div class="wiki-live-head">
-     <div><h3 id="itemFrameTitle">Pełna tabela przedmiotów</h3><p>Statystyki +0…+9, dokładne materiały, koszt Yang i wymagany poziom z oficjalnej ElderMT2 Wiki.</p></div>
-     <a class="btn" id="itemFrameLink" href="https://wiki.eldermt2.pl/przedmioty/" target="_blank" rel="noopener">Otwórz osobno ↗</a>
+     <div class="itemwiki-source-note">
+      Dane tej karty są zapisane bezpośrednio w Twojej aplikacji. Jeżeli przedmiotu nie ma jeszcze w indeksie, nie podstawiam mu materiałów z innego itemu.
+     </div>
     </div>
-    <iframe class="wiki-live-frame item-frame" id="itemWikiFrame" src="https://wiki.eldermt2.pl/przedmioty/" loading="lazy" referrerpolicy="no-referrer"></iframe>
    </section>
+  </div>
+ </div>
+
+ <div class="lw-modal-bg" id="lwMobModal">
+  <div class="lw-modal">
+   <div class="lw-modal-head"><div><h3 id="lwMobTitle">Potwór</h3><p id="lwMobSub"></p></div><button class="close" id="lwMobClose">×</button></div>
+   <div id="lwMobBody"></div>
   </div>
  </div>
 
@@ -1489,7 +1573,7 @@ body.items-mode .map-tabs,body.items-mode #respControls{display:none}
 
 <div class="data-bg" id="dataBg"><div class="data-box">
  <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, bossy, wszystkie timery, postacie, biologa, historię tygodniówek, konia, umiejętności, zarobek oraz Twoje pomiary Yang/resp mobów.</p>
- <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.7 ULTIMATE</b></div></div>
+ <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.8 ULTIMATE</b></div></div>
  <textarea id="dataText" placeholder="Tutaj pojawi się kod eksportu lub wklej backup do importu."></textarea>
  <div style="display:flex;gap:7px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" id="exportBtn">Generuj eksport</button><button class="btn" id="importBtn">Importuj</button><button class="btn" id="backupBtn">Utwórz backup lokalny</button><button class="btn" id="restoreBackupBtn">Przywróć ostatni backup</button><button class="btn" id="dataClose">Zamknij</button></div>
 </div></div>
@@ -2258,7 +2342,32 @@ const MOB_DB=[
  {vnum:1603,name:"Ogr Szaleniec",map:"Giganci",lvl:"75+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek wysokiego tieru; dokładnie: Wikipedia Dropu."}
 ];
 
-/* Known classic fallbacks from public Metin2 mob_proto.
+/* Known classic fallbacks
+
+const MOB_DROP_ENRICH={
+ "Wódz Orków":{weapons:"Wybrane bronie z zakresu ok. 30–55 lvl.",armors:"Wybrane zbroje z zakresu ok. 30–55 lvl.",other:"Szkatułka / ulepszacze i pozostałe nagrody zgodne z pulą bossa Elder.",source:"Elder — strona Doliny / boss"},
+ "Dziewięć Ogonów":{weapons:"Wybrane bronie z puli bossa.",armors:"Wybrane zbroje z puli bossa.",other:"Szkatułka Dziewięciu Ogonów • Magiczny Metal • Zwój Błogosławieństwa.",source:"Elder — Góra Sohan"},
+ "Ognisty Król":{weapons:"Wybrane bronie z puli Ognistego Króla.",armors:"Wybrane zbroje, tarcze i hełmy.",other:"Szkatułka Ognistego Króla • Zwój Błogosławieństwa • Księga Misji (Ekspert).",source:"Elder — Piekielna Ziemia"},
+ "Olbrzymi Żółw":{weapons:"Publiczna strona mapy nie rozpisuje osobno pełnej puli broni.",armors:"Publiczna strona mapy nie rozpisuje osobno pełnej puli zbroi.",other:"Szkatułka / cenniejszy drop bossa; szczegółowa indywidualna pula nie jest jawnie rozpisana na statycznej stronie mapy.",source:"Elder — Pustynia"},
+ "Władca Duchów Drzew":{weapons:"Publiczna strona mapy nie rozpisuje osobno pełnej puli broni.",armors:"Publiczna strona mapy nie rozpisuje osobno pełnej puli zbroi.",other:"Szkatułka i materiały ulepszające — potwierdzony charakter nagród bossa.",source:"Elder — Czerwony Las"},
+ "Yeti":{weapons:"Brak publicznej indywidualnej listy broni dla Yeti.",armors:"Brak publicznej indywidualnej listy zbroi dla Yeti.",other:"Futro Yeti+ występuje jako materiał ulepszania. Ogólny drop lodowych potworów: ekwipunek, mikstury, ulepszacze.",source:"Elder — Góra Sohan"},
+ "Zaczarowany Lód":{weapons:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",armors:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",other:"Mikstury • ulepszacze • Matowy Lód (biolog 60) z lodowych potworów.",source:"Elder — Góra Sohan"},
+ "Lodowy Wieloryb":{weapons:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",armors:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",other:"Mikstury • ulepszacze • Lodowy Róg Wieloryba jako materiał ulepszeń.",source:"Elder — Góra Sohan"}
+};
+function localMobDrop(x){
+ const e=MOB_DROP_ENRICH[x.name]||{};
+ const isBoss=x.type==="boss";
+ const generic=isBoss
+  ?"Brak pełnej indywidualnej puli na statycznej stronie źródłowej."
+  :"Brak publicznej indywidualnej puli dla tego zwykłego moba.";
+ return{
+  weapons:e.weapons||generic,
+  armors:e.armors||generic,
+  other:e.other||x.elderDrop||generic,
+  source:e.source||"Elder — dane mapy / bestiariusza"
+ };
+}
+ from public Metin2 mob_proto.
    Used ONLY if live raw mob_proto cannot be fetched. */
 const CLASSIC_YANG_FALLBACK={
  101:[18,27],102:[23,34],103:[25,38],104:[30,45],105:[37,56],106:[47,70],107:[80,120],108:[32,49],109:[56,84],110:[44,67],111:[76,114],112:[61,92],113:[100,150],114:[59,88],115:[112,168],
@@ -2271,33 +2380,7 @@ const CLASSIC_YANG_FALLBACK={
 };
 let CLASSIC_MOB_DB={...CLASSIC_YANG_FALLBACK},classicDbState="fallback";
 
-async function loadClassicMobProto(){
- const status=document.getElementById("classicYangStatus"),txt=document.getElementById("classicYangSourceText"),card=document.getElementById("classicYangSource");
- try{
-  const url="https://raw.githubusercontent.com/giosoares101/metin2-server/main/gamefiles/conf/mob_proto.txt";
-  const r=await fetch(url,{cache:"force-cache"});
-  if(!r.ok)throw new Error("HTTP "+r.status);
-  const raw=await r.text(),lines=raw.split(/\r?\n/).filter(Boolean);
-  const head=lines[0].split("\t"),iv=head.indexOf("VNUM"),ig1=head.indexOf("GOLD_MIN"),ig2=head.indexOf("GOLD_MAX"),il=head.indexOf("LEVEL"),ihp=head.indexOf("MAX_HP"),iexp=head.indexOf("EXP");
-  if(iv<0||ig1<0||ig2<0)throw new Error("nieznany format");
-  const db={};
-  for(let i=1;i<lines.length;i++){
-   const c=lines[i].split("\t"),v=Number(c[iv]);if(!v)continue;
-   db[v]={min:Number(c[ig1])||0,max:Number(c[ig2])||0,level:Number(c[il])||0,hp:Number(c[ihp])||0,exp:Number(c[iexp])||0};
-  }
-  CLASSIC_MOB_DB=db;classicDbState="live";
-  if(status)status.textContent=`${Object.keys(db).length} VNUM`;
-  if(txt)txt.textContent="Połączono z publicznym klasycznym mob_proto. Zakresy Yang są referencją klasycznego Metin2 — nie są oznaczone jako ElderMT2.";
-  if(card){card.classList.add("source-ok");card.classList.remove("source-bad")}
-  renderDrop();
- }catch(e){
-  classicDbState="fallback";
-  if(status)status.textContent=`fallback ${Object.keys(CLASSIC_YANG_FALLBACK).length}`;
-  if(txt)txt.textContent="Nie udało się pobrać pełnego mob_proto. Pokazuję lokalny fallback dla zweryfikowanych VNUM. Nadal są to wyłącznie wartości CLASSIC REF.";
-  if(card){card.classList.add("source-bad");card.classList.remove("source-ok")}
-  renderDrop();
- }
-}
+async function loadClassicMobProto(){CLASSIC_MOB_DB={...CLASSIC_YANG_FALLBACK};classicDbState="local";}
 function classicYangFor(vnum){
  const x=CLASSIC_MOB_DB[vnum];
  if(Array.isArray(x))return{min:x[0],max:x[1]};
@@ -2329,78 +2412,109 @@ function mapMatch(value,filter){
 function copyText(v,msg="Skopiowano"){
  navigator.clipboard?.writeText(v).then(()=>toast(msg,v,"good")).catch(()=>{});
 }
+
 function renderMobCards(rows){
  return rows.map(x=>{
-  const m=getDropMeasurement(x.name,x.map),cy=classicYangFor(x.vnum),classic=cy&&cy.max?`${YANG_FMT.format(cy.min)}–${YANG_FMT.format(cy.max)}`:"brak rekordu";
+  const m=getDropMeasurement(x.name,x.map),cy=classicYangFor(x.vnum),d=localMobDrop(x);
+  const classic=cy&&cy.max?`${YANG_FMT.format(cy.min)}–${YANG_FMT.format(cy.max)} Yang`:"brak rekordu";
   const measured=m.avg?`${fmtYang(m.avg,true)} / mob`:"brak pomiaru";
   const resp=m.respSec?`${m.respSec}s (Twój pomiar)`:x.resp;
-  return `<article class="mob-card">
-   <div class="mob-head"><h4>${esc(x.name)}</h4><span class="mob-type ${x.type}">${x.type==="boss"?"BOSS / MINIBOSS":"MOB"}</span></div>
-   <div class="mob-meta"><span>${esc(x.map)}</span><span>Lv. ${esc(x.lvl)}</span><span>VNUM ${x.vnum}</span></div>
-   <div class="mob-row">
-    <div class="mob-info-line"><small>Resp</small><div><span class="source-pill elder">ELDER</span>${esc(resp)}</div></div>
-    <div class="mob-info-line"><small>Drop</small><div><span class="source-pill elder">ELDER</span><strong>${esc(x.elderDrop)}</strong>${x.note?`<br>${esc(x.note)}`:""}</div></div>
-   </div>
-   <div class="yang-box">
-    <div class="yang-value classic"><small>CLASSIC REF. Yang</small><b>${classic}</b></div>
-    <div class="yang-value measured"><small>TWÓJ ELDER</small><b>${measured}</b></div>
-   </div>
-   <details class="measure-box"><summary>＋ Dodaj własny pomiar Yang / respu</summary>
-    <div class="measure-grid"><input data-kills type="number" min="1" placeholder="zabitych, np. 100"><input data-yang placeholder="Yang, np. 1.4kk"><button data-save-measure>Zapisz Yang</button></div>
-    <div class="measure-grid"><input data-resp type="number" min="1" placeholder="resp w sekundach"><span></span><button data-save-resp>Zapisz resp</button></div>
-   </details>
-   <div class="mob-actions"><button data-copy-mob>Skopiuj nazwę do Wiki</button><a href="https://wiki.eldermt2.pl/potwory/" target="_blank" rel="noopener">Wikipedia Dropu ↗</a></div>
-  </article>`;
+  return `<button class="lw-entry" data-lw-mob="${esc(x.name)}">
+   <div class="lw-entry-top"><h4>${esc(x.name)}</h4><span class="lw-type ${x.type}">${x.type==="boss"?"BOSS / MINIBOSS":"MOB"}</span></div>
+   <div class="lw-entry-meta"><span>${esc(x.map)}</span><span>Lv. ${esc(x.lvl)}</span><span>VNUM ${x.vnum}</span></div>
+   <div class="lw-entry-line"><b>Resp:</b> ${esc(resp)}</div>
+   <div class="lw-entry-line"><b>Drop:</b> ${esc(d.other)}</div>
+   <div class="lw-entry-line"><b>Yang:</b> ${esc(measured)} • Classic ${esc(classic)}</div>
+  </button>`;
  }).join("");
 }
 function renderMetinCards(rows){
- return rows.map(x=>`<article class="mob-card">
-  <div class="mob-head"><h4>${esc(x.name)}</h4><span class="mob-type metin">METIN • Lv.${esc(x.lvl)}</span></div>
-  <div class="mob-meta"><span>${esc(x.maps)}</span><span>${esc(x.resp)}</span></div>
-  <div class="mob-row">
-   <div class="mob-info-line"><small>Główny drop</small><div><span class="source-pill elder">ELDER</span><strong>${esc(x.drop)}</strong></div></div>
-   <div class="mob-info-line"><small>Bronie</small><div>${esc(x.weapons)}</div></div>
-   <div class="mob-info-line"><small>Zbroje</small><div>${esc(x.armors)}</div></div>
-  </div>
- </article>`).join("");
+ return rows.map(x=>`<button class="lw-entry" data-lw-metin="${esc(x.name)}">
+  <div class="lw-entry-top"><h4>${esc(x.name)}</h4><span class="lw-type metin">METIN • Lv.${esc(x.lvl)}</span></div>
+  <div class="lw-entry-meta"><span>${esc(x.maps)}</span><span>${esc(x.resp)}</span></div>
+  <div class="lw-entry-line"><b>Pozostałe:</b> ${esc(x.drop)}</div>
+  <div class="lw-entry-line"><b>Bronie:</b> ${esc(x.weapons)}</div>
+  <div class="lw-entry-line"><b>Zbroje:</b> ${esc(x.armors)}</div>
+ </button>`).join("");
 }
 function renderRespCards(rows){
- return rows.map(([id,m])=>`<article class="mob-card">
-  <div class="mob-head"><h4>${esc(m.name)}</h4><span class="mob-type metin">ELDER RESPY</span></div>
-  <div class="mob-row">
-   <div class="mob-info-line"><small>Metiny</small><div><span class="source-pill elder">ELDER</span>${esc(m.metins)}</div></div>
-   <div class="mob-info-line"><small>Szczyt</small><div>${esc(m.peak)}</div></div>
-   <div class="mob-info-line"><small>Bossy</small><div>${esc(m.boss)}</div></div>
-   <div class="mob-info-line"><small>Zwykłe moby</small><div>${esc(m.mobs)}</div></div>
-  </div>
+ return rows.map(([id,m])=>`<article class="lw-entry" style="cursor:default">
+  <div class="lw-entry-top"><h4>${esc(m.name)}</h4><span class="lw-type metin">RESPY</span></div>
+  <div class="lw-entry-line"><b>Metiny:</b> ${esc(m.metins)}</div>
+  <div class="lw-entry-line"><b>Szczyt:</b> ${esc(m.peak)}</div>
+  <div class="lw-entry-line"><b>Bossy:</b> ${esc(m.boss)}</div>
+  <div class="lw-entry-line"><b>Zwykłe moby:</b> ${esc(m.mobs)}</div>
  </article>`).join("");
+}
+function openLocalMob(name){
+ const x=MOB_DB.find(m=>m.name===name);if(!x)return;
+ const m=getDropMeasurement(x.name,x.map),cy=classicYangFor(x.vnum),d=localMobDrop(x);
+ const classic=cy&&cy.max?`${YANG_FMT.format(cy.min)}–${YANG_FMT.format(cy.max)} Yang`:"brak rekordu";
+ document.getElementById("lwMobTitle").textContent=x.name;
+ document.getElementById("lwMobSub").textContent=`${x.map} • Lv. ${x.lvl} • VNUM ${x.vnum}`;
+ document.getElementById("lwMobBody").innerHTML=`<div class="lw-modal-body">
+  <div class="lw-facts">
+   <div class="lw-fact"><small>Typ</small><b>${x.type==="boss"?"Boss / miniboss":"Potwór"}</b></div>
+   <div class="lw-fact"><small>Mapa</small><b>${esc(x.map)}</b></div>
+   <div class="lw-fact"><small>Poziom</small><b>${esc(x.lvl)}</b></div>
+   <div class="lw-fact"><small>Resp</small><b>${esc(m.respSec?`${m.respSec}s — Twój pomiar`:x.resp)}</b></div>
+   <div class="lw-fact"><small>Classic Yang</small><b>${esc(classic)}</b></div>
+  </div>
+  <div class="lw-dropcols">
+   <div class="lw-dropcol"><h4>⚔ Bronie</h4><p>${esc(d.weapons)}</p></div>
+   <div class="lw-dropcol"><h4>🛡 Zbroje / EQ</h4><p>${esc(d.armors)}</p></div>
+   <div class="lw-dropcol"><h4>📦 Pozostały drop</h4><p>${esc(d.other)}</p></div>
+  </div>
+  <div class="lw-warning"><b>Źródło:</b> ${esc(d.source)}. „Classic Yang” jest wyłącznie referencją standardowego Metin2 i nie jest podpisany jako potwierdzony drop Yang Eldera.</div>
+  <div class="lw-measure-panel"><h4>Twój pomiar Elder</h4>
+   <div class="lw-measure-grid"><input id="lwKills" type="number" min="1" placeholder="liczba zabitych"><input id="lwYang" placeholder="zdobyte Yang, np. 2.4kk"><button id="lwSaveMeasure">Zapisz Yang</button></div>
+   <div class="lw-measure-grid" style="margin-top:5px"><input id="lwResp" type="number" min="1" placeholder="resp w sekundach"><span></span><button id="lwSaveResp">Zapisz resp</button></div>
+   <div class="lw-entry-line"><b>Obecna średnia:</b> ${m.avg?fmtYang(m.avg,true)+" / mob":"brak pomiaru"}${m.kills?` • próba ${m.kills} mobów`:""}</div>
+  </div>
+ </div>`;
+ document.getElementById("lwSaveMeasure").onclick=()=>{saveMobMeasurement(x.name,x.map,document.getElementById("lwKills").value,parseYang(document.getElementById("lwYang").value));openLocalMob(x.name)};
+ document.getElementById("lwSaveResp").onclick=()=>{saveMobResp(x.name,x.map,document.getElementById("lwResp").value);openLocalMob(x.name)};
+ document.getElementById("lwMobModal").classList.add("show");
+}
+function openLocalMetin(name){
+ const x=METIN_DB.find(m=>m.name===name);if(!x)return;
+ document.getElementById("lwMobTitle").textContent=x.name;
+ document.getElementById("lwMobSub").textContent=`${x.maps} • Lv. ${x.lvl}`;
+ document.getElementById("lwMobBody").innerHTML=`<div class="lw-modal-body">
+  <div class="lw-facts">
+   <div class="lw-fact"><small>Typ</small><b>Kamień Metin</b></div>
+   <div class="lw-fact"><small>Poziom</small><b>${esc(x.lvl)}</b></div>
+   <div class="lw-fact"><small>Mapy</small><b>${esc(x.maps)}</b></div>
+   <div class="lw-fact"><small>Resp</small><b>${esc(x.resp)}</b></div>
+   <div class="lw-fact"><small>Źródło</small><b>ElderMT2</b></div>
+  </div>
+  <div class="lw-dropcols">
+   <div class="lw-dropcol"><h4>⚔ Bronie</h4><p>${esc(x.weapons)}</p></div>
+   <div class="lw-dropcol"><h4>🛡 Zbroje</h4><p>${esc(x.armors)}</p></div>
+   <div class="lw-dropcol"><h4>📦 Pozostałe</h4><p>${esc(x.drop)}</p></div>
+  </div>
+ </div>`;
+ document.getElementById("lwMobModal").classList.add("show");
 }
 function renderDrop(){
  const box=document.getElementById("dropEntries");if(!box)return;renderDropFilters();
  const q=(document.getElementById("dropSearch")?.value||"").toLowerCase().trim(),mf=document.getElementById("dropMapFilter")?.value||"";
- const wiki=document.getElementById("dropWikiLive"),main=document.getElementById("dropResearchMain");
  document.querySelectorAll("[data-drop-tab]").forEach(b=>b.classList.toggle("active",b.dataset.dropTab===dropTab));
- if(dropTab==="wiki"){
-  if(main)main.style.display="none";if(wiki)wiki.style.display="block";
- }else{
-  if(main)main.style.display="grid";if(wiki)wiki.style.display="none";
- }
  const title=document.getElementById("dropListTitle"),sub=document.getElementById("dropListSub"),cnt=document.getElementById("dropVisibleCount");
  if(dropTab==="mobs"){
-  const rows=MOB_DB.filter(x=>(!q||`${x.name} ${x.map} ${x.elderDrop} ${x.vnum}`.toLowerCase().includes(q))&&mapMatch(x.map,mf));
-  if(title)title.textContent="Potwory i bossy";if(sub)sub.textContent="każdy wpis osobno • Elder / Classic Ref. / Twój Elder";
-  box.innerHTML=renderMobCards(rows)||'<div class="dash-empty">Brak wyników.</div>';if(cnt)cnt.textContent=rows.length;
-  box.querySelectorAll(".mob-card").forEach((card,i)=>{const x=rows[i];
-   card.querySelector("[data-save-measure]").onclick=()=>saveMobMeasurement(x.name,x.map,card.querySelector("[data-kills]").value,parseYang(card.querySelector("[data-yang]").value));
-   card.querySelector("[data-save-resp]").onclick=()=>saveMobResp(x.name,x.map,card.querySelector("[data-resp]").value);
-   card.querySelector("[data-copy-mob]").onclick=()=>copyText(x.name,"Nazwa skopiowana");
-  });
+  const rows=MOB_DB.filter(x=>(!q||`${x.name} ${x.map} ${x.elderDrop} ${x.vnum} ${localMobDrop(x).weapons} ${localMobDrop(x).armors}`.toLowerCase().includes(q))&&mapMatch(x.map,mf));
+  title.textContent="Potwory i bossy";sub.textContent="kliknij rekord, aby otworzyć pełną lokalną kartę";
+  box.innerHTML=renderMobCards(rows)||'<div class="dash-empty">Brak wyników.</div>';cnt.textContent=rows.length;
+  box.querySelectorAll("[data-lw-mob]").forEach(b=>b.onclick=()=>openLocalMob(b.dataset.lwMob));
  }else if(dropTab==="metins"){
   const rows=METIN_DB.filter(x=>(!q||`${x.name} ${x.maps} ${x.drop} ${x.weapons} ${x.armors}`.toLowerCase().includes(q))&&mapMatch(x.maps,mf));
-  if(title)title.textContent="Kamienie Metin";if(sub)sub.textContent="19 oficjalnych rekordów ElderMT2";box.innerHTML=renderMetinCards(rows)||'<div class="dash-empty">Brak wyników.</div>';if(cnt)cnt.textContent=rows.length;
- }else if(dropTab==="resps"){
+  title.textContent="Kamienie Metin";sub.textContent="pełne lokalne karty dropu";
+  box.innerHTML=renderMetinCards(rows)||'<div class="dash-empty">Brak wyników.</div>';cnt.textContent=rows.length;
+  box.querySelectorAll("[data-lw-metin]").forEach(b=>b.onclick=()=>openLocalMetin(b.dataset.lwMetin));
+ }else{
   const rows=Object.entries(DROP_MAPS).filter(([id,m])=>(!q||`${m.name} ${m.metins} ${m.boss}`.toLowerCase().includes(q))&&(!mf||id===mf));
-  if(title)title.textContent="Respy map";if(sub)sub.textContent="wartości publikowane przez ElderMT2 Wiki";box.innerHTML=renderRespCards(rows);if(cnt)cnt.textContent=rows.length;
+  title.textContent="Respy map";sub.textContent="lokalna rozpiska bez zewnętrznych stron";
+  box.innerHTML=renderRespCards(rows);cnt.textContent=rows.length;
  }
  document.getElementById("dropMobCount").textContent=MOB_DB.length;
  document.getElementById("dropMeasuredCount").textContent=Object.values(state.dropMeasurements||{}).filter(x=>x.avg||x.respSec).length;
@@ -2518,21 +2632,32 @@ const ITEM_CATEGORIES=[
 ];
 let selectedExactItemName=EXACT_ITEMS.find(x=>x.name==="Zatruty Miecz")?.name||EXACT_ITEMS[0].name;
 
+
+function itemCategoryFor(it){
+ const c=String(it.cat||"").toLowerCase();
+ if(c.includes("miecze"))return"miecze";
+ if(c.includes("tarcze"))return"tarcze";
+ if(c.includes("bransolety"))return"bransolety";
+ if(c.includes("kolczyki"))return"kolczyki";
+ if(c.includes("naszyjniki"))return"naszyjniki";
+ if(c.includes("buty"))return"buty";
+ return"inne";
+}
 function renderItemCategories(){
- const sel=document.getElementById("itemCategorySelect"),cats=document.getElementById("itemCats");if(!sel||!cats)return;
- if(!sel.options.length)ITEM_CATEGORIES.forEach(c=>{const o=document.createElement("option");o.value=c.id;o.textContent=c.name;sel.appendChild(o)});
+ const sel=document.getElementById("itemCategorySelect"),list=document.getElementById("itemCats");if(!sel||!list)return;
+ const cats=[
+  ["all","Wszystkie"],["miecze","Miecze 1-ręczne"],["tarcze","Tarcze"],
+  ["bransolety","Bransolety"],["kolczyki","Kolczyki"],["naszyjniki","Naszyjniki"],["buty","Buty"]
+ ];
+ if(!sel.options.length)cats.forEach(([id,n])=>{const o=document.createElement("option");o.value=id;o.textContent=n;sel.appendChild(o)});
  sel.value=selectedItemCategory;
- const q=(document.getElementById("itemCategorySearch")?.value||"").toLowerCase().trim();
- const rows=ITEM_CATEGORIES.filter(c=>!q||`${c.name} ${c.desc}`.toLowerCase().includes(q));
- cats.innerHTML=rows.map(c=>`<button class="item-category-btn ${c.id===selectedItemCategory?"active":""}" data-item-cat="${c.id}"><span><b>${esc(c.name)}</b><small>${esc(c.desc)}</small></span><span>↗</span></button>`).join("");
- cats.querySelectorAll("[data-item-cat]").forEach(b=>b.onclick=()=>selectItemCategory(b.dataset.itemCat));
+ const q=(document.getElementById("itemSearch")?.value||"").toLowerCase().trim();
+ const rows=EXACT_ITEMS.filter(it=>(selectedItemCategory==="all"||itemCategoryFor(it)===selectedItemCategory)&&(!q||`${it.name} ${it.cat} ${it.summary}`.toLowerCase().includes(q)));
+ list.innerHTML=rows.map(it=>`<button class="itemwiki-btn ${it.name===selectedExactItemName?"active":""}" data-local-item="${esc(it.name)}"><b>${esc(it.name)}</b><small>${esc(it.cat)} • wymagany lvl ${esc(it.lvl)}</small></button>`).join("")||'<div class="dash-empty">Brak itemów w tym filtrze.</div>';
+ list.querySelectorAll("[data-local-item]").forEach(b=>b.onclick=()=>{selectedExactItemName=b.dataset.localItem;renderExactItem();renderItemCategories()});
+ document.getElementById("verifiedItemCount").textContent=EXACT_ITEMS.length;
 }
-function selectItemCategory(id){
- const c=ITEM_CATEGORIES.find(x=>x.id===id)||ITEM_CATEGORIES[0];selectedItemCategory=c.id;
- const frame=document.getElementById("itemWikiFrame"),link=document.getElementById("itemFrameLink"),title=document.getElementById("itemFrameTitle"),sel=document.getElementById("itemCategorySelect");
- if(frame)frame.src=c.url;if(link)link.href=c.url;if(title)title.textContent=c.name;if(sel)sel.value=c.id;
- renderItemCategories();
-}
+function selectItemCategory(id){selectedItemCategory=id;renderItemCategories()}
 function getExactItem(){return EXACT_ITEMS.find(x=>x.name===selectedExactItemName)||EXACT_ITEMS[0]}
 function renderExactItem(){
  const sel=document.getElementById("exactItemSelect"),from=document.getElementById("exactFrom"),to=document.getElementById("exactTo");if(!sel||!from||!to)return;
@@ -2543,8 +2668,10 @@ function renderExactItem(){
  sel.value=selectedExactItemName;
  if(!from.options.length){for(let i=0;i<=8;i++){const o=document.createElement("option");o.value=i;o.textContent=`+${i}`;from.appendChild(o)}for(let i=1;i<=9;i++){const o=document.createElement("option");o.value=i;o.textContent=`+${i}`;to.appendChild(o)}from.value=0;to.value=9}
  const it=getExactItem(),sum=document.getElementById("exactItemSummary"),body=document.getElementById("exactItemTable");
- sum.innerHTML=`<div class="item-summary-grid"><div><small>Przedmiot</small><b>${esc(it.name)}</b></div><div><small>Typ</small><b>${esc(it.cat)}</b></div><div><small>Wymagany lvl</small><b>${esc(it.lvl)}</b></div><div><small>+9 / bonusy</small><b>${esc(it.summary)}</b></div></div>`;
- body.innerHTML=it.steps.map(s=>`<tr><td>+${s.plus}</td><td>${esc(s.stat||"sprawdź pełną tabelę poniżej")}</td><td class="yang">${s.cost?fmtYang(s.cost):"—"}</td><td>${esc(s.mat||"—")}</td></tr>`).join("");
+ document.getElementById("localItemTitle").textContent=it.name;
+ document.getElementById("localItemSubtitle").textContent=`${it.cat} • wymagany poziom: ${it.lvl}`;
+ sum.innerHTML=`<div class="item-summary-grid"><div><small>Przedmiot</small><b>${esc(it.name)}</b></div><div><small>Typ</small><b>${esc(it.cat)}</b></div><div><small>Wymagany lvl</small><b>${esc(it.lvl)}</b></div><div><small>Najważniejsze +9</small><b>${esc(it.summary)}</b></div></div>`;
+ body.innerHTML=it.steps.map(s=>`<tr><td><b>+${s.plus}</b></td><td>${esc(s.stat||it.summary||"—")}</td><td class="yang">${s.cost?fmtYang(s.cost):"—"}</td><td>${esc(s.mat||"—")}</td></tr>`).join("");
  document.getElementById("verifiedItemCount").textContent=EXACT_ITEMS.length;
  calcExactUpgrade();
 }
@@ -2559,12 +2686,10 @@ function calcExactUpgrade(){
  let yang=0;const mats={};
  for(let p=start+1;p<=end;p++){const s=it.steps[p];if(!s)continue;yang+=s.cost||0;for(const m of parseMaterialList(s.mat)){mats[m.name]=(mats[m.name]||0)+m.n}}
  const parts=Object.entries(mats).map(([name,n])=>`${n}x ${name}`);
- document.getElementById("exactUpgradeResult").innerHTML=`<div class="calc-total"><div class="calc-money"><small>${esc(it.name)} • +${start} → +${end}</small><b>${fmtYang(yang)}</b></div><div class="calc-mats"><b>Materiały łącznie:</b><br>${parts.length?esc(parts.join(" • ")):"brak materiałów w tym zakresie"}<br><span style="color:#756c60">Koszt zakłada po jednej udanej próbie każdego plusa; porażki zwiększają realny koszt.</span></div></div>`;
+ document.getElementById("exactUpgradeResult").innerHTML=`<div class="calc-total"><div class="calc-money"><small>${esc(it.name)} • +${start} → +${end}</small><b>${fmtYang(yang)}</b></div><div class="calc-mats"><b>Materiały łącznie:</b><br>${parts.length?esc(parts.join(" • ")):"brak materiałów w tym zakresie"}<br><span style="color:#756c60">Koszt zakłada po jednej udanej próbie każdego plusa.</span></div></div>`;
  document.querySelectorAll("#exactItemTable tr").forEach((tr,i)=>tr.classList.toggle("current",i>=start&&i<=end));
 }
-function renderItems(){
- renderItemCategories();renderExactItem();
-}
+function renderItems(){renderItemCategories();renderExactItem()}
 
 const BOSS_PRESETS=[
  {id:"m1",area:"M1 — Miasta pierwsze",boss:"Boss / miniboss M1",slots:9,min:15,max:20,peak:"Brak dodatkowych bossów 18–23",note:"Wiki timerów: 9 bossów/minibossów, 15–20 min."},
@@ -3363,12 +3488,15 @@ document.getElementById("dropSearch").oninput=renderDrop;
 document.getElementById("dropMapFilter").onchange=renderDrop;
 document.querySelectorAll("[data-drop-tab]").forEach(b=>b.onclick=()=>{dropTab=b.dataset.dropTab;renderDrop()});
 document.getElementById("itemCategorySelect").onchange=e=>selectItemCategory(e.target.value);
-document.getElementById("itemCategorySearch").oninput=renderItemCategories;
-document.getElementById("openItemWikiNew").onclick=()=>{const c=ITEM_CATEGORIES.find(x=>x.id===selectedItemCategory)||ITEM_CATEGORIES[0];window.open(c.url,"_blank","noopener")};
 document.getElementById("exactItemSelect").onchange=e=>{selectedExactItemName=e.target.value;renderExactItem()};
 document.getElementById("exactFrom").onchange=calcExactUpgrade;
 document.getElementById("exactTo").onchange=calcExactUpgrade;
 document.getElementById("exactCalc").onclick=calcExactUpgrade;
+
+
+document.getElementById("itemSearch").oninput=renderItemCategories;
+document.getElementById("lwMobClose").onclick=()=>document.getElementById("lwMobModal").classList.remove("show");
+document.getElementById("lwMobModal").onclick=e=>{if(e.target.id==="lwMobModal")document.getElementById("lwMobModal").classList.remove("show")};
 
 document.getElementById("backupBtn").onclick=()=>createLocalBackup("Ręczny backup");
 document.getElementById("restoreBackupBtn").onclick=restoreLatestBackup;

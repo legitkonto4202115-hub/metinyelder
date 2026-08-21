@@ -1,12 +1,12 @@
 {
-  "name": "ElderMT2 — ULTIMATE Command Center v6.7",
+  "name": "ElderMT2 — ULTIMATE Command Center v6.8",
   "short_name": "Elder ULTIMATE",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#090806",
   "theme_color": "#120d08",
-  "description": "ElderMT2 tracker z researched bestiariuszem, rozdzielonym Yang Elder/classic, dokładnym dropem Metinów i item-specific ulepszaniem.",
+  "description": "Samodzielna lokalna wiki ElderMT2: drop, metiny, bossy, respy, itemy i dokładne ulepszanie bez iframe.",
   "icons": [
     {
       "src": "icon.svg",
