@@ -1,4 +1,4 @@
-const CACHE='elder-metin-v6-3-weekly-bosses';
+const CACHE='elder-metin-v6-5-character-hud';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install',event=>{
