@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>ElderMT2 — ULTIMATE Command Center v6.8</title>
+<title>ElderMT2 — ULTIMATE Command Center v6.9</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
 :root{
@@ -141,7 +141,7 @@ button{cursor:pointer}
 
 
 /* =========================================================
-   v6.8 ULTIMATE — BLACK GOLD / COMMAND CENTER
+   v6.9 ULTIMATE — BLACK GOLD / COMMAND CENTER
    ========================================================= */
 :root{--gold:#d7aa52;--gold2:#f0cf86;--gold3:#8b642d;--glass:#17130fe8;--glass2:#100e0ccd;--ink:#090806}
 html{scroll-behavior:smooth}
@@ -781,379 +781,13 @@ button.char-hud-panel{cursor:pointer}
  .dash-char{grid-template-columns:38px 1fr!important}.dash-char-hud{grid-column:1/-1}
 }
 
-
-/* =========================================================
-   v6.6 — ELDER ENCYCLOPEDIA: DROP + ITEMS
-   ========================================================= */
-body.drop-mode .map-tabs,body.drop-mode #respControls,
-body.items-mode .map-tabs,body.items-mode #respControls{display:none}
-
-.ency-wrap{margin-top:13px;display:grid;gap:11px}
-.ency-hero{
- border:1px solid #62492c;border-radius:15px;padding:15px 16px;
- background:radial-gradient(circle at 90% -20%,#c9953e20,transparent 35%),linear-gradient(135deg,#1d150e,#0f0d0a 58%,#0b0a08);
- box-shadow:0 18px 55px #0006,inset 0 1px #fff6;
- display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap
-}
-.ency-hero h2{margin:0;font-size:22px}.ency-hero h2 span{color:#e8c87f}
-.ency-hero p{margin:4px 0 0;color:#8d8273;font-size:10px;max-width:850px;line-height:1.5}
-.ency-tools{display:flex;gap:6px;flex-wrap:wrap}
-.ency-tools input,.ency-tools select{
- background:#0c0b09;color:#eee;border:1px solid #46392b;border-radius:8px;padding:8px;min-height:34px
-}
-.ency-tools input{min-width:230px}
-.ency-note{
- border:1px solid #4b3d2c;background:#12100d;border-radius:10px;padding:9px 10px;
- color:#8e8273;font-size:8.5px;line-height:1.55
-}
-.ency-note b{color:#d7bd89}
-.ency-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.ency-kpi{border:1px solid #382f25;background:linear-gradient(155deg,#15120f,#0d0c0a);border-radius:11px;padding:10px}
-.ency-kpi small{display:block;color:#7c7265;font-size:8px;text-transform:uppercase;letter-spacing:.4px}
-.ency-kpi b{display:block;margin-top:3px;font-size:17px}
-.ency-layout{display:grid;grid-template-columns:minmax(0,1.5fr) 330px;gap:11px}
-.ency-card{border:1px solid #3c3228;background:linear-gradient(160deg,#14110e,#0d0c0a);border-radius:12px;overflow:hidden}
-.ency-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;border-bottom:1px solid #30281f;flex-wrap:wrap}
-.ency-card-head h3{margin:0;font-size:12px}.ency-card-head span{font-size:8px;color:#807568}
-.ency-card-body{padding:9px}
-.ency-tabs{display:flex;gap:4px;flex-wrap:wrap}
-.ency-tab{border:1px solid #382f25;background:#11100d;color:#9e9282;border-radius:7px;padding:6px 8px;font-size:8px;font-weight:900}
-.ency-tab.active,.ency-tab:hover{border-color:#74552f;color:#e8c981;background:#1c160f}
-.ency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.ency-entry{border:1px solid #342c23;background:#0f0e0b;border-radius:10px;padding:9px;min-width:0}
-.ency-entry:hover{border-color:#58452f}
-.ency-entry-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.ency-entry h4{margin:0;font-size:11px}.ency-badge{border:1px solid #44382b;border-radius:99px;padding:3px 6px;font-size:7px;color:#9d907d;white-space:nowrap}
-.ency-badge.met{border-color:#695526;color:#e0c267}.ency-badge.mob{border-color:#344c5e;color:#8bbad8}.ency-badge.boss{border-color:#613535;color:#e38b8b}
-.ency-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-.ency-meta span{border:1px solid #302921;border-radius:6px;padding:3px 5px;font-size:7px;color:#817668}
-.ency-drop{margin-top:7px;color:#b5a895;font-size:8.5px;line-height:1.5}
-.ency-drop b{color:#ddc27f}
-.ency-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
-.ency-actions button{border:1px solid #3b3127;background:#17130f;color:#ad9e8b;border-radius:6px;padding:5px 7px;font-size:7.5px}
-.ency-actions button:hover{border-color:#71522d;color:#ead08d}
-.mob-measure{display:grid;grid-template-columns:1fr 1fr auto;gap:5px;margin-top:7px}
-.mob-measure input{width:100%;background:#0b0a08;color:#eee;border:1px solid #392f25;border-radius:6px;padding:6px;font-size:8px}
-.mob-measure button{border:1px solid #5d472a;background:#281d12;color:#ddc27f;border-radius:6px;padding:6px;font-size:7.5px}
-.mob-estimate{margin-top:6px;border:1px solid #302920;background:#0c0b09;border-radius:7px;padding:6px;font-size:8px;color:#8d8274}
-.mob-estimate strong{color:#d9bf83}
-.wiki-frame-wrap{height:720px;border:1px solid #3a3128;border-radius:10px;overflow:hidden;background:#fff}
-.wiki-frame{width:100%;height:100%;border:0;background:#fff}
-.wiki-fallback{display:flex;justify-content:space-between;gap:7px;align-items:center;margin-bottom:7px;color:#83786a;font-size:8px}
-.wiki-fallback a{color:#d4b674;text-decoration:none}
-.wiki-fallback a:hover{text-decoration:underline}
-
-/* Item encyclopedia */
-.item-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.item-cat{
- border:1px solid #342c23;background:#0f0e0b;color:#d8ccba;border-radius:9px;padding:9px;text-align:left;min-height:70px
-}
-.item-cat:hover,.item-cat.active{border-color:#74552f;background:#18130e}
-.item-cat b{display:block;font-size:10px}.item-cat small{display:block;color:#7d7367;font-size:8px;margin-top:4px;line-height:1.35}
-.upgrade-tier-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
-.upgrade-table{width:100%;border-collapse:collapse;min-width:540px}
-.upgrade-table th{background:#11100d;color:#8b8173;font-size:8px;text-align:left;padding:8px;border-bottom:1px solid #332b22}
-.upgrade-table td{padding:8px;border-bottom:1px solid #29231c;font-size:8.5px}
-.upgrade-table tr:hover td{background:#17130f}
-.upgrade-cost{color:#e1c374;font-weight:900}
-.upgrade-calc{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:6px;align-items:end;margin-bottom:8px}
-.upgrade-calc label{display:block;color:#7d7366;font-size:8px;margin-bottom:4px}
-.upgrade-calc select{width:100%;background:#0c0b09;color:#eee;border:1px solid #3d3328;border-radius:7px;padding:7px}
-.upgrade-result{border:1px solid #4a3b29;background:#11100d;border-radius:9px;padding:9px;margin-top:8px}
-.upgrade-result b{display:block;color:#e2c580;font-size:12px}.upgrade-result small{display:block;color:#7d7366;font-size:8px;margin-top:3px;line-height:1.5}
-.item-source-list{display:grid;gap:6px}
-.item-source{
- display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid #312a21;background:#0e0d0b;border-radius:8px;padding:7px
-}
-.item-source b{font-size:9px}.item-source small{display:block;color:#756c60;font-size:7.5px;margin-top:2px}
-.item-source button{border:1px solid #493a28;background:#1a140e;color:#d3b878;border-radius:6px;padding:5px 7px;font-size:7.5px}
-.item-search-result{display:grid;gap:5px;max-height:320px;overflow:auto}
-.item-result{border:1px solid #302920;background:#0e0d0b;border-radius:7px;padding:7px}
-.item-result b{font-size:9px}.item-result small{display:block;color:#786f63;font-size:7.5px;margin-top:2px}
-.item-warning{border-left:2px solid #b18a44;padding-left:8px;color:#887e70;font-size:8px;line-height:1.5}
-
-@media(max-width:1200px){
- .ency-layout{grid-template-columns:1fr}
- .ency-kpis{grid-template-columns:repeat(3,1fr)}
- .wiki-frame-wrap{height:620px}
-}
-@media(max-width:800px){
- .ency-grid,.item-cats{grid-template-columns:1fr}
- .ency-kpis{grid-template-columns:repeat(2,1fr)}
- .upgrade-calc{grid-template-columns:1fr 1fr}
-}
-@media(max-width:520px){
- .ency-kpis{grid-template-columns:1fr}
- .mob-measure{grid-template-columns:1fr 1fr}.mob-measure button{grid-column:1/-1}
- .upgrade-calc{grid-template-columns:1fr}
- .wiki-frame-wrap{height:520px}
-}
-
-
-/* =========================================================
-   v6.7 — RESEARCHED ELDER DATABASE
-   ========================================================= */
-body.drop-mode .map-tabs,body.drop-mode #respControls,
-body.items-mode .map-tabs,body.items-mode #respControls{display:none}
-
-.research-wrap{margin-top:13px;display:grid;gap:11px}
-.research-hero{
- display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
- padding:17px 18px;border:1px solid #654b2b;border-radius:16px;
- background:
-  radial-gradient(circle at 88% -20%,#c9994024,transparent 37%),
-  linear-gradient(135deg,#20170e,#100e0b 58%,#0b0a08);
- box-shadow:0 20px 60px #0007,inset 0 1px #ffffff08
-}
-.research-eyebrow{font-size:8px;letter-spacing:1.15px;color:#907f62;font-weight:900;margin-bottom:4px}
-.research-hero h2{margin:0;font-size:23px;letter-spacing:-.3px}
-.research-hero h2 span{color:#eccb82}
-.research-hero p{margin:5px 0 0;max-width:850px;color:#918575;font-size:10px;line-height:1.55}
-.research-tools{display:flex;gap:6px;flex-wrap:wrap}
-.research-tools input,.research-tools select{
- min-height:36px;background:#0c0b09;color:#eee;border:1px solid #483b2d;border-radius:8px;padding:8px
-}
-.research-tools input{min-width:260px}
-
-.trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.trust-item{
- display:grid;grid-template-columns:8px auto 1fr;gap:7px;align-items:center;
- border:1px solid #383027;background:#100f0c;border-radius:9px;padding:8px 10px
-}
-.trust-item i{width:7px;height:7px;border-radius:99px;background:#777}
-.trust-item b{font-size:8px;letter-spacing:.45px}.trust-item span{font-size:8px;color:#7c7367}
-.trust-item.elder i{background:#67ce81;box-shadow:0 0 10px #67ce8144}.trust-item.elder b{color:#7bd98f}
-.trust-item.classic i{background:#c9a24b}.trust-item.classic b{color:#e0c26c}
-.trust-item.measured i{background:#5f9dcb}.trust-item.measured b{color:#85bee4}
-
-.research-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.research-kpi{
- border:1px solid #393026;background:linear-gradient(155deg,#15120f,#0d0c0a);
- border-radius:11px;padding:10px 11px
-}
-.research-kpi small{display:block;color:#7d7366;font-size:7.5px;text-transform:uppercase;letter-spacing:.45px}
-.research-kpi b{display:block;margin-top:3px;font-size:16px}.research-kpi em{display:block;margin-top:3px;color:#6f675d;font-size:7px;font-style:normal}
-
-.research-tabs{display:flex;gap:5px;flex-wrap:wrap}
-.research-tab{
- border:1px solid #383027;background:#11100d;color:#a19585;border-radius:8px;padding:8px 10px;
- font-size:8.5px;font-weight:900
-}
-.research-tab:hover,.research-tab.active{border-color:#76562f;color:#efd18c;background:#1e160f}
-
-.research-main{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:11px}
-.research-list-card,.source-card,.wiki-live-card,.item-db-card,.item-catalog-card{
- border:1px solid #3b3228;background:linear-gradient(160deg,#15120f,#0d0c0a);
- border-radius:13px;box-shadow:0 12px 35px #0003,inset 0 1px #ffffff05
-}
-.research-list-head,.item-db-head{
- display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
- padding:11px 12px;border-bottom:1px solid #302920
-}
-.research-list-head h3,.item-db-head h3{margin:0;font-size:12px}
-.research-list-head span,.item-db-head span{font-size:8px;color:#7d7366}
-.research-count{border:1px solid #4b3a27;border-radius:99px;padding:4px 8px;color:#d7b975;font-size:8px;font-weight:900}
-.research-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:8px}
-
-.mob-card{
- border:1px solid #332c23;background:#0e0d0b;border-radius:10px;padding:9px;min-width:0;
- transition:.15s ease
-}
-.mob-card:hover{border-color:#59452f;transform:translateY(-1px)}
-.mob-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.mob-head h4{margin:0;font-size:11px}.mob-type{border:1px solid #3d342a;border-radius:99px;padding:3px 6px;font-size:7px;color:#9d917f;white-space:nowrap}
-.mob-type.boss{border-color:#633737;color:#e28a8a}.mob-type.metin{border-color:#6c5924;color:#e2c568}
-.mob-meta{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
-.mob-meta span{border:1px solid #2f2921;border-radius:6px;padding:3px 5px;color:#7e7468;font-size:7px}
-.mob-row{margin-top:7px;border-top:1px solid #29231d;padding-top:6px;display:grid;gap:5px}
-.mob-info-line{display:grid;grid-template-columns:88px 1fr;gap:6px;align-items:start}
-.mob-info-line small{color:#71685e;font-size:7.5px;text-transform:uppercase}.mob-info-line div{color:#a89b89;font-size:8px;line-height:1.4}
-.mob-info-line strong{color:#ddd0ba}
-.source-pill{display:inline-flex;align-items:center;border-radius:99px;padding:2px 5px;font-size:6.5px;font-weight:900;margin-right:4px}
-.source-pill.elder{border:1px solid #315c3e;color:#76d68a}.source-pill.classic{border:1px solid #615123;color:#ddc263}.source-pill.measured{border:1px solid #35566d;color:#83bce1}
-.yang-box{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px}
-.yang-value{border:1px solid #302921;background:#0b0a08;border-radius:7px;padding:6px}
-.yang-value small{display:block;font-size:6.5px;color:#71685d;text-transform:uppercase}.yang-value b{display:block;margin-top:2px;font-size:9px}
-.yang-value.classic b{color:#dfc269}.yang-value.measured b{color:#83c0e8}
-.measure-box{margin-top:7px;border:1px solid #302920;border-radius:8px;padding:6px;background:#0c0b09}
-.measure-box summary{cursor:pointer;color:#a59478;font-size:7.5px;font-weight:900}
-.measure-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:5px;margin-top:6px}
-.measure-grid input{width:100%;background:#090806;color:#eee;border:1px solid #392f25;border-radius:6px;padding:6px;font-size:8px}
-.measure-grid button{border:1px solid #5b452a;background:#271d12;color:#dcc17d;border-radius:6px;padding:6px;font-size:7px}
-.mob-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
-.mob-actions button,.mob-actions a{border:1px solid #3b3127;background:#16130f;color:#ab9d8b;border-radius:6px;padding:5px 7px;font-size:7px;text-decoration:none}
-.mob-actions button:hover,.mob-actions a:hover{border-color:#74542d;color:#ecd08d}
-
-.research-side{display:grid;gap:8px;align-content:start}
-.source-card{padding:10px}
-.source-card h3{margin:0;font-size:10px}.source-card p{margin:5px 0 0;color:#81776a;font-size:8px;line-height:1.5}
-.source-card p b{color:#cbb27d}.source-card a{display:inline-flex;margin-top:7px;color:#dfc27c;font-size:8px;text-decoration:none}
-.source-card a:hover{text-decoration:underline}
-.source-ok{border-color:#31583b!important}.source-bad{border-color:#5d3932!important}
-
-.wiki-live-card{overflow:hidden}
-.wiki-live-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;border-bottom:1px solid #302920;flex-wrap:wrap}
-.wiki-live-head h3{margin:0;font-size:12px}.wiki-live-head p{margin:3px 0 0;color:#7e7468;font-size:8px}
-.wiki-live-frame{display:block;width:100%;height:800px;border:0;background:#fff}
-
-/* ITEMS */
-.item-research-grid{display:grid;grid-template-columns:minmax(0,1.45fr) 330px;gap:11px}
-.item-search-row{display:grid;grid-template-columns:minmax(220px,1fr) 100px 100px auto;gap:6px;padding:10px;border-bottom:1px solid #302920}
-.item-search-row select{
- min-height:35px;background:#0b0a08;color:#eee;border:1px solid #40352a;border-radius:7px;padding:7px
-}
-.verified-counter{text-align:right}.verified-counter b{display:block;color:#e0c47e;font-size:14px}.verified-counter small{font-size:7px;color:#746b60}
-.exact-item-summary{padding:10px;border-bottom:1px solid #302920;background:#0e0d0b}
-.item-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.item-summary-grid div{border:1px solid #302921;background:#0b0a08;border-radius:7px;padding:7px}
-.item-summary-grid small{display:block;color:#756c60;font-size:7px;text-transform:uppercase}.item-summary-grid b{display:block;margin-top:3px;font-size:9px;color:#d8c5a4}
-.exact-upgrade-result{padding:10px;border-bottom:1px solid #302920}
-.calc-total{display:grid;grid-template-columns:170px 1fr;gap:8px}
-.calc-money{border:1px solid #564321;background:#17130d;border-radius:8px;padding:8px}
-.calc-money small{display:block;color:#827567;font-size:7px}.calc-money b{display:block;margin-top:3px;color:#e7c978;font-size:14px}
-.calc-mats{border:1px solid #302921;background:#0c0b09;border-radius:8px;padding:8px;font-size:8px;color:#a49785;line-height:1.55}
-.calc-mats b{color:#d8c18c}
-.exact-table-wrap{overflow:auto;max-height:510px}
-.exact-table{width:100%;border-collapse:collapse;min-width:680px}
-.exact-table th{position:sticky;top:0;background:#11100d;color:#8b8071;font-size:8px;text-align:left;padding:8px;border-bottom:1px solid #3a3025}
-.exact-table td{padding:8px;border-bottom:1px solid #29231c;font-size:8.5px}
-.exact-table tr:hover td{background:#17130f}.exact-table .current td{background:#1b160e}
-.exact-table .yang{color:#dfc478;font-weight:900}
-
-.category-search{padding:9px;border-bottom:1px solid #302920}
-.category-search input{width:100%;background:#0b0a08;color:#eee;border:1px solid #3d3328;border-radius:7px;padding:8px}
-.item-category-list{display:grid;gap:5px;padding:8px;max-height:610px;overflow:auto}
-.item-category-btn{
- display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;
- border:1px solid #302921;background:#0e0d0b;color:#c6b9a6;border-radius:8px;padding:8px;text-align:left
-}
-.item-category-btn:hover,.item-category-btn.active{border-color:#6c502e;background:#19140e}
-.item-category-btn b{font-size:9px}.item-category-btn small{display:block;color:#776e62;font-size:7px;margin-top:2px}
-.item-category-btn span{color:#d4b976;font-size:8px}.item-frame{height:860px}
-
-@media(max-width:1220px){
- .research-main,.item-research-grid{grid-template-columns:1fr}
- .research-side{grid-template-columns:repeat(3,1fr)}
- .research-kpis{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:820px){
- .trust-strip,.research-side{grid-template-columns:1fr}
- .research-list{grid-template-columns:1fr}
- .research-kpis{grid-template-columns:1fr 1fr}
- .item-search-row{grid-template-columns:1fr 1fr}
- .item-search-row select:first-child{grid-column:1/-1}
- .item-summary-grid{grid-template-columns:1fr 1fr}
- .calc-total{grid-template-columns:1fr}
-}
-@media(max-width:520px){
- .research-kpis{grid-template-columns:1fr}
- .trust-item{grid-template-columns:8px auto}.trust-item span{grid-column:2}
- .measure-grid{grid-template-columns:1fr 1fr}.measure-grid button{grid-column:1/-1}
- .item-search-row{grid-template-columns:1fr}.item-search-row select:first-child{grid-column:auto}
- .item-summary-grid{grid-template-columns:1fr}
-}
-
-
-/* =========================================================
-   v6.8 — FULL LOCAL WIKI
-   ========================================================= */
-body.drop-mode .map-tabs,body.drop-mode #respControls,
-body.items-mode .map-tabs,body.items-mode #respControls{display:none}
-
-.localwiki-wrap{margin-top:13px;display:grid;gap:11px}
-.localwiki-hero{
- display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
- padding:17px 18px;border:1px solid #62492b;border-radius:16px;
- background:radial-gradient(circle at 90% -25%,#c99b4122,transparent 38%),linear-gradient(135deg,#21170e,#100e0b 58%,#0b0a08);
- box-shadow:0 20px 60px #0007,inset 0 1px #ffffff08
-}
-.localwiki-eyebrow{font-size:8px;letter-spacing:1.1px;font-weight:900;color:#8f7d60;margin-bottom:4px}
-.localwiki-hero h2{margin:0;font-size:23px}.localwiki-hero h2 span{color:#e9c97f}
-.localwiki-hero p{margin:5px 0 0;max-width:860px;color:#908475;font-size:10px;line-height:1.55}
-.localwiki-tools{display:flex;gap:6px;flex-wrap:wrap}
-.localwiki-tools input,.localwiki-tools select{
- min-height:36px;background:#0b0a08;color:#eee;border:1px solid #463a2c;border-radius:8px;padding:8px
-}
-.localwiki-tools input{min-width:280px}
-.localwiki-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.localwiki-trust>div{border:1px solid #373027;background:#100f0c;border-radius:9px;padding:8px 9px;display:grid;gap:3px}
-.localwiki-trust b{font-size:8px;letter-spacing:.45px}.localwiki-trust span{font-size:7.5px;color:#786f63}
-.lw-elder{color:#78d68c}.lw-classic{color:#dfc165}.lw-own{color:#83bce1}
-.localwiki-tabs{display:flex;gap:5px;flex-wrap:wrap}
-.localwiki-tab{border:1px solid #382f25;background:#11100d;color:#9f9382;border-radius:8px;padding:8px 10px;font-size:8.5px;font-weight:900}
-.localwiki-tab.active,.localwiki-tab:hover{border-color:#72542f;color:#f0d18b;background:#1e160f}
-.localwiki-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.localwiki-stats>div{border:1px solid #382f25;background:linear-gradient(155deg,#15120f,#0d0c0a);border-radius:10px;padding:9px 10px}
-.localwiki-stats small{display:block;color:#786f63;font-size:7px;text-transform:uppercase;letter-spacing:.45px}
-.localwiki-stats b{display:block;margin-top:3px;font-size:16px}
-.localwiki-content{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:11px}
-.localwiki-index,.localwiki-sidecard,.itemwiki-listcard,.itemwiki-maincard{
- border:1px solid #3a3128;background:linear-gradient(160deg,#15120f,#0d0c0a);border-radius:13px;
- box-shadow:0 12px 35px #0003,inset 0 1px #ffffff05
-}
-.localwiki-index-head,.itemwiki-listhead,.itemwiki-mainhead{
- display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:11px 12px;border-bottom:1px solid #302920
-}
-.localwiki-index-head h3,.itemwiki-listhead h3,.itemwiki-mainhead h3{margin:0;font-size:12px}
-.localwiki-index-head span,.itemwiki-listhead span,.itemwiki-mainhead span{font-size:8px;color:#7a7165}
-.localwiki-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:8px}
-.lw-entry{border:1px solid #332c23;background:#0e0d0b;border-radius:10px;padding:9px;text-align:left;color:inherit;cursor:pointer;min-width:0}
-.lw-entry:hover{border-color:#5c472f;background:#14110e;transform:translateY(-1px)}
-.lw-entry-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.lw-entry h4{margin:0;font-size:11px}.lw-type{border:1px solid #3d3429;border-radius:99px;padding:3px 6px;font-size:7px;white-space:nowrap;color:#9e927f}
-.lw-type.boss{border-color:#623838;color:#e38b8b}.lw-type.metin{border-color:#685625;color:#e1c568}
-.lw-entry-meta{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
-.lw-entry-meta span{border:1px solid #2f2921;border-radius:6px;padding:3px 5px;font-size:7px;color:#7e7569}
-.lw-entry-line{margin-top:7px;color:#a99b89;font-size:8px;line-height:1.45}
-.lw-entry-line b{color:#dbc38b}
-.localwiki-sidebar{display:grid;gap:8px;align-content:start}
-.localwiki-sidecard{padding:10px}.localwiki-sidecard h3{margin:0;font-size:10px}.localwiki-sidecard p{margin:5px 0 0;color:#81776a;font-size:8px;line-height:1.55}.localwiki-sidecard b{color:#cbb17a}
-
-.itemwiki-layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:11px}
-.itemwiki-list{display:grid;gap:5px;padding:8px;max-height:760px;overflow:auto}
-.itemwiki-btn{border:1px solid #302921;background:#0e0d0b;color:#c7baa7;border-radius:8px;padding:8px;text-align:left;cursor:pointer}
-.itemwiki-btn:hover,.itemwiki-btn.active{border-color:#6b502f;background:#19140e}
-.itemwiki-btn b{display:block;font-size:9px}.itemwiki-btn small{display:block;color:#766d61;font-size:7px;margin-top:2px}
-.itemwiki-range{display:flex;gap:5px;flex-wrap:wrap}
-.itemwiki-range select{min-height:32px;background:#0b0a08;color:#eee;border:1px solid #40352a;border-radius:7px;padding:6px;font-size:8px}
-.local-fulltable{max-height:620px!important}
-.itemwiki-source-note{padding:9px 10px;border-top:1px solid #302920;color:#7b7165;font-size:8px;line-height:1.5}
-
-.lw-modal-bg{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:10002}
-.lw-modal-bg.show{display:flex}
-.lw-modal{width:min(1040px,96vw);max-height:92vh;overflow:auto;border:1px solid #674d2f;background:linear-gradient(160deg,#17130f,#0d0c0a);border-radius:15px;box-shadow:0 35px 100px #000b}
-.lw-modal-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 13px;border-bottom:1px solid #352d24;background:#13100dF5;backdrop-filter:blur(10px)}
-.lw-modal-head h3{margin:0;font-size:15px}.lw-modal-head p{margin:3px 0 0;color:#817668;font-size:8px}
-.lw-modal-body{padding:11px;display:grid;gap:9px}
-.lw-facts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.lw-fact{border:1px solid #302920;background:#0c0b09;border-radius:8px;padding:7px}.lw-fact small{display:block;color:#71685e;font-size:7px;text-transform:uppercase}.lw-fact b{display:block;margin-top:3px;font-size:9px}
-.lw-dropcols{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.lw-dropcol{border:1px solid #342c23;background:#0e0d0b;border-radius:9px;padding:8px}.lw-dropcol h4{margin:0 0 6px;font-size:9px;color:#d9be80}.lw-dropcol p{margin:0;color:#a39684;font-size:8px;line-height:1.55}
-.lw-warning{border:1px solid #5a4826;background:#18140d;border-radius:8px;padding:8px;color:#b39d72;font-size:8px;line-height:1.5}
-.lw-measure-panel{border:1px solid #334758;background:#0d1216;border-radius:9px;padding:8px}
-.lw-measure-panel h4{margin:0 0 6px;font-size:9px;color:#86badc}
-.lw-measure-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:5px}.lw-measure-grid input{background:#0a0b0c;color:#eee;border:1px solid #33424d;border-radius:6px;padding:7px}.lw-measure-grid button{border:1px solid #496679;background:#14202a;color:#9ac9e8;border-radius:6px;padding:7px;font-size:8px}
-
-@media(max-width:1100px){
- .localwiki-content,.itemwiki-layout{grid-template-columns:1fr}
- .localwiki-sidebar{grid-template-columns:repeat(3,1fr)}
-}
-@media(max-width:780px){
- .localwiki-grid{grid-template-columns:1fr}.localwiki-trust,.localwiki-sidebar{grid-template-columns:1fr}
- .localwiki-stats{grid-template-columns:1fr 1fr}.lw-facts,.lw-dropcols{grid-template-columns:1fr 1fr}
-}
-@media(max-width:520px){
- .localwiki-stats{grid-template-columns:1fr}.lw-facts,.lw-dropcols{grid-template-columns:1fr}
- .lw-measure-grid{grid-template-columns:1fr 1fr}.lw-measure-grid button{grid-column:1/-1}
-}
-
 </style>
 </head>
 <body>
 <div class="app">
  <div class="topbar">
-  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.8 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
-  <div class="view-tabs"><button class="view-tab" id="viewDash">Centrum <span class="hotkey">D</span></button><button class="view-tab active" id="viewResps">Respy <span class="hotkey">R</span></button><button class="view-tab" id="viewChars">Postacie <span class="hotkey">P</span></button><button class="view-tab" id="viewFinance">Zarobek <span class="hotkey">Z</span></button><button class="view-tab" id="viewBosses">Bossy <span class="hotkey">B</span></button><button class="view-tab" id="viewDrop">Drop <span class="hotkey">O</span></button><button class="view-tab" id="viewItems">Itemy <span class="hotkey">I</span></button></div><div class="map-tabs" id="mapTabs"></div>
+  <div class="brand"><div class="crest">E</div><div><strong>ElderMT2 — ULTIMATE Command Center</strong><small>v6.9 BLACK GOLD • respy • postacie • biolog • obozy • zarobek • analityka</small></div></div>
+  <div class="view-tabs"><button class="view-tab" id="viewDash">Centrum <span class="hotkey">D</span></button><button class="view-tab active" id="viewResps">Respy <span class="hotkey">R</span></button><button class="view-tab" id="viewChars">Postacie <span class="hotkey">P</span></button><button class="view-tab" id="viewFinance">Zarobek <span class="hotkey">Z</span></button><button class="view-tab" id="viewBosses">Bossy <span class="hotkey">B</span></button></div><div class="map-tabs" id="mapTabs"></div>
   <div class="controls" id="respControls">
    <button class="btn" id="cmdBtn">⌘ Szukaj</button>
    <button class="btn" id="soundBtn">🔔 Dźwięk</button>
@@ -1208,129 +842,6 @@ body.items-mode .map-tabs,body.items-mode #respControls{display:none}
    <div class="research" id="research"></div>
   </aside>
  </div></div>
-
- <div class="view" id="dropView">
-  <div class="localwiki-wrap">
-   <section class="localwiki-hero">
-    <div>
-     <div class="localwiki-eyebrow">ELDERMT2 • TWOJA LOKALNA WIKI</div>
-     <h2>📦 Bestiariusz <span>Drop / Yang / Respy</span></h2>
-     <p>Cała baza działa bez odsyłania Cię do zewnętrznej wiki. Klikasz przeciwnika i dostajesz lokalną kartę: mapa, poziom, resp, drop, Yang oraz własne pomiary.</p>
-    </div>
-    <div class="localwiki-tools">
-     <input id="dropSearch" placeholder="Szukaj moba, metina, itemu lub mapy...">
-     <select id="dropMapFilter"><option value="">Wszystkie mapy</option></select>
-    </div>
-   </section>
-
-   <section class="localwiki-trust">
-    <div><b class="lw-elder">ELDER ✓</b><span>dane potwierdzone publicznie dla Eldera</span></div>
-    <div><b class="lw-classic">CLASSIC REF.</b><span>orientacyjny zakres Yang ze standardowego mob_proto</span></div>
-    <div><b class="lw-own">TWÓJ POMIAR</b><span>Twoja średnia z realnej gry na Elderze</span></div>
-   </section>
-
-   <section class="localwiki-tabs">
-    <button class="localwiki-tab active" data-drop-tab="mobs">👹 Potwory i bossy</button>
-    <button class="localwiki-tab" data-drop-tab="metins">💎 Metiny</button>
-    <button class="localwiki-tab" data-drop-tab="resps">⏱ Respy map</button>
-   </section>
-
-   <section class="localwiki-stats">
-    <div><small>Potwory / bossy</small><b id="dropMobCount">0</b></div>
-    <div><small>Metiny</small><b id="dropMetinCount">19</b></div>
-    <div><small>Twoje pomiary</small><b id="dropMeasuredCount">0</b></div>
-    <div><small>Widoczne wyniki</small><b id="dropVisibleCount">0</b></div>
-   </section>
-
-   <section class="localwiki-content">
-    <div class="localwiki-index">
-     <div class="localwiki-index-head"><div><h3 id="dropListTitle">Potwory i bossy</h3><span id="dropListSub">kliknij rekord, aby otworzyć pełną kartę</span></div></div>
-     <div class="localwiki-grid" id="dropEntries"></div>
-    </div>
-
-    <aside class="localwiki-sidebar">
-     <div class="localwiki-sidecard">
-      <h3>Jak czytać dane</h3>
-      <p>Jeżeli Elder nie publikuje indywidualnej puli dla zwykłego moba, karta nie udaje dokładności. W takim miejscu zobaczysz wyraźne „brak publicznej indywidualnej puli”. Bossy i metiny mają osobno rozpisane potwierdzone nagrody.</p>
-     </div>
-     <div class="localwiki-sidecard">
-      <h3>Yang</h3>
-      <p>Dokładny Yang Eldera nie jest publicznie rozpisany per mob. Dlatego karta pokazuje <b>Classic Ref.</b> i Twoją własną średnią. Twoje pomiary są zapisywane razem z całą aplikacją.</p>
-     </div>
-     <div class="localwiki-sidecard">
-      <h3>Źródła wbudowanej bazy</h3>
-      <p>ElderMT2 Wiki: mapy, kamienie Metin, bossy i strony przedmiotów. Classic mob_proto służy tylko jako referencja Yang i zawsze jest oznaczony osobno.</p>
-     </div>
-    </aside>
-   </section>
-  </div>
- </div>
-
- <div class="view" id="itemsView">
-  <div class="localwiki-wrap">
-   <section class="localwiki-hero">
-    <div>
-     <div class="localwiki-eyebrow">ELDERMT2 • TWOJA LOKALNA WIKI</div>
-     <h2>🛡 Przedmioty <span>/ statystyki / ulepszanie</span></h2>
-     <p>Bez iframe i bez „idź na wiki”. Każdy wpisany do bazy przedmiot ma własną lokalną kartę +0…+9, koszt Yang, materiały i kalkulator dokładnie dla tego itemu.</p>
-    </div>
-    <div class="localwiki-tools">
-     <input id="itemSearch" placeholder="Szukaj itemu, np. Zatruty, Lwia, Ebonitowe...">
-     <select id="itemCategorySelect"></select>
-    </div>
-   </section>
-
-   <section class="localwiki-trust">
-    <div><b class="lw-elder">ITEM-SPECIFIC</b><span>materiały i Yang są przypisane do konkretnego przedmiotu</span></div>
-    <div><b class="lw-classic">+0 → +9</b><span>pełna tabela poziomów dla rekordów offline</span></div>
-    <div><b class="lw-own">KALKULATOR</b><span>sumuje koszt i materiały z wybranego zakresu</span></div>
-   </section>
-
-   <section class="itemwiki-layout">
-    <aside class="itemwiki-listcard">
-     <div class="itemwiki-listhead"><div><h3>Indeks przedmiotów</h3><span><b id="verifiedItemCount">0</b> rekordów offline</span></div></div>
-     <div class="itemwiki-list" id="itemCats"></div>
-    </aside>
-
-    <div class="itemwiki-maincard">
-     <div class="itemwiki-mainhead">
-      <div>
-       <h3 id="localItemTitle">Wybierz przedmiot</h3>
-       <span id="localItemSubtitle">pełne dane lokalne</span>
-      </div>
-      <div class="itemwiki-range">
-       <select id="exactItemSelect"></select>
-       <select id="exactFrom"></select>
-       <select id="exactTo"></select>
-       <button class="btn primary" id="exactCalc">Policz</button>
-      </div>
-     </div>
-
-     <div class="exact-item-summary" id="exactItemSummary"></div>
-     <div class="exact-upgrade-result" id="exactUpgradeResult"></div>
-
-     <div class="exact-table-wrap local-fulltable">
-      <table class="exact-table">
-       <thead><tr><th>Poziom</th><th>Statystyki</th><th>Koszt Yang</th><th>Wymagane materiały</th></tr></thead>
-       <tbody id="exactItemTable"></tbody>
-      </table>
-     </div>
-
-     <div class="itemwiki-source-note">
-      Dane tej karty są zapisane bezpośrednio w Twojej aplikacji. Jeżeli przedmiotu nie ma jeszcze w indeksie, nie podstawiam mu materiałów z innego itemu.
-     </div>
-    </div>
-   </section>
-  </div>
- </div>
-
- <div class="lw-modal-bg" id="lwMobModal">
-  <div class="lw-modal">
-   <div class="lw-modal-head"><div><h3 id="lwMobTitle">Potwór</h3><p id="lwMobSub"></p></div><button class="close" id="lwMobClose">×</button></div>
-   <div id="lwMobBody"></div>
-  </div>
- </div>
-
  <div class="view" id="bossesView">
   <div class="boss-wrap">
    <section class="boss-hero">
@@ -1572,8 +1083,8 @@ body.items-mode .map-tabs,body.items-mode #respControls{display:none}
 </div>
 
 <div class="data-bg" id="dataBg"><div class="data-box">
- <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, bossy, wszystkie timery, postacie, biologa, historię tygodniówek, konia, umiejętności, zarobek oraz Twoje pomiary Yang/resp mobów.</p>
- <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.8 ULTIMATE</b></div></div>
+ <h3>Eksport / import danych</h3><p class="sub">Kod przenosi respy, bossy, wszystkie timery, postacie, biologa, historię tygodniówek, konia, umiejętności i zarobek na drugi komputer.</p>
+ <div class="data-safe"><div class="safe"><small>Auto-backup</small><b>co 15 minut</b></div><div class="safe"><small>Lokalizacja danych</small><b>ta przeglądarka</b></div><div class="safe"><small>Wersja</small><b>v6.9 ULTIMATE</b></div></div>
  <textarea id="dataText" placeholder="Tutaj pojawi się kod eksportu lub wklej backup do importu."></textarea>
  <div style="display:flex;gap:7px;margin-top:8px;flex-wrap:wrap"><button class="btn primary" id="exportBtn">Generuj eksport</button><button class="btn" id="importBtn">Importuj</button><button class="btn" id="backupBtn">Utwórz backup lokalny</button><button class="btn" id="restoreBackupBtn">Przywróć ostatni backup</button><button class="btn" id="dataClose">Zamknij</button></div>
 </div></div>
@@ -1669,16 +1180,15 @@ let deferredInstallPrompt=null;
 let financeDate=null,editingFinanceSessionId=null,editingFinanceLedgerId=null;
 let draggedCharId=null,draggedCharPlacement=null;
 let selectedBossId=null,selectedBossSlot=1,bossActiveOnly=false,bossBeeped={};
-let dropTab="metins",selectedItemCategory="all";
 function fresh(){
  const pos={},types={},custom={};
  for(const [mk,m] of Object.entries(MAPS)){pos[mk]={};types[mk]={};custom[mk]=[];m.spots.forEach(s=>{if(!s.unplaced)pos[mk][s.id]={x:s.x,y:s.y};types[mk][s.id]=s.type})}
- return{map:"valley",view:"resps",sound:true,pos,types,custom,timers:{},characters:[],weeklyConfig:{day:1,hour:0,minute:0},weeklyCycleStart:0,notes:"",activity:[],finance:{sessions:[],ledger:[]},bossTimers:{},customBosses:[],dropMeasurements:{}};
+ return{map:"valley",view:"resps",sound:true,pos,types,custom,timers:{},characters:[],weeklyConfig:{day:1,hour:0,minute:0},weeklyCycleStart:0,notes:"",activity:[],finance:{sessions:[],ledger:[]},bossTimers:{},customBosses:[]};
 }
 function load(){
  const f=fresh();
  try{const raw=localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||"{}";state={...f,...JSON.parse(raw)}}catch(e){state=f}
- state.pos||=f.pos;state.types||=f.types;state.custom||=f.custom;state.timers||={};state.characters||=[];state.notes||="";state.activity=Array.isArray(state.activity)?state.activity:[];state.finance=state.finance&&typeof state.finance==="object"?state.finance:{sessions:[],ledger:[]};state.finance.sessions=Array.isArray(state.finance.sessions)?state.finance.sessions:[];state.finance.ledger=Array.isArray(state.finance.ledger)?state.finance.ledger:[];state.bossTimers=state.bossTimers&&typeof state.bossTimers==="object"?state.bossTimers:{};state.customBosses=Array.isArray(state.customBosses)?state.customBosses:[];state.dropMeasurements=state.dropMeasurements&&typeof state.dropMeasurements==="object"?state.dropMeasurements:{};state.weeklyConfig={...f.weeklyConfig,...(state.weeklyConfig||{})};
+ state.pos||=f.pos;state.types||=f.types;state.custom||=f.custom;state.timers||={};state.characters||=[];state.notes||="";state.activity=Array.isArray(state.activity)?state.activity:[];state.finance=state.finance&&typeof state.finance==="object"?state.finance:{sessions:[],ledger:[]};state.finance.sessions=Array.isArray(state.finance.sessions)?state.finance.sessions:[];state.finance.ledger=Array.isArray(state.finance.ledger)?state.finance.ledger:[];state.bossTimers=state.bossTimers&&typeof state.bossTimers==="object"?state.bossTimers:{};state.customBosses=Array.isArray(state.customBosses)?state.customBosses:[];state.weeklyConfig={...f.weeklyConfig,...(state.weeklyConfig||{})};
  for(const k of Object.keys(MAPS)){state.pos[k]||={};state.types[k]||={};state.custom[k]||=[]}
  normalizeCharacters();refreshWeeklyCooldowns();
 }
@@ -2201,495 +1711,6 @@ function checkBeeps(){if(!state.sound)return;allSpots(state.map).forEach(s=>{for
 
 function uid(){return Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4)}
 
-
-
-
-const DROP_MAPS={
- "M1":{name:"Miasta Pierwsze (M1)",metins:"13 szt. • 11–25 min • lotne",peak:"+3–13 • 10–25 min (18–23)",boss:"9 bossów/minibossów • 15–20 min",mobs:"publiczna wiki nie podaje jednej wartości resp per każdy zwykły mob"},
- "M2":{name:"Miasta Drugie (M2)",metins:"10 szt. • 12–15 min • lotne",peak:"+3–6 • 12–20 min (18–23)",boss:"15 bossów/minibossów • 15–33 min",mobs:"publiczna wiki opisuje krótki resp, ale nie publikuje jednej wartości per mob"},
- "Dolina":{name:"Dolina Seungryong",metins:"7 szt. • 18–33 min • lotne",peak:"+2–4 • 27–33 min (18–23)",boss:"Wódz Orków 48–87 min • Bestialskie 9–11 min",mobs:"brak publicznej wartości per zwykły mob"},
- "Pustynia":{name:"Pustynia Yongbi",metins:"13 szt. • 21–29 min • lotne",peak:"+3–6 • 21–42 min (18–23)",boss:"Olbrzymi Żółw 60–88 min",mobs:"brak publicznej wartości per zwykły mob"},
- "Hwang":{name:"Świątynia Hwang",metins:"4 szt. • 27–32 min • lotne",peak:"+1 • 27–32 min (18–23)",boss:"Ezot. Przyw. / Zjawa Żółtego Tygrysa • ok. 2h",mobs:"brak publicznej wartości per zwykły mob"},
- "Sohan":{name:"Góra Sohan",metins:"5 szt. • 23–34 min • lotne",peak:"+5 • 28–32 min (18–23)",boss:"Dziewięć Ogonów 20–35 min",mobs:"120–160 s — oficjalny opis mapy"},
- "Piekło":{name:"Piekielna Ziemia",metins:"4 szt. • 28–32 min • lotne",peak:"+1–2 • 28–32 min (18–23)",boss:"Ognisty Król 60–83 min",mobs:"brak publicznej wartości per zwykły mob"},
- "Las":{name:"Las Duchów",metins:"4 szt. • 43–47 min • lotne",peak:"+1–2 • 40–60 min (18–23)",boss:"1 boss/miniboss • 60–83 min",mobs:"brak publicznej wartości per zwykły mob"},
- "Czerwony":{name:"Czerwony Las",metins:"4 szt. • 36–47 min • lotne",peak:"+1–2 • 36–46 min (18–23)",boss:"Władca Duchów Drzew 48–52 min",mobs:"brak publicznej wartości per zwykły mob"},
- "Giganci":{name:"Kraina Gigantów",metins:"Pung-Ma / Ma-An • ok. 60 min",peak:"wg tabeli mapy",boss:"brak standardowego bossa",mobs:"brak publicznej wartości per zwykły mob"},
- "Wężowe":{name:"Wężowe Pole",metins:"7 szt. • 7–77 min • lotne",peak:"+1 • 7–77 min (18–23)",boss:"aktywności Kompanii / konwój",mobs:"brak publicznej wartości per zwykły mob"}
-};
-
-const METIN_DB=[
- {name:"Metin Cierpienia",lvl:5,maps:"M1",resp:"M1: 11–25 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła",weapons:"Długi Miecz +0/+2 • Amija +0/+2 • Włócznia +0/+2 • Długi Łuk +0/+2 • Żelazny Wachlarz +0/+2",armors:"Mnisia Zbr. Płyt. +0/+2 • Błękitne Ubranie +0/+2"},
- {name:"Metin Walki",lvl:10,maps:"M1",resp:"M1: 11–25 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła",weapons:"Sejmitar +0/+1 • Sztylet Kobry +0/+1 • Kompozytowy Łuk +0/+1 • Miedziany Dzwon +0/+1",armors:"Żelazna Zbr. Płyt. +0/+1/+2 • Kremowe Ubranie +0/+1/+2"},
- {name:"Metin Bitwy",lvl:15,maps:"M1",resp:"M1: 11–25 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła • Księga Misji (Łatwa)",weapons:"Stożkowy Miecz +0/+1 • Dziewięć Ostrzy +0/+1 • Bojowy Łuk +0/+1",armors:"Żelazna Zbr. Płyt. +0/+1/+2 • Kremowe Ubranie +0/+1/+2"},
- {name:"Metin Chciwości",lvl:20,maps:"M1 / Wężowe",resp:"M1: 11–25 min • Wężowe: 7–77 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła • Księga Misji (Łatwa)",weapons:"Szeroki Miecz +0/+1 • Sztylet Nożycowy +0/+1 • Długi Łuk Jeźdźcy +0/+1",armors:"Zbr. Płyt. Tygrysa +0/+1 • Czerwone Ubranie +0/+1"},
- {name:"Metin Czerni",lvl:25,maps:"M1 / M2",resp:"M1: 11–25 min • M2: 12–15 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła",weapons:"Srebrny Miecz +0/+1 • Krótki Nóż +0/+1 • Kosa Bojowa +0/+1 • Bojowy Łuk Jeźdźcy +0/+1",armors:"Zbr. Płyt. Tygrysa +0/+1/+2"},
- {name:"Metin Ciemności",lvl:30,maps:"M2",resp:"M2: 12–15 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła • Księga Misji (Normalna)",weapons:"Miecz Storczykowy +0/+1 • Nóż Szczęścia +0/+1 • Trójząb +0/+1 • Miedziany Łuk +0/+1",armors:"Lwia Zbroja Płytowa +0/+1 • Czer. Ubranie Mrówki +0/+1"},
- {name:"Metin Zazdrości",lvl:35,maps:"M1 / M2",resp:"M2: 12–15 min",drop:"Księga Umiejętności • Zielony Czar • Zielona Siła • Księga Misji (Normalna)",weapons:"Miecz Półtoraręczny +0/+1 • Ukąszenie Kota +0/+1 • Halabarda +0/+1 • Łuk Czarnych Ruin +0/+1",armors:"Lwia Zbroja +0/+1/+2"},
- {name:"Metin Duszy",lvl:40,maps:"Dolina / Pustynia",resp:"Dolina: 18–33 min • Pustynia: 21–29 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie",weapons:"Miecz Barbarzyńcy +0/+1 • Twarz Diabła +0/+1 • Olbrz. Topór +0/+1 • Łuk Czerwonego Oka +0/+1",armors:"Śmiert. Zbroja Płytowa +0/+1/+2 • Ubranie Lwiej Mrówki +0/+1/+2"},
- {name:"Metin Cienia",lvl:45,maps:"Dolina / Pustynia",resp:"Dolina: 18–33 min • Pustynia: 21–29 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie",weapons:"Krwawy Miecz +0/+1 • Sztylet Pięści Diabła +0/+1 • Łuk Kolczastego Liścia +0/+1",armors:"Smocza Zbroja Płytowa +0/+1/+2 • Ubranie Zabójcy +0/+1/+2"},
- {name:"Metin Twardości",lvl:50,maps:"Pustynia",resp:"Pustynia: 21–29 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie • Księga Misji (Trudna)",weapons:"Wielki Miecz +0/+1 • Krwawy Sztylet +0/+1 • Łuk z Rogu Byka +0/+1",armors:"Smocza Zbroja Płytowa +0/+1/+2 • Ubranie Zabójcy +0/+1/+2"},
- {name:"Metin Diabła",lvl:55,maps:"Sohan / Hwang",resp:"Sohan: 23–34 min • Hwang: 27–32 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie • Księga Misji (Trudna)",weapons:"Miecz Lat. Maga +0/+1 • Żebrowy Nóż +0/+1 • Łuk Jednorożca +0/+1",armors:"—"},
- {name:"Metin Upadku",lvl:60,maps:"Hwang",resp:"Hwang: 27–32 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie",weapons:"Półksiężycowy Miecz +0/+1 • Chakram +0/+1 • Olbrz. Skrzydl. Łuk +0/+1",armors:"—"},
- {name:"Metin Śmierci",lvl:65,maps:"Sohan",resp:"Sohan: 23–34 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie • Zniszczone Wzmocnienie • Zwój Błogosławieństwa • Księga Misji (Ekspert)",weapons:"Miecz Lat. Maga +0/+1 • Żebrowy Nóż +0/+1 • Łuk Jednorożca +0/+1",armors:"—"},
- {name:"Metin Morderstwa",lvl:70,maps:"Piekło",resp:"Piekło: 28–32 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie • Zniszczone Wzmocnienie • Zwój Błogosławieństwa • Księga Misji (Ekspert)",weapons:"Półksiężycowy Miecz +0/+1 • Chakram +0/+1 • Olbrz. Skrzydl. Łuk +0/+1",armors:"—"},
- {name:"Metin Pung-Ma",lvl:75,maps:"Wężowe / Las / Giganci",resp:"Wężowe: 7–77 min • Las: 43–47 min • Giganci: ok. 60 min",drop:"Kamień Duchowy • Zniszczone Zaczarowanie • Zniszczone Wzmocnienie • Zwój Błogosławieństwa • Magiczna Ruda • Peleryna Męstwa • Księga Misji (Ekspert)",weapons:"Magnetyczne Ostrze +0/+1 • Nóż Błyskawicy +0/+1 • Boski Łuk Moreli +0/+1 • Wachlarz Zbawienia +0/+1 • Dzwon Nieba i Ziemi +0/+1",armors:"—"},
- {name:"Metin Ma-An",lvl:80,maps:"Wężowe / Las / Giganci",resp:"Wężowe: 7–77 min • Las: 43–47 min • Giganci: ok. 60 min",drop:"Jak Pung-Ma + Zwój Kamienia Duszy",weapons:"Magnetyczne Ostrze +1/+2 • Nóż Błyskawicy +1/+2 • Boski Łuk Moreli +1/+2 • Wachlarz Zbawienia +1/+2 • Dzwon Nieba i Ziemi +1/+2",armors:"—"},
- {name:"Metin Tu-Young",lvl:85,maps:"Czerwony",resp:"Czerwony Las: 36–47 min",drop:"Jak Ma-An + Zwój Egzorcyzmu • Rada Pustelnika • Rękawica Złodzieja • Pierścień Doświadczenia",weapons:"Magnetyczne Ostrze +2/+3 • Nóż Błyskawicy +2/+3 • Boski Łuk Moreli +2/+3 • Wachlarz Zbawienia +2/+3 • Dzwon Nieba i Ziemi +2/+3",armors:"Duchowa Zbroja Płyt. +1/+2 • Szata Baronów +1/+2 • Ubranie Fuksyjne +1/+2 • Zbroja Boga Smoków +1/+2"},
- {name:"Metin Jeon-Un",lvl:90,maps:"Czerwony",resp:"Czerwony Las: 36–47 min",drop:"Jak Tu-Young",weapons:"Miecz Szponu Ducha +1/+2/+3 • Miecz Bojowy +1/+2/+3 • Partyzana +1/+2/+3 • Dzwon Burzowego Ptaka +1/+2/+3",armors:"Duchowa Zbroja Płyt. +1/+2/+3 • Szata Baronów +1/+2/+3 • Zbroja Boga Smoków +1/+2/+3"},
- {name:"Metin Piekła",lvl:"Legendarny",maps:"Piekło",resp:"specjalna aktywność",drop:"Piekielne Małże • Schematy Hełmów • gotowe Hełmy • nagrody zależne od obrażeń",weapons:"specjalna pula",armors:"specjalna pula"}
-];
-
-/*
-  Bestiary: every entry is a separate record.
-  `elderDrop` contains ONLY what is explicitly documented on public Elder pages we researched.
-  Exact full pools are intentionally delegated to Elder's live Wikipedia Dropu.
-*/
-const MOB_DB=[
- {vnum:101,name:"Dziki Pies",map:"M1",lvl:1,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu.",note:"VNUM / Yang klasyczny służy wyłącznie jako referencja."},
- {vnum:102,name:"Wilk",map:"M1",lvl:3,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:103,name:"Alfa Wilk",map:"M1",lvl:4,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:104,name:"Niebieski Wilk",map:"M1",lvl:6,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:105,name:"Alfa Niebieski Wilk",map:"M1",lvl:9,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:106,name:"Szary Wilk",map:"M1",lvl:13,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:107,name:"Alfa Szary Wilk",map:"M1",lvl:16,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:108,name:"Dziki Dzik",map:"M1",lvl:7,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:109,name:"Czerwony Dzik",map:"M1",lvl:10,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:110,name:"Niedźwiedź",map:"M1",lvl:12,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:111,name:"Grizzly",map:"M1",lvl:15,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:112,name:"Czarny Niedźwiedź",map:"M1",lvl:19,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:113,name:"Brązowy Niedźwiedź",map:"M1",lvl:21,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:114,name:"Tygrys",map:"M1",lvl:18,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
- {vnum:115,name:"Biały Tygrys",map:"M1",lvl:24,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Podstawowy drop M1; pełna pula: Wikipedia Dropu."},
-
- {vnum:401,name:"Żołnierz Czarnego Wiatru",map:"M2",lvl:26,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:402,name:"Maniak Czarnego Wiatru",map:"M2",lvl:27,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:403,name:"Łucznik Czarnego Wiatru",map:"M2",lvl:29,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:404,name:"Jak-To Czarnego Wiatru",map:"M2",lvl:30,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:405,name:"To-Su Czarnego Wiatru",map:"M2",lvl:33,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:406,name:"Gu-Ryung Czarnego Wiatru",map:"M2",lvl:35,type:"mob",resp:"krótki resp; brak jednej publicznej liczby Elder",elderDrop:"Drop M2; pełna pula: Wikipedia Dropu."},
- {vnum:491,name:"Mahon",map:"M2",lvl:32,type:"boss",resp:"grupa bossów/minibossów M2: 15–33 min",elderDrop:"Pełna pula bossa: Wikipedia Dropu."},
- {vnum:492,name:"Bo",map:"M2",lvl:37,type:"boss",resp:"grupa bossów/minibossów M2: 15–33 min",elderDrop:"Pełna pula bossa: Wikipedia Dropu."},
- {vnum:493,name:"Goo-Pae",map:"M2",lvl:39,type:"boss",resp:"grupa bossów/minibossów M2: 15–33 min",elderDrop:"Pełna pula bossa: Wikipedia Dropu."},
- {vnum:494,name:"Chuong",map:"M2",lvl:45,type:"boss",resp:"grupa bossów/minibossów M2: 15–33 min",elderDrop:"Pełna pula bossa: Wikipedia Dropu."},
- {vnum:531,name:"Bestialski Żołnierz",map:"Dolina / M2",lvl:"~35",type:"boss",resp:"Dolina: 9–11 min",elderDrop:"Miniboss Bestialski; pełna pula: Wikipedia Dropu."},
- {vnum:532,name:"Bestialski Maniak",map:"Dolina / M2",lvl:"~37",type:"boss",resp:"Dolina: 9–11 min",elderDrop:"Miniboss Bestialski; pełna pula: Wikipedia Dropu."},
- {vnum:533,name:"Bestialski Łucznik",map:"Dolina / M2",lvl:"~40",type:"boss",resp:"Dolina: 9–11 min",elderDrop:"Miniboss Bestialski; pełna pula: Wikipedia Dropu."},
- {vnum:534,name:"Bestialski Specjalista",map:"Dolina / M2",lvl:"~42",type:"boss",resp:"Dolina: 9–11 min",elderDrop:"Miniboss Bestialski; pełna pula: Wikipedia Dropu."},
- {vnum:591,name:"Bestialski Kapitan",map:"M2",lvl:42,type:"boss",resp:"grupa bossów/minibossów M2: 15–33 min",elderDrop:"Pełna pula bossa: Wikipedia Dropu."},
-
- {vnum:601,name:"Ork",map:"Dolina",lvl:"26–40",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Zęby Orka do biologa na orkowych spotach; ekwipunek / ulepszacze wg Wikipedii Dropu.",note:"Silny przeciwko Orkom."},
- {vnum:602,name:"Ork Zwiadowca",map:"Dolina",lvl:"29–42",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Orkowy drop + Zęby Orka; pełna pula: Wikipedia Dropu."},
- {vnum:603,name:"Ork Wojownik",map:"Dolina",lvl:"31–48",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Dobry cel pod Zęby Orka; pełna pula: Wikipedia Dropu."},
- {vnum:604,name:"Ork Czarodziej",map:"Dolina",lvl:"33–45",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Orkowy drop + ulepszacze; pełna pula: Wikipedia Dropu."},
- {vnum:636,name:"Czarny Ork",map:"Dolina",lvl:"46–48",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Mocniejsza pula orkowa; pełna pula: Wikipedia Dropu."},
- {vnum:691,name:"Wódz Orków",map:"Dolina",lvl:50,type:"boss",resp:"48–87 min • dodatkowy 53–95 min 18–23",elderDrop:"Bronie/zbroje ok. 30–55, materiały; dokładna pula: Wikipedia Dropu.",note:"Elder Wiki: HP 24 618."},
-
- {vnum:701,name:"Mroczny Fanatyk",map:"Dolina / Hwang",lvl:35,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ezoteryczny drop; Księgi Klątw na odpowiednich spotach; pełna pula: Wikipedia Dropu."},
- {vnum:702,name:"Mroczny Arahan",map:"Dolina / Hwang",lvl:38,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ezoteryczny drop; pełna pula: Wikipedia Dropu."},
- {vnum:703,name:"Ezoteryczny Arahan",map:"Dolina / Hwang",lvl:41,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ezoteryczny drop; pełna pula: Wikipedia Dropu."},
- {vnum:704,name:"Ezoteryczny Przywódca",map:"Hwang",lvl:44,type:"boss",resp:"szczegółowa wiki Hwang: ok. 2h",elderDrop:"Boss Hwang; pełna pula: Wikipedia Dropu."},
- {vnum:705,name:"Ezoteryczny Egzekutor",map:"Hwang",lvl:48,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Księgi Klątw / ulepszacze wg Wikipedii Dropu."},
- {vnum:706,name:"Mroczny Dręczyciel",map:"Hwang",lvl:49,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pełna pula: Wikipedia Dropu."},
- {vnum:707,name:"Mroczny Przywoływacz",map:"Hwang",lvl:51,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pełna pula: Wikipedia Dropu."},
-
- {vnum:2001,name:"Młody Pająk",map:"Pustynia",lvl:"40+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pajęcze ulepszacze / ekwipunek; dokładnie: Wikipedia Dropu."},
- {vnum:2002,name:"Trujący Pająk",map:"Pustynia",lvl:"40+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pajęcze materiały; dokładnie: Wikipedia Dropu."},
- {vnum:2004,name:"Szponiasty Pająk",map:"Pustynia",lvl:"~50",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pajęcze materiały; dokładnie: Wikipedia Dropu."},
- {vnum:2101,name:"Lis Pustynny",map:"Pustynia",lvl:19,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynny drop; dokładnie: Wikipedia Dropu."},
- {vnum:2102,name:"Pustynne Latające Oko",map:"Pustynia",lvl:37,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynny drop; dokładnie: Wikipedia Dropu."},
- {vnum:2103,name:"Król Skorpionów",map:"Pustynia",lvl:39,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynne ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2104,name:"Młody Człowiek-Skorpion",map:"Pustynia",lvl:44,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynne ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2105,name:"Łucznik Skorpionów",map:"Pustynia",lvl:47,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynne ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2106,name:"Wężolud Miecznik",map:"Pustynia",lvl:48,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Wężowe/pustynne materiały; dokładnie: Wikipedia Dropu."},
- {vnum:2107,name:"Wężolud Łucznik",map:"Pustynia",lvl:51,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Wężowe/pustynne materiały; dokładnie: Wikipedia Dropu."},
- {vnum:2108,name:"Pustynny Rozbójnik",map:"Pustynia",lvl:54,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Pustynny drop; dokładnie: Wikipedia Dropu."},
- {vnum:2191,name:"Olbrzymi Żółw",map:"Pustynia",lvl:67,type:"boss",resp:"60–88 min",elderDrop:"Boss Pustyni; pełna pula: Wikipedia Dropu."},
-
- {vnum:1101,name:"Zaczarowany Lód",map:"Sohan",lvl:62,type:"mob",resp:"120–160 s",elderDrop:"Ekwipunek do ok. 60 lvl, mikstury, ulepszacze; lodowe potwory dają Matowy Lód do biologa."},
- {vnum:1102,name:"Lodowy Wieloryb",map:"Sohan",lvl:63,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; dokładna pula: Wikipedia Dropu."},
- {vnum:1103,name:"Lodowy Robak",map:"Sohan",lvl:64,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; dokładna pula: Wikipedia Dropu."},
- {vnum:1104,name:"Lodowy Lew",map:"Sohan",lvl:64,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; dokładna pula: Wikipedia Dropu."},
- {vnum:1105,name:"Mroźny Lodowy Człowiek",map:"Sohan",lvl:65,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; dokładna pula: Wikipedia Dropu."},
- {vnum:1106,name:"Yeti",map:"Sohan",lvl:66,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; Futro Yeti+ jest materiałem ulepszania. Pełna pula: Wikipedia Dropu."},
- {vnum:1107,name:"Lodowy Golem",map:"Sohan",lvl:66,type:"mob",resp:"120–160 s",elderDrop:"Lodowe ulepszacze; dokładna pula: Wikipedia Dropu."},
- {vnum:1901,name:"Dziewięć Ogonów",map:"Sohan",lvl:72,type:"boss",resp:"20–35 min • dodatkowy 28–37 min 18–23",elderDrop:"Szkatułka Dziewięciu Ogonów • wybrane bronie/zbroje • Magiczny Metal • Zwój Błogosławieństwa.",note:"Elder Wiki: HP 206 120."},
-
- {vnum:2201,name:"Sługa Walczącego Tygrysa",map:"Piekło",lvl:69,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek, mikstury i materiały do ulepszania; dokładnie: Wikipedia Dropu."},
- {vnum:2202,name:"Ognisty Duch",map:"Piekło",lvl:69,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek, mikstury i materiały do ulepszania; dokładnie: Wikipedia Dropu."},
- {vnum:2203,name:"Walczący Tygrys",map:"Piekło",lvl:70,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek, mikstury i materiały do ulepszania; dokładnie: Wikipedia Dropu."},
- {vnum:2204,name:"Płomień",map:"Piekło",lvl:71,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek, mikstury i materiały do ulepszania; dokładnie: Wikipedia Dropu."},
- {vnum:2205,name:"Ognisty Wojownik",map:"Piekło",lvl:71,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek, mikstury i materiały do ulepszania; dokładnie: Wikipedia Dropu."},
- {vnum:2206,name:"Ognisty Król",map:"Piekło",lvl:73,type:"boss",resp:"60–83 min • 2 losowe miejsca",elderDrop:"Szkatułka Ognistego Króla • bronie • zbroje • tarcze • hełmy • Zwój Błogosławieństwa • Księga Misji ekspert.",note:"Elder Wiki: HP 151 024."},
-
- {vnum:2301,name:"Drzewo Duchów",map:"Las",lvl:65,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2302,name:"Pniak Drzewa Duchów",map:"Las",lvl:67,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2303,name:"Driada",map:"Las",lvl:69,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2304,name:"Duch Wierzby",map:"Las",lvl:70,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2305,name:"Złe Drzewo",map:"Las",lvl:71,type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2311,name:"Czerwone Drzewo Duchów",map:"Czerwony",lvl:"60+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek 60+, biolog i ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2312,name:"Czerwony Duch Pniaka",map:"Czerwony",lvl:"60+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek 60+, biolog i ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2313,name:"Czerwona Driada",map:"Czerwony",lvl:"60+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek 60+, biolog i ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2314,name:"Czerwony Duch Wierzby",map:"Czerwony",lvl:"60+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek 60+, biolog i ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2315,name:"Czerwone Złe Drzewo",map:"Czerwony",lvl:"60+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek 60+, biolog i ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:2307,name:"Władca Duchów Drzew",map:"Czerwony",lvl:"wysoki",type:"boss",resp:"48–52 min",elderDrop:"Boss Czerwonego Lasu; pełna pula: Wikipedia Dropu."},
-
- {vnum:1401,name:"Niszczyciel",map:"Giganci",lvl:"66+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Wysoki ekwipunek / ulepszacze; Certyfikat Tugyisa z potworów mapy."},
- {vnum:1402,name:"Wojownik z Toporem",map:"Giganci",lvl:"70+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Wysoki ekwipunek / biolog; dokładnie: Wikipedia Dropu."},
- {vnum:1403,name:"Tysięczny Wojownik",map:"Giganci",lvl:"75+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Wysoki ekwipunek / ulepszacze; dokładnie: Wikipedia Dropu."},
- {vnum:1601,name:"Ogr Wojownik",map:"Giganci / Wężowe",lvl:"68+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek wysokiego tieru; na Wężowym Polu powiązany z Księgami Uriela."},
- {vnum:1602,name:"Ogr Rzeźnik",map:"Giganci",lvl:"70+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek wysokiego tieru; dokładnie: Wikipedia Dropu."},
- {vnum:1603,name:"Ogr Szaleniec",map:"Giganci",lvl:"75+",type:"mob",resp:"brak publicznej wartości Elder per mob",elderDrop:"Ekwipunek wysokiego tieru; dokładnie: Wikipedia Dropu."}
-];
-
-/* Known classic fallbacks
-
-const MOB_DROP_ENRICH={
- "Wódz Orków":{weapons:"Wybrane bronie z zakresu ok. 30–55 lvl.",armors:"Wybrane zbroje z zakresu ok. 30–55 lvl.",other:"Szkatułka / ulepszacze i pozostałe nagrody zgodne z pulą bossa Elder.",source:"Elder — strona Doliny / boss"},
- "Dziewięć Ogonów":{weapons:"Wybrane bronie z puli bossa.",armors:"Wybrane zbroje z puli bossa.",other:"Szkatułka Dziewięciu Ogonów • Magiczny Metal • Zwój Błogosławieństwa.",source:"Elder — Góra Sohan"},
- "Ognisty Król":{weapons:"Wybrane bronie z puli Ognistego Króla.",armors:"Wybrane zbroje, tarcze i hełmy.",other:"Szkatułka Ognistego Króla • Zwój Błogosławieństwa • Księga Misji (Ekspert).",source:"Elder — Piekielna Ziemia"},
- "Olbrzymi Żółw":{weapons:"Publiczna strona mapy nie rozpisuje osobno pełnej puli broni.",armors:"Publiczna strona mapy nie rozpisuje osobno pełnej puli zbroi.",other:"Szkatułka / cenniejszy drop bossa; szczegółowa indywidualna pula nie jest jawnie rozpisana na statycznej stronie mapy.",source:"Elder — Pustynia"},
- "Władca Duchów Drzew":{weapons:"Publiczna strona mapy nie rozpisuje osobno pełnej puli broni.",armors:"Publiczna strona mapy nie rozpisuje osobno pełnej puli zbroi.",other:"Szkatułka i materiały ulepszające — potwierdzony charakter nagród bossa.",source:"Elder — Czerwony Las"},
- "Yeti":{weapons:"Brak publicznej indywidualnej listy broni dla Yeti.",armors:"Brak publicznej indywidualnej listy zbroi dla Yeti.",other:"Futro Yeti+ występuje jako materiał ulepszania. Ogólny drop lodowych potworów: ekwipunek, mikstury, ulepszacze.",source:"Elder — Góra Sohan"},
- "Zaczarowany Lód":{weapons:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",armors:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",other:"Mikstury • ulepszacze • Matowy Lód (biolog 60) z lodowych potworów.",source:"Elder — Góra Sohan"},
- "Lodowy Wieloryb":{weapons:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",armors:"Ogólna pula lodowych potworów: ekwipunek do ok. 60 lvl.",other:"Mikstury • ulepszacze • Lodowy Róg Wieloryba jako materiał ulepszeń.",source:"Elder — Góra Sohan"}
-};
-function localMobDrop(x){
- const e=MOB_DROP_ENRICH[x.name]||{};
- const isBoss=x.type==="boss";
- const generic=isBoss
-  ?"Brak pełnej indywidualnej puli na statycznej stronie źródłowej."
-  :"Brak publicznej indywidualnej puli dla tego zwykłego moba.";
- return{
-  weapons:e.weapons||generic,
-  armors:e.armors||generic,
-  other:e.other||x.elderDrop||generic,
-  source:e.source||"Elder — dane mapy / bestiariusza"
- };
-}
- from public Metin2 mob_proto.
-   Used ONLY if live raw mob_proto cannot be fetched. */
-const CLASSIC_YANG_FALLBACK={
- 101:[18,27],102:[23,34],103:[25,38],104:[30,45],105:[37,56],106:[47,70],107:[80,120],108:[32,49],109:[56,84],110:[44,67],111:[76,114],112:[61,92],113:[100,150],114:[59,88],115:[112,168],
- 401:[78,117],402:[80,121],403:[171,256],404:[136,204],405:[148,222],406:[156,234],
- 491:[246,369],492:[282,423],493:[296,445],494:[340,510],
- 691:[616,924],
- 701:[109,164],702:[184,277],703:[197,296],704:[288,432],705:[228,343],706:[349,524],707:[364,546],
- 2101:[92,138],2102:[168,253],2103:[176,265],2104:[254,381],2105:[558,837],2106:[276,414],2107:[603,904],2108:[404,607],
- 2061:[533,798],2062:[552,828],2063:[698,1047],2064:[723,1085],2065:[747,1121]
-};
-let CLASSIC_MOB_DB={...CLASSIC_YANG_FALLBACK},classicDbState="fallback";
-
-async function loadClassicMobProto(){CLASSIC_MOB_DB={...CLASSIC_YANG_FALLBACK};classicDbState="local";}
-function classicYangFor(vnum){
- const x=CLASSIC_MOB_DB[vnum];
- if(Array.isArray(x))return{min:x[0],max:x[1]};
- if(x&&typeof x==="object")return{min:Number(x.min)||0,max:Number(x.max)||0,level:x.level,hp:x.hp,exp:x.exp};
- return null;
-}
-function measurementKey(name,map){return`${map}|${name}`}
-function getDropMeasurement(name,map){return state.dropMeasurements[measurementKey(name,map)]||{kills:0,yang:0,avg:0,respSec:null}}
-function saveMobMeasurement(name,map,kills,yang){
- const key=measurementKey(name,map),old=getDropMeasurement(name,map),k=Math.max(0,Number(kills)||0),y=Math.max(0,Number(yang)||0);
- if(!k||!y){toast("Brak pomiaru","Wpisz liczbę zabitych i zdobyte Yang.","warn");return}
- const totalKills=(old.kills||0)+k,totalYang=(old.yang||0)+y;
- state.dropMeasurements[key]={...old,kills:totalKills,yang:totalYang,avg:totalYang/totalKills};save();renderDrop();
-}
-function saveMobResp(name,map,sec){
- const key=measurementKey(name,map),old=getDropMeasurement(name,map),v=Math.max(0,Number(sec)||0);
- state.dropMeasurements[key]={...old,respSec:v||null};save();renderDrop();
-}
-function renderDropFilters(){
- const sel=document.getElementById("dropMapFilter");if(!sel||sel.options.length>1)return;
- Object.entries(DROP_MAPS).forEach(([id,m])=>{const o=document.createElement("option");o.value=id;o.textContent=m.name;sel.appendChild(o)});
-}
-function mapMatch(value,filter){
- if(!filter)return true;const s=String(value||"").toLowerCase(),f=filter.toLowerCase();
- if(filter==="M1")return/\bm1\b/.test(s);if(filter==="M2")return/\bm2\b/.test(s);
- const aliases={Dolina:["dolina"],Pustynia:["pustyn"],Hwang:["hwang"],Sohan:["sohan"],Piekło:["piek"],Las:["las"],Czerwony:["czerw"],Giganci:["gigant"],Wężowe:["węż","wez"]};
- return(aliases[filter]||[f]).some(a=>s.includes(a));
-}
-function copyText(v,msg="Skopiowano"){
- navigator.clipboard?.writeText(v).then(()=>toast(msg,v,"good")).catch(()=>{});
-}
-
-function renderMobCards(rows){
- return rows.map(x=>{
-  const m=getDropMeasurement(x.name,x.map),cy=classicYangFor(x.vnum),d=localMobDrop(x);
-  const classic=cy&&cy.max?`${YANG_FMT.format(cy.min)}–${YANG_FMT.format(cy.max)} Yang`:"brak rekordu";
-  const measured=m.avg?`${fmtYang(m.avg,true)} / mob`:"brak pomiaru";
-  const resp=m.respSec?`${m.respSec}s (Twój pomiar)`:x.resp;
-  return `<button class="lw-entry" data-lw-mob="${esc(x.name)}">
-   <div class="lw-entry-top"><h4>${esc(x.name)}</h4><span class="lw-type ${x.type}">${x.type==="boss"?"BOSS / MINIBOSS":"MOB"}</span></div>
-   <div class="lw-entry-meta"><span>${esc(x.map)}</span><span>Lv. ${esc(x.lvl)}</span><span>VNUM ${x.vnum}</span></div>
-   <div class="lw-entry-line"><b>Resp:</b> ${esc(resp)}</div>
-   <div class="lw-entry-line"><b>Drop:</b> ${esc(d.other)}</div>
-   <div class="lw-entry-line"><b>Yang:</b> ${esc(measured)} • Classic ${esc(classic)}</div>
-  </button>`;
- }).join("");
-}
-function renderMetinCards(rows){
- return rows.map(x=>`<button class="lw-entry" data-lw-metin="${esc(x.name)}">
-  <div class="lw-entry-top"><h4>${esc(x.name)}</h4><span class="lw-type metin">METIN • Lv.${esc(x.lvl)}</span></div>
-  <div class="lw-entry-meta"><span>${esc(x.maps)}</span><span>${esc(x.resp)}</span></div>
-  <div class="lw-entry-line"><b>Pozostałe:</b> ${esc(x.drop)}</div>
-  <div class="lw-entry-line"><b>Bronie:</b> ${esc(x.weapons)}</div>
-  <div class="lw-entry-line"><b>Zbroje:</b> ${esc(x.armors)}</div>
- </button>`).join("");
-}
-function renderRespCards(rows){
- return rows.map(([id,m])=>`<article class="lw-entry" style="cursor:default">
-  <div class="lw-entry-top"><h4>${esc(m.name)}</h4><span class="lw-type metin">RESPY</span></div>
-  <div class="lw-entry-line"><b>Metiny:</b> ${esc(m.metins)}</div>
-  <div class="lw-entry-line"><b>Szczyt:</b> ${esc(m.peak)}</div>
-  <div class="lw-entry-line"><b>Bossy:</b> ${esc(m.boss)}</div>
-  <div class="lw-entry-line"><b>Zwykłe moby:</b> ${esc(m.mobs)}</div>
- </article>`).join("");
-}
-function openLocalMob(name){
- const x=MOB_DB.find(m=>m.name===name);if(!x)return;
- const m=getDropMeasurement(x.name,x.map),cy=classicYangFor(x.vnum),d=localMobDrop(x);
- const classic=cy&&cy.max?`${YANG_FMT.format(cy.min)}–${YANG_FMT.format(cy.max)} Yang`:"brak rekordu";
- document.getElementById("lwMobTitle").textContent=x.name;
- document.getElementById("lwMobSub").textContent=`${x.map} • Lv. ${x.lvl} • VNUM ${x.vnum}`;
- document.getElementById("lwMobBody").innerHTML=`<div class="lw-modal-body">
-  <div class="lw-facts">
-   <div class="lw-fact"><small>Typ</small><b>${x.type==="boss"?"Boss / miniboss":"Potwór"}</b></div>
-   <div class="lw-fact"><small>Mapa</small><b>${esc(x.map)}</b></div>
-   <div class="lw-fact"><small>Poziom</small><b>${esc(x.lvl)}</b></div>
-   <div class="lw-fact"><small>Resp</small><b>${esc(m.respSec?`${m.respSec}s — Twój pomiar`:x.resp)}</b></div>
-   <div class="lw-fact"><small>Classic Yang</small><b>${esc(classic)}</b></div>
-  </div>
-  <div class="lw-dropcols">
-   <div class="lw-dropcol"><h4>⚔ Bronie</h4><p>${esc(d.weapons)}</p></div>
-   <div class="lw-dropcol"><h4>🛡 Zbroje / EQ</h4><p>${esc(d.armors)}</p></div>
-   <div class="lw-dropcol"><h4>📦 Pozostały drop</h4><p>${esc(d.other)}</p></div>
-  </div>
-  <div class="lw-warning"><b>Źródło:</b> ${esc(d.source)}. „Classic Yang” jest wyłącznie referencją standardowego Metin2 i nie jest podpisany jako potwierdzony drop Yang Eldera.</div>
-  <div class="lw-measure-panel"><h4>Twój pomiar Elder</h4>
-   <div class="lw-measure-grid"><input id="lwKills" type="number" min="1" placeholder="liczba zabitych"><input id="lwYang" placeholder="zdobyte Yang, np. 2.4kk"><button id="lwSaveMeasure">Zapisz Yang</button></div>
-   <div class="lw-measure-grid" style="margin-top:5px"><input id="lwResp" type="number" min="1" placeholder="resp w sekundach"><span></span><button id="lwSaveResp">Zapisz resp</button></div>
-   <div class="lw-entry-line"><b>Obecna średnia:</b> ${m.avg?fmtYang(m.avg,true)+" / mob":"brak pomiaru"}${m.kills?` • próba ${m.kills} mobów`:""}</div>
-  </div>
- </div>`;
- document.getElementById("lwSaveMeasure").onclick=()=>{saveMobMeasurement(x.name,x.map,document.getElementById("lwKills").value,parseYang(document.getElementById("lwYang").value));openLocalMob(x.name)};
- document.getElementById("lwSaveResp").onclick=()=>{saveMobResp(x.name,x.map,document.getElementById("lwResp").value);openLocalMob(x.name)};
- document.getElementById("lwMobModal").classList.add("show");
-}
-function openLocalMetin(name){
- const x=METIN_DB.find(m=>m.name===name);if(!x)return;
- document.getElementById("lwMobTitle").textContent=x.name;
- document.getElementById("lwMobSub").textContent=`${x.maps} • Lv. ${x.lvl}`;
- document.getElementById("lwMobBody").innerHTML=`<div class="lw-modal-body">
-  <div class="lw-facts">
-   <div class="lw-fact"><small>Typ</small><b>Kamień Metin</b></div>
-   <div class="lw-fact"><small>Poziom</small><b>${esc(x.lvl)}</b></div>
-   <div class="lw-fact"><small>Mapy</small><b>${esc(x.maps)}</b></div>
-   <div class="lw-fact"><small>Resp</small><b>${esc(x.resp)}</b></div>
-   <div class="lw-fact"><small>Źródło</small><b>ElderMT2</b></div>
-  </div>
-  <div class="lw-dropcols">
-   <div class="lw-dropcol"><h4>⚔ Bronie</h4><p>${esc(x.weapons)}</p></div>
-   <div class="lw-dropcol"><h4>🛡 Zbroje</h4><p>${esc(x.armors)}</p></div>
-   <div class="lw-dropcol"><h4>📦 Pozostałe</h4><p>${esc(x.drop)}</p></div>
-  </div>
- </div>`;
- document.getElementById("lwMobModal").classList.add("show");
-}
-function renderDrop(){
- const box=document.getElementById("dropEntries");if(!box)return;renderDropFilters();
- const q=(document.getElementById("dropSearch")?.value||"").toLowerCase().trim(),mf=document.getElementById("dropMapFilter")?.value||"";
- document.querySelectorAll("[data-drop-tab]").forEach(b=>b.classList.toggle("active",b.dataset.dropTab===dropTab));
- const title=document.getElementById("dropListTitle"),sub=document.getElementById("dropListSub"),cnt=document.getElementById("dropVisibleCount");
- if(dropTab==="mobs"){
-  const rows=MOB_DB.filter(x=>(!q||`${x.name} ${x.map} ${x.elderDrop} ${x.vnum} ${localMobDrop(x).weapons} ${localMobDrop(x).armors}`.toLowerCase().includes(q))&&mapMatch(x.map,mf));
-  title.textContent="Potwory i bossy";sub.textContent="kliknij rekord, aby otworzyć pełną lokalną kartę";
-  box.innerHTML=renderMobCards(rows)||'<div class="dash-empty">Brak wyników.</div>';cnt.textContent=rows.length;
-  box.querySelectorAll("[data-lw-mob]").forEach(b=>b.onclick=()=>openLocalMob(b.dataset.lwMob));
- }else if(dropTab==="metins"){
-  const rows=METIN_DB.filter(x=>(!q||`${x.name} ${x.maps} ${x.drop} ${x.weapons} ${x.armors}`.toLowerCase().includes(q))&&mapMatch(x.maps,mf));
-  title.textContent="Kamienie Metin";sub.textContent="pełne lokalne karty dropu";
-  box.innerHTML=renderMetinCards(rows)||'<div class="dash-empty">Brak wyników.</div>';cnt.textContent=rows.length;
-  box.querySelectorAll("[data-lw-metin]").forEach(b=>b.onclick=()=>openLocalMetin(b.dataset.lwMetin));
- }else{
-  const rows=Object.entries(DROP_MAPS).filter(([id,m])=>(!q||`${m.name} ${m.metins} ${m.boss}`.toLowerCase().includes(q))&&(!mf||id===mf));
-  title.textContent="Respy map";sub.textContent="lokalna rozpiska bez zewnętrznych stron";
-  box.innerHTML=renderRespCards(rows);cnt.textContent=rows.length;
- }
- document.getElementById("dropMobCount").textContent=MOB_DB.length;
- document.getElementById("dropMeasuredCount").textContent=Object.values(state.dropMeasurements||{}).filter(x=>x.avg||x.respSec).length;
-}
-
-/* ---------------- EXACT ITEM-SPECIFIC UPGRADE DB ---------------- */
-function steps(costs,mats,stats=[]){
- return Array.from({length:10},(_,plus)=>({plus,cost:plus===0?0:(costs[plus-1]||0),mat:plus===0?"—":(mats[plus]||"—"),stat:stats[plus]||""}));
-}
-const P={
- earlyWeapon:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"1x Niedźwiedzia Skóra",8:"2x Biała Wstęga+",9:"2x Stłuczona Porcelana"}},
- midWeapon:{costs:[4000,8000,16000,26000,40000,80000,140000,240000,400000],mats:{5:"2x Zardzewiałe Ostrze",6:"2x Shuriken+",7:"2x Pajęcza Sieć + 1x Rybia Ość",8:"2x Ogon Węża + 1x Małż",9:"2x Skóra Węża + 1x Małż"}},
- fms:{costs:[6000,12000,25000,40000,60000,90000,120000,150000,200000],mats:{}},
- highShell:{costs:[5000,10000,20000,40000,60000,90000,180000,300000,500000],mats:{5:"1x Nieznany Talizman+",6:"1x Pamiątka Po Demonie",7:"3x Klejnot Demona + 1x Małż",8:"3x Futro Yeti+ + 2x Małż",9:"3x Symbol Wojownika + 3x Małż"}},
- highPearl:{costs:[5000,10000,20000,40000,60000,90000,180000,300000,500000],mats:{5:"1x Nieznany Talizman+",6:"1x Pamiątka Po Demonie",7:"2x Klejnot Demona + 1x Biała Perła",8:"2x Futro Yeti+ + 1x Niebieska Perła",9:"2x Symbol Wojownika + 1x Krwawa Perła"}},
- shield0:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"2x Żółć Niedźwiedzia+",8:"1x Futro Białego Tygrysa",9:"2x Czarny Uniform+"}},
- shield21:{costs:[4000,8000,16000,26000,40000,80000,140000,240000,400000],mats:{5:"1x Kawałek Zepsutej Zbroi",6:"1x Ezoteryczny Przewodnik+",7:"1x Nieznany Talizman + 1x Rybia Ość",8:"2x Szpon Skorpiona + 1x Małż",9:"2x Księga Klątw + 1x Małż"}},
- shield41:{costs:[5000,10000,20000,40000,60000,90000,180000,300000,500000],mats:{5:"2x Nogi Pająka",6:"2x Księga Klątw+",7:"2x Kawałek Płótna+ + 1x Biała Perła",8:"2x Lodowy Róg Wieloryba + 1x Niebieska Perła",9:"2x Pazur Tygrysa + 1x Krwawa Perła"}},
- bracelet0:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"1x Niedźwiedzia Skóra",8:"1x Biała Wstęga+",9:"2x Krem Do Twarzy"}},
- bracelet28:{costs:[4000,8000,16000,26000,40000,80000,140000,240000,400000],mats:{5:"2x Zardzewiałe Ostrze",6:"2x Shuriken+",7:"2x Pajęcza Sieć + 1x Rybia Ość",8:"2x Worek z Pajęczą Trucizną + 1x Małż",9:"2x Skóra Węża + 1x Małż"}},
- earrings0:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"1x Żółć Niedźwiedzia",8:"2x Niedźwiedzia Skóra+",9:"1x Czarny Uniform"}},
- earrings28:{costs:[4000,8000,16000,26000,40000,80000,140000,240000,400000],mats:{5:"1x Kawałek Klejnotu",6:"1x Ezoteryczny Przewodnik",7:"1x Oczy Pająka + 1x Rybia Ość",8:"2x Ząb Orka + 1x Małż",9:"2x Ząb Orka+ + 1x Małż"}},
- necklace0:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"2x Futro Wilka+",8:"2x Czerwona Wstęga",9:"2x Ozdobna Spinka Do Włosów"}},
- boots0:{costs:[1200,2500,5000,10000,20000,30000,45000,75000,120000],mats:{7:"2x Skóra Tygrysa",8:"2x Klab",9:"1x Czarny Uniform+"}},
- boots29:{costs:[4000,8000,16000,26000,40000,80000,140000,240000,400000],mats:{5:"2x Amulet Orka",6:"2x Ogon Skorpiona",7:"2x Igła Skorpiona + 1x Rybia Ość",8:"2x Szpon Skorpiona + 1x Małż",9:"2x Worek z Pajęczymi Jajami + 1x Małż"}}
-};
-function itemRec(name,cat,lvl,summary,profile,stats=[],source){
- const pr=P[profile];return{name,cat,lvl,summary,source:source||"ElderMT2 Wiki",steps:steps(pr.costs,pr.mats,stats)};
-}
-const EXACT_ITEMS=[
- itemRec("Miecz","Miecze 1-ręczne","brak","Atak +9: 76–78 / magia 78–82 • szybkość ataku +22%","earlyWeapon",["13–15 / 15–19","20–22 / 22–26","27–29 / 29–33","34–36 / 36–40","41–43 / 43–47","48–50 / 50–54","55–57 / 57–61","62–64 / 64–68","69–71 / 71–75","76–78 / 78–82"]),
- itemRec("Długi Miecz","Miecze 1-ręczne",5,"Atak +9: 78–82 / magia 76–78 • szybkość ataku +27%","earlyWeapon",["15–19 / 13–15","22–26 / 20–22","29–33 / 27–29","36–40 / 34–36","43–47 / 41–43","50–54 / 48–50","57–61 / 55–57","64–68 / 62–64","71–75 / 69–71","78–82 / 76–78"]),
- itemRec("Sejmitar","Miecze 1-ręczne",10,"Atak +9: 83–87 / magia 83–87 • szybkość +24%","earlyWeapon",["20–24 / 20–24","27–31 / 27–31","34–38 / 34–38","41–45 / 41–45","48–52 / 48–52","55–59 / 55–59","62–66 / 62–66","69–73 / 69–73","76–80 / 76–80","83–87 / 83–87"]),
- itemRec("Stożkowy Miecz","Miecze 1-ręczne",15,"Atak +9: 85–89 / magia 88–98 • szybkość +21%","earlyWeapon"),
- itemRec("Szeroki Miecz","Miecze 1-ręczne",20,"Atak +9: 88–98 / magia 83–91 • szybkość +15%","earlyWeapon"),
- itemRec("Srebrny Miecz","Miecze 1-ręczne",25,"Atak +9: 110–120 / magia 112–126 • szybkość +30%","midWeapon",["36–46 / 38–52","42–52 / 44–58","48–58 / 50–64","54–64 / 56–70","60–70 / 62–76","68–78 / 70–84","76–86 / 78–92","87–97 / 89–103","98–108 / 100–114","110–120 / 112–126"]),
- itemRec("Miecz Pełni Księżyca","Miecze 1-ręczne",30,"Atak +9: 127–143 / magia 132–158 • brak materiałów +1…+9","fms",["57–73 / 62–88","63–79 / 68–94","68–84 / 73–99","74–90 / 79–105","79–95 / 84–110","87–103 / 92–118","95–111 / 100–126","105–121 / 110–136","115–131 / 120–146","127–143 / 132–158"]),
- itemRec("Miecz Storczykowy","Miecze 1-ręczne",32,"Atak +9: 118–133 / magia 116–126 • szybkość +27%","midWeapon"),
- itemRec("Miecz Półtoraręczny","Miecze 1-ręczne",36,"Atak +9: 128–149 / magia 133–149 • szybkość +21%","midWeapon"),
- itemRec("Miecz Barbarzyńcy","Miecze 1-ręczne",40,"Atak +9: 133–159 / magia 128–139 • szybkość +15%","midWeapon"),
- itemRec("Krwawy Miecz","Miecze 1-ręczne",45,"Atak +9: 136–169 / magia 140–164 • szybkość +25%","highShell",["68–101 / 72–96","73–106 / 77–101","79–112 / 83–107","84–117 / 88–112","89–122 / 93–117","96–129 / 100–124","105–138 / 109–133","114–147 / 118–142","125–158 / 129–153","136–169 / 140–164"]),
- itemRec("Wielki Miecz","Miecze 1-ręczne",50,"Atak +9: 140–179 / magia 136–159 • szybkość +22%","highShell"),
- itemRec("Miecz Lat. Maga","Miecze 1-ręczne",55,"Atak +9: 146–189 / magia 144–181 • szybkość +17%","highShell"),
- itemRec("Półksiężycowy Miecz","Miecze 1-ręczne",60,"Atak +9: 146–173 / magia 201 • szybkość +15%","highShell"),
- itemRec("Miecz Bojowy","Miecze 1-ręczne",65,"Atak +9: 237–277 / magia 155–177 • szybkość +15%","highPearl",["100–140 / 65–87","108–148 / 71–93","117–157 / 78–100","127–167 / 86–108","138–178 / 95–117","150–190 / 105–127","163–203 / 116–138","177–217 / 128–150","202–242 / 141–163","237–277 / 155–177"]),
- itemRec("Miecz Szponu Ducha","Miecze 1-ręczne",65,"Atak +9: 142–204 / magia 227–247 • szybkość +15%","highPearl"),
- itemRec("Miecz Nimfy","Miecze 1-ręczne",65,"Atak +9: 192–228 / magia 159–171 • szybkość +27%","highPearl"),
- itemRec("Miecz Egzorcysty","Miecze 1-ręczne",65,"Atak +9: 188–232 / magia 164–188 • szybkość +15%","highPearl"),
- itemRec("Miecz Żądło","Miecze 1-ręczne",70,"Atak +9: 192–228 / magia 159–171 • Max PZ +1500","highPearl"),
- itemRec("Demoniczne Ostrze","Miecze 1-ręczne",70,"Atak +9: 95–157 / magia 180–200 • kradzież PM +25","highPearl"),
- itemRec("Zatruty Miecz","Miecze 1-ręczne",75,"Atak +9: 237 / magia 277 • szybkość +26%","highPearl",["100 / 140","108 / 148","117 / 157","127 / 167","138 / 178","150 / 190","163 / 203","177 / 217","202 / 242","237 / 277"]),
- itemRec("Lwi Miecz","Miecze 1-ręczne",75,"Atak +9: 167–195 / magia 230 • szybkość +26%","highPearl",["77–105 / 140","83–111 / 146","90–118 / 153","98–126 / 161","107–135 / 170","117–145 / 180","128–156 / 191","140–168 / 203","153–181 / 216","167–195 / 230"]),
-
- itemRec("Bojowa Tarcza","Tarcze","brak","Obrona +30 • szybkość ruchu -2","shield0",["+3","+6","+9","+12","+15","+18","+21","+24","+27","+30"]),
- itemRec("Pięciokątna Tarcza","Tarcze",21,"Obrona +39 • szybkość ruchu -6","shield21",["+4","+7","+11","+15","+19","+23","+27","+31","+35","+39"]),
- itemRec("Czarna Okrągła Tarcza","Tarcze",41,"Obrona +51 • szybkość ruchu -10","shield41",["+5","+11","+16","+21","+26","+31","+36","+41","+46","+51"]),
- itemRec("Lwia Tarcza","Tarcze",61,"Obrona +80 • odporność na Sury +20","shield41",["+7","+9","+12","+16","+21","+27","+36","+47","+61","+80"]),
- itemRec("Sokola Tarcza","Tarcze",61,"Obrona +80 • odporność na Wojowników +20","shield41",["+7","+9","+12","+16","+21","+27","+36","+47","+61","+80"]),
- itemRec("Tarcza Smoka","Tarcze",61,"Obrona +80 • odporność na Szamanów +20","shield41",["+7","+9","+12","+16","+21","+27","+36","+47","+61","+80"]),
- itemRec("Tarcza Tygrysa","Tarcze",61,"Obrona +80 • odporność na Ninja +20","shield41",["+7","+9","+12","+16","+21","+27","+36","+47","+61","+80"]),
-
- itemRec("Drewniana Bransoleta","Bransolety","brak","Szybkość ataku +5 • Stamina +500","bracelet0"),
- itemRec("Miedziana Bransoleta","Bransolety",8,"Szybkość ataku +5 • Max PM +180","bracelet0"),
- itemRec("Srebrna Bransoleta","Bransolety",15,"Szybkość ataku +5 • Max PZ +1200","bracelet0"),
- itemRec("Złota Bransoleta","Bransolety",22,"Szybkość ataku +5 • odporność na trucizny +10","bracelet0"),
- itemRec("Jadeitowa Bransoleta","Bransolety",28,"Szybkość ataku +7 • odzyskanie PM +5","bracelet28"),
- itemRec("Ebonitowa Bransoleta","Bransolety",33,"Szybkość ataku +7 • odzyskanie PZ +5","bracelet28"),
-
- itemRec("Drewniane Kolczyki","Kolczyki","brak","Zręczność +10","earrings0"),
- itemRec("Miedziane Kolczyki","Kolczyki",8,"Siła +10","earrings0"),
- itemRec("Srebrne Kolczyki","Kolczyki",15,"Energia Życiowa +10","earrings0"),
- itemRec("Złote Kolczyki","Kolczyki",22,"Inteligencja +10","earrings0"),
- itemRec("Jadeitowe Kolczyki","Kolczyki",28,"Zręczność +12 • zasięg łuku +200","earrings28"),
- itemRec("Ebonitowe Kolczyki","Kolczyki",33,"Siła +12 • Max PZ +1650","earrings28"),
-
- itemRec("Drewniany Naszyjnik","Naszyjniki","brak","Szybkość zaklęcia +20 • regeneracja PZ +25","necklace0"),
- itemRec("Miedziany Naszyjnik","Naszyjniki",8,"Obrona +15 • działanie mikstur +20","necklace0"),
- itemRec("Srebrny Naszyjnik","Naszyjniki",15,"Szybkość zaklęcia +20 • działanie mikstur +25","necklace0"),
- itemRec("Złoty Naszyjnik","Naszyjniki",22,"Szybkość zaklęcia +20 • odporność na strzały +10","necklace0"),
-
- itemRec("Skórzane Buty","Buty","brak","Szybkość ruchu +15","boots0"),
- itemRec("Bambusowe Buty","Buty",9,"Szybkość ruchu +15 • Stamina +800","boots0"),
- itemRec("Drewniane Buty","Buty",17,"Szybkość ruchu +15 • EXP bonus +6","boots0"),
- itemRec("Buty Wyszywane Złotem","Buty",23,"Szybkość ruchu +15 • blok ciosu +5","boots0"),
- itemRec("Skórzane Kozaki","Buty",29,"Szybkość ruchu +20 • odporność na strzały +20","boots29"),
- itemRec("Złote Buty","Buty",34,"Szybkość ruchu +20 • obrażenia dodane do PM +10","boots29")
-];
-
-const ITEM_CATEGORIES=[
- {id:"all",name:"Wszystkie przedmioty",desc:"Indeks ekwipunku i systemów",url:"https://wiki.eldermt2.pl/przedmioty/"},
- {id:"weapons",name:"Bronie — wszystkie",desc:"Wszystkie klasy",url:"https://wiki.eldermt2.pl/przedmioty/bronie/"},
- {id:"1h",name:"Miecze 1-ręczne",desc:"Wojownik / Sura • pełne +0…+9",url:"https://wiki.eldermt2.pl/przedmioty/bronie-miecze-jednor%C4%99czne/"},
- {id:"2h",name:"Miecze 2-ręczne",desc:"Wojownik",url:"https://wiki.eldermt2.pl/przedmioty/bronie-miecze-dwur%C4%99czne/"},
- {id:"daggers",name:"Sztylety",desc:"Ninja",url:"https://wiki.eldermt2.pl/przedmioty/bronie-sztylety/"},
- {id:"bows",name:"Łuki",desc:"Ninja",url:"https://wiki.eldermt2.pl/przedmioty/bronie-luki/"},
- {id:"bells",name:"Dzwony",desc:"Szaman",url:"https://wiki.eldermt2.pl/przedmioty/bronie-dzwonki/"},
- {id:"fans",name:"Wachlarze",desc:"Szaman",url:"https://wiki.eldermt2.pl/przedmioty/bronie-wachlarze/"},
- {id:"armors",name:"Zbroje — wszystkie",desc:"Wszystkie klasy",url:"https://wiki.eldermt2.pl/przedmioty/zbroje/"},
- {id:"wararmor",name:"Zbroje Wojownika",desc:"statystyki + materiały",url:"https://wiki.eldermt2.pl/przedmioty/zbroje-wojownik/"},
- {id:"ninarmor",name:"Zbroje Ninja",desc:"statystyki + materiały",url:"https://wiki.eldermt2.pl/przedmioty/zbroje-ninja/"},
- {id:"suraarmor",name:"Zbroje Sury",desc:"statystyki + materiały",url:"https://wiki.eldermt2.pl/przedmioty/zbroje-sura/"},
- {id:"shaarmor",name:"Zbroje Szamana",desc:"statystyki + materiały",url:"https://wiki.eldermt2.pl/przedmioty/zbroje-szaman/"},
- {id:"shields",name:"Tarcze",desc:"dokładne wymagania per tarcza",url:"https://wiki.eldermt2.pl/przedmioty/tarcze/"},
- {id:"helmets",name:"Hełmy — wszystkie",desc:"nakrycia głowy",url:"https://wiki.eldermt2.pl/przedmioty/helmy/"},
- {id:"warhelm",name:"Hełmy Wojownika",desc:"pełne tabele",url:"https://wiki.eldermt2.pl/przedmioty/helmy-wojownik/"},
- {id:"ninjahelm",name:"Maski Ninja",desc:"pełne tabele",url:"https://wiki.eldermt2.pl/przedmioty/helmy-ninja/"},
- {id:"surahelm",name:"Hełmy Sury",desc:"pełne tabele",url:"https://wiki.eldermt2.pl/przedmioty/helmy-sura/"},
- {id:"shamanhelm",name:"Czapki Szamana",desc:"pełne tabele",url:"https://wiki.eldermt2.pl/przedmioty/helmy-szaman/"},
- {id:"bracelets",name:"Bransolety",desc:"bonusy ofensywne",url:"https://wiki.eldermt2.pl/przedmioty/bransolety/"},
- {id:"earrings",name:"Kolczyki",desc:"statystyki",url:"https://wiki.eldermt2.pl/przedmioty/kolczyki/"},
- {id:"necklaces",name:"Naszyjniki",desc:"bonusy magiczne",url:"https://wiki.eldermt2.pl/przedmioty/naszyjniki/"},
- {id:"shoes",name:"Buty",desc:"ruch / odporności",url:"https://wiki.eldermt2.pl/przedmioty/buty/"},
- {id:"upgrade",name:"System ulepszania",desc:"ogólne zasady — nie zastępuje tabel itemów",url:"https://wiki.eldermt2.pl/systemy/ulepszanie/"},
- {id:"87plus",name:"Bronie 87–96",desc:"Kowal Górniczy • Wężowe Pole",url:"https://wiki.eldermt2.pl/przedmioty/bronie-miecze-jednor%C4%99czne/"}
-];
-let selectedExactItemName=EXACT_ITEMS.find(x=>x.name==="Zatruty Miecz")?.name||EXACT_ITEMS[0].name;
-
-
-function itemCategoryFor(it){
- const c=String(it.cat||"").toLowerCase();
- if(c.includes("miecze"))return"miecze";
- if(c.includes("tarcze"))return"tarcze";
- if(c.includes("bransolety"))return"bransolety";
- if(c.includes("kolczyki"))return"kolczyki";
- if(c.includes("naszyjniki"))return"naszyjniki";
- if(c.includes("buty"))return"buty";
- return"inne";
-}
-function renderItemCategories(){
- const sel=document.getElementById("itemCategorySelect"),list=document.getElementById("itemCats");if(!sel||!list)return;
- const cats=[
-  ["all","Wszystkie"],["miecze","Miecze 1-ręczne"],["tarcze","Tarcze"],
-  ["bransolety","Bransolety"],["kolczyki","Kolczyki"],["naszyjniki","Naszyjniki"],["buty","Buty"]
- ];
- if(!sel.options.length)cats.forEach(([id,n])=>{const o=document.createElement("option");o.value=id;o.textContent=n;sel.appendChild(o)});
- sel.value=selectedItemCategory;
- const q=(document.getElementById("itemSearch")?.value||"").toLowerCase().trim();
- const rows=EXACT_ITEMS.filter(it=>(selectedItemCategory==="all"||itemCategoryFor(it)===selectedItemCategory)&&(!q||`${it.name} ${it.cat} ${it.summary}`.toLowerCase().includes(q)));
- list.innerHTML=rows.map(it=>`<button class="itemwiki-btn ${it.name===selectedExactItemName?"active":""}" data-local-item="${esc(it.name)}"><b>${esc(it.name)}</b><small>${esc(it.cat)} • wymagany lvl ${esc(it.lvl)}</small></button>`).join("")||'<div class="dash-empty">Brak itemów w tym filtrze.</div>';
- list.querySelectorAll("[data-local-item]").forEach(b=>b.onclick=()=>{selectedExactItemName=b.dataset.localItem;renderExactItem();renderItemCategories()});
- document.getElementById("verifiedItemCount").textContent=EXACT_ITEMS.length;
-}
-function selectItemCategory(id){selectedItemCategory=id;renderItemCategories()}
-function getExactItem(){return EXACT_ITEMS.find(x=>x.name===selectedExactItemName)||EXACT_ITEMS[0]}
-function renderExactItem(){
- const sel=document.getElementById("exactItemSelect"),from=document.getElementById("exactFrom"),to=document.getElementById("exactTo");if(!sel||!from||!to)return;
- if(!sel.options.length){
-  const groups=[...new Set(EXACT_ITEMS.map(x=>x.cat))];
-  groups.forEach(g=>{const og=document.createElement("optgroup");og.label=g;EXACT_ITEMS.filter(x=>x.cat===g).forEach(it=>{const o=document.createElement("option");o.value=it.name;o.textContent=`${it.name} • Lv.${it.lvl}`;og.appendChild(o)});sel.appendChild(og)});
- }
- sel.value=selectedExactItemName;
- if(!from.options.length){for(let i=0;i<=8;i++){const o=document.createElement("option");o.value=i;o.textContent=`+${i}`;from.appendChild(o)}for(let i=1;i<=9;i++){const o=document.createElement("option");o.value=i;o.textContent=`+${i}`;to.appendChild(o)}from.value=0;to.value=9}
- const it=getExactItem(),sum=document.getElementById("exactItemSummary"),body=document.getElementById("exactItemTable");
- document.getElementById("localItemTitle").textContent=it.name;
- document.getElementById("localItemSubtitle").textContent=`${it.cat} • wymagany poziom: ${it.lvl}`;
- sum.innerHTML=`<div class="item-summary-grid"><div><small>Przedmiot</small><b>${esc(it.name)}</b></div><div><small>Typ</small><b>${esc(it.cat)}</b></div><div><small>Wymagany lvl</small><b>${esc(it.lvl)}</b></div><div><small>Najważniejsze +9</small><b>${esc(it.summary)}</b></div></div>`;
- body.innerHTML=it.steps.map(s=>`<tr><td><b>+${s.plus}</b></td><td>${esc(s.stat||it.summary||"—")}</td><td class="yang">${s.cost?fmtYang(s.cost):"—"}</td><td>${esc(s.mat||"—")}</td></tr>`).join("");
- document.getElementById("verifiedItemCount").textContent=EXACT_ITEMS.length;
- calcExactUpgrade();
-}
-function parseMaterialList(s){
- if(!s||s==="—")return[];
- return s.split(/\s*\+\s*/).map(x=>x.trim()).filter(Boolean).map(part=>{
-  const m=part.match(/^(\d+)x\s+(.+)$/i);return m?{n:Number(m[1]),name:m[2]}:{n:1,name:part};
- });
-}
-function calcExactUpgrade(){
- const it=getExactItem(),a=Number(document.getElementById("exactFrom")?.value)||0,b=Number(document.getElementById("exactTo")?.value)||9,start=Math.min(a,b),end=Math.max(a,b);
- let yang=0;const mats={};
- for(let p=start+1;p<=end;p++){const s=it.steps[p];if(!s)continue;yang+=s.cost||0;for(const m of parseMaterialList(s.mat)){mats[m.name]=(mats[m.name]||0)+m.n}}
- const parts=Object.entries(mats).map(([name,n])=>`${n}x ${name}`);
- document.getElementById("exactUpgradeResult").innerHTML=`<div class="calc-total"><div class="calc-money"><small>${esc(it.name)} • +${start} → +${end}</small><b>${fmtYang(yang)}</b></div><div class="calc-mats"><b>Materiały łącznie:</b><br>${parts.length?esc(parts.join(" • ")):"brak materiałów w tym zakresie"}<br><span style="color:#756c60">Koszt zakłada po jednej udanej próbie każdego plusa.</span></div></div>`;
- document.querySelectorAll("#exactItemTable tr").forEach((tr,i)=>tr.classList.toggle("current",i>=start&&i<=end));
-}
-function renderItems(){renderItemCategories();renderExactItem()}
 
 const BOSS_PRESETS=[
  {id:"m1",area:"M1 — Miasta pierwsze",boss:"Boss / miniboss M1",slots:9,min:15,max:20,peak:"Brak dodatkowych bossów 18–23",note:"Wiki timerów: 9 bossów/minibossów, 15–20 min."},
@@ -3383,15 +2404,14 @@ function updateCharacterModalLive(){
 }
 
 function setView(v){
- state.view=v;save();
- const dash=v==="dashboard",chars=v==="characters",finance=v==="finance",bosses=v==="bosses",drop=v==="drop",items=v==="items",resps=v==="resps";
- document.body.classList.toggle("characters-mode",chars);document.body.classList.toggle("dashboard-mode",dash);document.body.classList.toggle("finance-mode",finance);document.body.classList.toggle("bosses-mode",bosses);document.body.classList.toggle("drop-mode",drop);document.body.classList.toggle("items-mode",items);
- document.getElementById("dashboardView").classList.toggle("active",dash);document.getElementById("respsView").classList.toggle("active",resps);document.getElementById("charactersView").classList.toggle("active",chars);document.getElementById("financeView").classList.toggle("active",finance);document.getElementById("bossesView").classList.toggle("active",bosses);document.getElementById("dropView").classList.toggle("active",drop);document.getElementById("itemsView").classList.toggle("active",items);
- document.getElementById("viewDash").classList.toggle("active",dash);document.getElementById("viewResps").classList.toggle("active",resps);document.getElementById("viewChars").classList.toggle("active",chars);document.getElementById("viewFinance").classList.toggle("active",finance);document.getElementById("viewBosses").classList.toggle("active",bosses);document.getElementById("viewDrop").classList.toggle("active",drop);document.getElementById("viewItems").classList.toggle("active",items);
- if(chars)renderCharacters();if(dash)renderDashboard();if(finance)renderFinance();if(bosses)renderBosses();if(drop)renderDrop();if(items)renderItems();
+ state.view=v;save();const dash=v==="dashboard",chars=v==="characters",finance=v==="finance",bosses=v==="bosses",resps=v==="resps";
+ document.body.classList.toggle("characters-mode",chars);document.body.classList.toggle("dashboard-mode",dash);document.body.classList.toggle("finance-mode",finance);document.body.classList.toggle("bosses-mode",bosses);
+ document.getElementById("dashboardView").classList.toggle("active",dash);document.getElementById("respsView").classList.toggle("active",resps);document.getElementById("charactersView").classList.toggle("active",chars);document.getElementById("financeView").classList.toggle("active",finance);document.getElementById("bossesView").classList.toggle("active",bosses);
+ document.getElementById("viewDash").classList.toggle("active",dash);document.getElementById("viewResps").classList.toggle("active",resps);document.getElementById("viewChars").classList.toggle("active",chars);document.getElementById("viewFinance").classList.toggle("active",finance);document.getElementById("viewBosses").classList.toggle("active",bosses);
+ if(chars)renderCharacters();if(dash)renderDashboard();if(finance)renderFinance();if(bosses)renderBosses();
 }
 
-function renderAll(){renderTabs();renderMap();renderList();renderStats();renderCharacters();renderDashboard();renderFinance();renderBosses();renderDrop();renderItems();setView(state.view||"resps");document.getElementById("soundBtn").textContent=state.sound?"🔔 Dźwięk":"🔕 Dźwięk";if(document.getElementById("dashToggleSound"))document.getElementById("dashToggleSound").textContent=state.sound?"🔔 Dźwięk: ON":"🔕 Dźwięk: OFF";document.getElementById("editBtn").classList.toggle("primary",edit);document.getElementById("editNote").classList.toggle("show",edit);document.getElementById("addBtn").style.display=edit?"inline-block":"none"}
+function renderAll(){renderTabs();renderMap();renderList();renderStats();renderCharacters();renderDashboard();renderFinance();renderBosses();setView(state.view||"resps");document.getElementById("soundBtn").textContent=state.sound?"🔔 Dźwięk":"🔕 Dźwięk";if(document.getElementById("dashToggleSound"))document.getElementById("dashToggleSound").textContent=state.sound?"🔔 Dźwięk: ON":"🔕 Dźwięk: OFF";document.getElementById("editBtn").classList.toggle("primary",edit);document.getElementById("editNote").classList.toggle("show",edit);document.getElementById("addBtn").style.display=edit?"inline-block":"none"}
 document.getElementById("drawerClose").onclick=()=>document.getElementById("drawerBg").classList.remove("show");document.getElementById("drawerBg").onclick=e=>{if(e.target.id==="drawerBg")e.currentTarget.classList.remove("show")};
 document.getElementById("typeSelect").onchange=e=>{if(!selected)return;state.types[state.map][selected]=e.target.value;save();renderAll();renderDrawer()};
 document.getElementById("placeBtn").onclick=()=>{if(!selected)return;state.pos[state.map][selected]={x:50,y:50};save();renderAll();renderDrawer()};
@@ -3418,8 +2438,6 @@ function commandActions(){
   {label:"Postacie / Biolog / Obozy",hint:"P",run:()=>setView("characters")},
   {label:"Zarobek / Farma / Tobołek / Wydatki",hint:"Z",run:()=>setView("finance")},
   {label:"Bossy / Timery bossów ElderMT2",hint:"B",run:()=>setView("bosses")},
-  {label:"Drop / Metiny / Moby / Respy",hint:"O",run:()=>setView("drop")},
-  {label:"Itemy / Statystyki / Ulepszanie",hint:"I",run:()=>setView("items")},
   ...Object.entries(MAPS).map(([id,m],i)=>({label:`Mapa: ${m.name}`,hint:String(i+1),run:()=>{state.map=id;save();setView("resps");renderAll()}})),
   {label:state.sound?"Wyłącz dźwięk":"Włącz dźwięk",hint:"",run:()=>{state.sound=!state.sound;save();renderAll();toast("Dźwięk",state.sound?"Włączony":"Wyłączony")}},
   {label:"Edycja punktów",hint:"",run:()=>{setView("resps");edit=!edit;renderAll()}},
@@ -3440,8 +2458,6 @@ document.getElementById("viewResps").onclick=()=>setView("resps");
 document.getElementById("viewChars").onclick=()=>setView("characters");
 document.getElementById("viewFinance").onclick=()=>setView("finance");
 document.getElementById("viewBosses").onclick=()=>setView("bosses");
-document.getElementById("viewDrop").onclick=()=>setView("drop");
-document.getElementById("viewItems").onclick=()=>setView("items");
 
 document.getElementById("cmdBtn").onclick=openCommands;
 document.getElementById("cmdBg").onclick=e=>{if(e.target.id==="cmdBg")closeCommands()};
@@ -3480,24 +2496,6 @@ document.getElementById("addCustomBoss").onclick=()=>{
 document.getElementById("bossClose").onclick=()=>document.getElementById("bossBg").classList.remove("show");
 document.getElementById("bossBg").onclick=e=>{if(e.target.id==="bossBg")document.getElementById("bossBg").classList.remove("show")};
 
-
-
-
-
-document.getElementById("dropSearch").oninput=renderDrop;
-document.getElementById("dropMapFilter").onchange=renderDrop;
-document.querySelectorAll("[data-drop-tab]").forEach(b=>b.onclick=()=>{dropTab=b.dataset.dropTab;renderDrop()});
-document.getElementById("itemCategorySelect").onchange=e=>selectItemCategory(e.target.value);
-document.getElementById("exactItemSelect").onchange=e=>{selectedExactItemName=e.target.value;renderExactItem()};
-document.getElementById("exactFrom").onchange=calcExactUpgrade;
-document.getElementById("exactTo").onchange=calcExactUpgrade;
-document.getElementById("exactCalc").onclick=calcExactUpgrade;
-
-
-document.getElementById("itemSearch").oninput=renderItemCategories;
-document.getElementById("lwMobClose").onclick=()=>document.getElementById("lwMobModal").classList.remove("show");
-document.getElementById("lwMobModal").onclick=e=>{if(e.target.id==="lwMobModal")document.getElementById("lwMobModal").classList.remove("show")};
-
 document.getElementById("backupBtn").onclick=()=>createLocalBackup("Ręczny backup");
 document.getElementById("restoreBackupBtn").onclick=restoreLatestBackup;
 
@@ -3534,14 +2532,14 @@ document.addEventListener("keydown",e=>{
  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openCommands();return}
  if(e.key==="Escape"){closeCommands();document.getElementById("dataBg")?.classList.remove("show");return}
  if(typing)return;
- if(e.key.toLowerCase()==="d")setView("dashboard");else if(e.key.toLowerCase()==="r")setView("resps");else if(e.key.toLowerCase()==="p")setView("characters");else if(e.key.toLowerCase()==="z")setView("finance");else if(e.key.toLowerCase()==="b")setView("bosses");else if(e.key.toLowerCase()==="o")setView("drop");else if(e.key.toLowerCase()==="i")setView("items");
+ if(e.key.toLowerCase()==="d")setView("dashboard");else if(e.key.toLowerCase()==="r")setView("resps");else if(e.key.toLowerCase()==="p")setView("characters");else if(e.key.toLowerCase()==="z")setView("finance");else if(e.key.toLowerCase()==="b")setView("bosses");
  else if(/^[1-6]$/.test(e.key)){const keys=Object.keys(MAPS),mk=keys[Number(e.key)-1];if(mk){state.map=mk;save();setView("resps");renderAll()}}
 });
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;const b=document.getElementById("installBtn");if(b)b.style.display="inline-block"});
 document.getElementById("installBtn").onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;document.getElementById("installBtn").style.display="none"};
 
 function tick(){document.getElementById("clock").textContent=new Date().toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});updateDashboardLive();refreshWeeklyCooldowns();refreshCharacterTaskCooldowns();updateBossLive();renderList();renderStats();updateMarkerStates();if(!draggedCharId)renderCharacters();if(document.getElementById("drawerBg").classList.contains("show"))updateDrawerLive();if(document.getElementById("charBg").classList.contains("show"))updateCharacterModalLive();if(document.getElementById("bossBg").classList.contains("show"))updateBossDrawerLive();checkBeeps();checkBossBeeps()}
-load();financeDate=localISODate();resetFinanceSessionForm();resetFinanceLedgerForm();save();renderAll();tick();loadClassicMobProto();if(!getBackups().length)createLocalBackup("Pierwszy backup v6.3",true);setInterval(tick,1000);setInterval(()=>createLocalBackup("Auto-backup 15 min",true),15*60*1000);
+load();financeDate=localISODate();resetFinanceSessionForm();resetFinanceLedgerForm();save();renderAll();tick();if(!getBackups().length)createLocalBackup("Pierwszy backup v6.3",true);setInterval(tick,1000);setInterval(()=>createLocalBackup("Auto-backup 15 min",true),15*60*1000);
 if("serviceWorker"in navigator&&location.protocol.startsWith("http")){
  navigator.serviceWorker.register("./sw.js").then(r=>r.update()).catch(()=>{});
 }

@@ -1,12 +1,12 @@
 {
-  "name": "ElderMT2 — ULTIMATE Command Center v6.8",
+  "name": "ElderMT2 — ULTIMATE Command Center v6.9",
   "short_name": "Elder ULTIMATE",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#090806",
   "theme_color": "#120d08",
-  "description": "Samodzielna lokalna wiki ElderMT2: drop, metiny, bossy, respy, itemy i dokładne ulepszanie bez iframe.",
+  "description": "ElderMT2 tracker: respy, bossy, postacie, biolog, obozy, koń, umiejętności, zarobek i analityka.",
   "icons": [
     {
       "src": "icon.svg",
